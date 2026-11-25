@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.home.title">Hilal Esma Gündoğdu — Kişisel Portfolyo</title>
+  <meta name="description" content="Hilal Esma Gündoğdu'nun kişisel dijital evreni: Akdeniz Üniversitesi Bilgisayar Programcılığı öğrencisi — projeler, deneyimler, blog ve galeri." data-i18n-attr="content:meta.description">
+  <meta name="author" content="Hilal Esma Gündoğdu">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/ambient.css">
+  <link rel="stylesheet" href="css/home.css">
+  <!-- Gece teması: girişteki gece atmosferi bütün sayfaya (en son yüklenir) -->
+  <link rel="stylesheet" href="css/theme-night.css">
+  <script src="js/boot.js" data-intro></script>
+  <!-- seo:start — scripts/build-seo.mjs üretir; elle düzenleme -->
+  <meta property="og:site_name" content="Hilal Esma Gündoğdu">
+  <meta property="og:title" content="Hilal Esma Gündoğdu — Kişisel Portfolyo">
+  <meta property="og:description" content="Akdeniz Üniversitesi Bilgisayar Programcılığı öğrencisi Hilal Esma Gündoğdu'nun kişisel portfolyosu: hakkımda, projeler, blog, galeri ve iletişim.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og.jpg">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hilal Esma Gündoğdu — Kişisel Portfolyo">
+  <meta name="twitter:description" content="Akdeniz Üniversitesi Bilgisayar Programcılığı öğrencisi Hilal Esma Gündoğdu'nun kişisel portfolyosu: hakkımda, projeler, blog, galeri ve iletişim.">
+  <!-- Yapılandırılmış veri (schema.org JSON-LD): arama motorları ve yapay zekâ yanıt motorları için (SEO + GEO) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "index.html#website",
+          "name": "Hilal Esma Gündoğdu — Kişisel Portfolyo",
+          "url": "index.html",
+          "inLanguage": [
+            "tr",
+            "en"
+          ],
+          "author": {
+            "@id": "index.html#person"
+          },
+          "publisher": {
+            "@id": "index.html#person"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "index.html#person",
+          "name": "Hilal Esma Gündoğdu",
+          "image": "assets/photos/hilal-esma-portrait.jpg",
+          "jobTitle": "Bilgisayar Programcılığı öğrencisi",
+          "description": "Akdeniz Üniversitesi Bilgisayar Programcılığı öğrencisi; web tasarımı, WordPress ve Photoshop ile çalışıyor.",
+          "telephone": "+905372018566",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Eski Alanya/Antalya yolu üzeri, İncekum Mah., Narçiçeği Villa Sitesi C2",
+            "addressLocality": "Alanya",
+            "addressRegion": "Antalya",
+            "addressCountry": "TR"
+          },
+          "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Okurcalar Çok Programlı Anadolu Lisesi"
+          },
+          "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": "Akdeniz Üniversitesi"
+          },
+          "knowsLanguage": [
+            "tr",
+            "en",
+            "nl"
+          ],
+          "knowsAbout": [
+            "WordPress",
+            "Python",
+            "HTML",
+            "Adobe Photoshop",
+            "Web tasarımı",
+            "Ağ ve Wi-Fi yönetimi",
+            "Yapısal kablolama",
+            "CCTV",
+            "Ön muhasebe"
+          ],
+          "sameAs": [
+            "https://github.com/hilalesma",
+            "https://myjewelryworlld.wordpress.com/",
+            "https://zanemoda.wordpress.com/"
+          ]
+        }
+      ]
+    }
+  </script>
+  <!-- seo:end -->
+</head>
+<body data-page="home" data-mood="night">
+  <!-- partial:header -->
+  <a class="skip-link" href="#main" data-i18n="nav.skip">İçeriğe geç</a>
+
+  <!-- Sabit atmosfer katmanları: bölüm değiştikçe biri görünür olur (js/site.js) -->
+  <div class="atmo" aria-hidden="true">
+    <div class="atmo__layer" data-for="night"></div>
+    <div class="atmo__layer" data-for="paper"></div>
+    <div class="atmo__layer" data-for="pearl"></div>
+    <div class="atmo__layer" data-for="blush"></div>
+    <div class="atmo__layer" data-for="sand"></div>
+    <div class="atmo__layer" data-for="dusk"></div>
+  </div>
+
+  <!-- En alt arka plan katmanı (z-index:-2): çok yavaş çapraz süzülen üç bulanık ışık küresi
+       (lavanta, koyu mor, şampanya). Çiçek ve yıldızların arkasında kalır (css/ambient.css). -->
+  <div class="ambient-orbs" aria-hidden="true">
+    <span class="ambient-orb ambient-orb--lavender"></span>
+    <span class="ambient-orb ambient-orb--violet"></span>
+    <span class="ambient-orb ambient-orb--champagne"></span>
+  </div>
+
+  <!-- Açık bölümlerin arka plan derinliği (tüm sayfalar): sıcak mesh gradient, mimari ızgara,
+       kâğıt greni, kaydırdıkça süzülen silik çiçek/yıldız motifleri ve imleci izleyen sıcak ışık.
+       Hepsi z-index:-1 ve pointer-events:none; metinlerin yerleşimine dokunmaz (css/ambient.css, js/ambient.js). -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__mesh"></div>
+    <div class="ambient__grid"></div>
+    <div class="ambient__grain"></div>
+    <div class="ambient__motifs" data-ambient-motifs></div>
+    <!-- her 10 sn'de bir sağ üstten sol alta geçen ince altın/beyaz kayan yıldız -->
+    <span class="ambient__shooting"></span>
+    <div class="ambient__glow" data-ambient-glow></div>
+  </div>
+
+  <!-- Icon sprite: Lucide icons (ISC License, lucide.dev) + hand-drawn site icons. Generated by scripts/build-icons.mjs -->
+  <svg class="sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+    <symbol id="i-external-link" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
+    <symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-folder-open" viewBox="0 0 24 24"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="3" width="5" height="18" rx="1"/><rect x="5" y="3" width="5" height="18" rx="1"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></symbol>
+    <symbol id="i-guitar" viewBox="0 0 24 24"><path d="m11.9 12.1 4.514-4.514"/><path d="M20.1 2.3a1 1 0 0 0-1.4 0l-1.114 1.114A2 2 0 0 0 17 4.828v1.344a2 2 0 0 1-.586 1.414A2 2 0 0 1 17.828 7h1.344a2 2 0 0 0 1.414-.586L21.7 5.3a1 1 0 0 0 0-1.4z"/><path d="m6 16 2 2"/><path d="M8.23 9.85A3 3 0 0 1 11 8a5 5 0 0 1 5 5 3 3 0 0 1-1.85 2.77l-.92.38A2 2 0 0 0 12 18a4 4 0 0 1-4 4 6 6 0 0 1-6-6 4 4 0 0 1 4-4 2 2 0 0 0 1.85-1.23z"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></symbol>
+    <symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
+    <symbol id="i-motorbike" viewBox="0 0 24 24"><path d="m18 14-1-3"/><path d="m3 9 6 2a2 2 0 0 1 2-2h2a2 2 0 0 1 1.99 1.81"/><path d="M8 17h3a1 1 0 0 0 1-1 6 6 0 0 1 6-6 1 1 0 0 0 1-1v-.75A5 5 0 0 0 17 5"/><circle cx="19" cy="17" r="3"/><circle cx="5" cy="17" r="3"/></symbol>
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></symbol>
+    <symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol>
+    <symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></symbol>
+    <symbol id="i-list-todo" viewBox="0 0 24 24"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><rect x="3" y="4" width="6" height="6" rx="1"/></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-zoom-in" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></symbol>
+    <symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></symbol>
+    <symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol>
+    <symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/><path d="M7 4h.01"/><path d="M12 4h.01"/><path d="M17 4h.01"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.8 2.9 5.8 3.2 5.8 3.2a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.4 9.6c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+    <symbol id="i-yarn" viewBox="0 0 24 24"><circle cx="11" cy="12" r="8"/><path d="M5 8c4 0 9 2 12 7M4 13c4-1 9 0 13 5M8 4.6c2 3 3 8 2 15M14 4.5c-2 4-2 10 1 14.8"/><path d="M18.5 15.5c2 1 2.5 3 1.5 4.5"/></symbol>
+    <symbol id="i-hockey" viewBox="0 0 24 24"><path d="M14 3 9 15.5c-.5 1.3-1.6 2.1-3 2.1H3.5"/><path d="M3.5 17.6v3h3c2 0 3.7-1.1 4.4-3L16.5 4"/><circle cx="17.5" cy="18.5" r="2"/></symbol>
+    <symbol id="i-medal" viewBox="0 0 24 24"><path d="M8 2.5 10.5 9M16 2.5 13.5 9M6 2.5h4M14 2.5h4"/><circle cx="12" cy="15" r="6"/><path d="m12 12 .9 1.9 2.1.3-1.5 1.5.4 2.1L12 16.8l-1.9 1 .4-2.1L9 14.2l2.1-.3Z"/></symbol>
+  </svg>
+
+  <!-- Üst menü (v4): solda monogram + isim; sağda bağlantılar, dil seçici ve "İletişime geç" -->
+  <header class="site-nav" data-nav data-tone="dark">
+    <div class="site-nav__bar">
+      <!-- Erişilebilir ad, görünen metinle aynı başlar (WCAG 2.5.3): "HE Hilal Esma Gündoğdu — ana sayfa" -->
+      <a class="nav-logo" href="#vadi" data-nav-page="home" aria-current="page">
+        <span class="monogram">HE</span>
+        <span class="nav-logo__name">Hilal Esma Gündoğdu</span>
+        <span class="sr-only"><span data-lang="tr"> — ana sayfa</span><span data-lang="en"> — home page</span></span>
+      </a>
+
+      <div class="nav-right">
+        <nav aria-label="Ana menü" data-i18n-attr="aria-label:nav.primary">
+          <ul class="nav-list">
+            <li><a class="nav-link" data-nav-page="about" href="#hakkimda" data-i18n="nav.about">Hakkımda</a></li>
+            <li><a class="nav-link" data-nav-page="projects" href="#calismalar" data-i18n="nav.projects">Projeler</a></li>
+            <li><a class="nav-link" data-nav-page="blog" href="#blog" data-i18n="nav.blog">Blog</a></li>
+            <li><a class="nav-link" data-nav-page="gallery" href="#kareler" data-i18n="nav.gallery">Galeri</a></li>
+            <li><a class="nav-link" data-nav-page="contact" href="#iletisim" data-i18n="nav.contact">İletişim</a></li>
+          </ul>
+        </nav>
+
+        <div class="lang-pill" role="group" aria-label="Dil" data-i18n-attr="aria-label:nav.language">
+          <button type="button" data-set-lang="tr" aria-pressed="true" lang="tr"><span aria-hidden="true">TR</span><span class="sr-only">Türkçe</span></button>
+          <button type="button" data-set-lang="en" aria-pressed="false" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></button>
+          <span class="lang-pill__thumb" aria-hidden="true"></span>
+        </div>
+
+        <a class="nav-cta" href="#iletisim" data-i18n="nav.cta">İletişime geç</a>
+
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open
+          aria-label="Menüyü aç" data-i18n-attr="aria-label:nav.openMenu">
+          <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Sağ üstte sabit durum etiketi -->
+    <p class="open-badge">
+      <span class="open-badge__dot" aria-hidden="true"></span>
+      <span data-i18n="nav.open">Staj ve projelere açık</span>
+    </p>
+
+    <!-- Mobil tam ekran menü -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menü" data-i18n-attr="aria-label:nav.menu" hidden data-menu>
+      <div class="mobile-menu__panel glass glass--strong">
+        <div class="mobile-menu__head">
+          <span class="monogram" aria-hidden="true">HE</span>
+          <button class="menu-btn" type="button" data-menu-close aria-label="Menüyü kapat" data-i18n-attr="aria-label:nav.closeMenu">
+            <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+          </button>
+        </div>
+        <ul class="mobile-menu__list">
+          <li style="--i:0"><a data-nav-page="home" aria-current="page" href="#vadi"><span class="mobile-menu__num">01</span><span data-i18n="nav.home">Ana Sayfa</span></a></li>
+          <li style="--i:1"><a data-nav-page="about" href="#hakkimda"><span class="mobile-menu__num">02</span><span data-i18n="nav.about">Hakkımda</span></a></li>
+          <li style="--i:2"><a data-nav-page="projects" href="#calismalar"><span class="mobile-menu__num">03</span><span data-i18n="nav.projects">Projeler</span></a></li>
+          <li style="--i:3"><a data-nav-page="blog" href="#blog"><span class="mobile-menu__num">04</span><span data-i18n="nav.blog">Blog</span></a></li>
+          <li style="--i:4"><a data-nav-page="gallery" href="#kareler"><span class="mobile-menu__num">05</span><span data-i18n="nav.gallery">Galeri</span></a></li>
+          <li style="--i:5"><a data-nav-page="contact" href="#iletisim"><span class="mobile-menu__num">06</span><span data-i18n="nav.contact">İletişim</span></a></li>
+        </ul>
+        <div class="mobile-menu__foot">
+          <p class="open-badge open-badge--inline">
+            <span class="open-badge__dot" aria-hidden="true"></span>
+            <span data-i18n="nav.open">Staj ve projelere açık</span>
+          </p>
+          <a class="nav-cta" href="#iletisim" data-i18n="nav.cta">İletişime geç</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- /partial:header -->
+
+  <main id="main" tabindex="-1">
+
+    <!-- =====================================================================
+         1. GECE ÇİÇEK VADİSİ (intro)
+         Three.js sahnesi .valley__stage içine çizilir (js/valley/). Sahne yoksa ya da hareket
+         azaltılmışsa aynı yerde vadinin durağan bir karesi görünür.
+         ===================================================================== -->
+    <section id="vadi" class="valley on-dark" data-mood="night" data-nav-section="home" aria-labelledby="valley-title">
+      <div class="valley__stage" aria-hidden="true" data-valley-stage></div>
+
+      <!-- Yükleyici: siyah ekranda nabız gibi atan krem nokta ve yüzde sayacı (yalnız intro oynarken) -->
+      <div class="valley-loader" aria-hidden="true" data-valley-loader>
+        <span class="valley-loader__dot"></span>
+        <span class="valley-loader__count" data-valley-count>0%</span>
+      </div>
+
+      <!-- "Atla": intro boyunca her zaman görünür -->
+      <button class="valley__skip" type="button" data-valley-skip>
+        <span data-lang="tr">Atla</span><span data-lang="en">Skip</span>
+      </button>
+      <div class="valley__ui">
+        <h1 id="valley-title" class="valley__title">Hilal Esma Gündoğdu</h1>
+        <p class="valley__sub">
+          <span data-lang="tr">Bilgisayar Programcılığı öğrencisi</span><span data-lang="en">Computer Programming student</span>
+          <span class="valley__tags"><span data-lang="tr">Web tasarımı · Yazılım</span><span data-lang="en">Web design · Software</span></span>
+        </p>
+      </div>
+      <div class="valley__foot">
+        <a class="scroll-wave" href="#hakkimda">
+          <svg viewBox="0 0 64 16" aria-hidden="true"><path d="M0 8 Q8 0 16 8 T32 8 T48 8 T64 8"/></svg>
+          <span data-lang="tr">Kaydırarak keşfet</span><span data-lang="en">Scroll to explore</span>
+        </a>
+        <!-- Ses aç/kapat: varsayılan kapalı. Kapalıyken çarpılı hoparlör, açıkken dalgalı hoparlör. -->
+        <span class="valley__divider" aria-hidden="true"></span>
+        <button class="sound-btn" type="button" aria-pressed="false" data-valley-sound>
+          <svg class="icon sound-btn__off" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6A1.4 1.4 0 0 1 5.4 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></svg>
+          <svg class="icon sound-btn__on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6A1.4 1.4 0 0 1 5.4 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.4 18.4a9 9 0 0 0 0-12.8"/></svg>
+          <span class="sr-only"><span data-lang="tr">Ortam sesi</span><span data-lang="en">Ambient sound</span></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         2. HAKKIMDA — büyük, birinci tekil şahıs metin; kaydırdıkça satır satır açılır
+         ===================================================================== -->
+    <section id="hakkimda" class="intro-text section" data-mood="paper" data-nav-section="about" aria-labelledby="about-label">
+      <div class="wrap">
+        <h2 id="about-label" class="eyebrow"><span data-lang="tr">Hakkımda</span><span data-lang="en">About</span></h2>
+        <p class="big-text" data-lines="scrub">
+          <span data-lang="tr">Ben Hilal Esma. Akdeniz Üniversitesi'nde Bilgisayar Programcılığı okuyorum. Bilişim Teknolojileri bölümünden bölüm birincisi olarak mezun oldum, IT ve muhasebe alanında staj yaptım, otelcilikte çalıştım ve kendi takılarımı <span class="script">tasarlıyorum</span>. Grafik Animasyon dersinde Photoshop ile altı proje tamamladım ve WordPress ile iki web sitesi hazırladım.</span>
+          <span data-lang="en">I'm Hilal Esma. I study Computer Programming at Akdeniz University. I graduated first in my Information Technologies department, completed an internship in IT and accounting, worked in hospitality and I <span class="script">design</span> my own jewellery. In my Graphic Animation course I completed six projects in Photoshop, and I built two websites with WordPress.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. EĞİTİM VE BAŞARILAR — yan blok
+         ===================================================================== -->
+    <section class="achievements section" data-mood="paper" aria-labelledby="ach-title">
+      <div class="wrap achievements__grid">
+        <div>
+          <h2 id="ach-title" class="eyebrow"><span data-lang="tr">Eğitim ve Başarılar</span><span data-lang="en">Education &amp; Achievements</span></h2>
+          <p class="achievements__lede" data-lines>
+            <span data-lang="tr">Teknik bir lise eğitiminin ardından üniversitede yazılıma odaklanıyorum; öğrendiklerimi stajda gerçek sistemlerde kullandım.</span>
+            <span data-lang="en">After a technical high school education I now focus on software at university, and I used what I learned on real systems during my internship.</span>
+          </p>
+        </div>
+        <ul class="achievements__list">
+          <li data-reveal>
+            <span class="achievements__year"><time datetime="2026">2026</time> –</span>
+            <p><a class="ul-link" href="hakkimda.html#egitim">Akdeniz Üniversitesi</a></p>
+            <p class="achievements__note"><span data-lang="tr">Teknik Bilimler MYO · Bilgisayar Programcılığı, 1. sınıf</span><span data-lang="en">Vocational School of Technical Sciences · Computer Programming, 1st year</span></p>
+          </li>
+          <li data-reveal>
+            <span class="achievements__year"><time datetime="2022">2022</time> – <time datetime="2026">2026</time></span>
+            <p><a class="ul-link" href="hakkimda.html#egitim"><span class="medal" aria-hidden="true"><svg class="icon"><use href="#i-medal"/></svg></span><span data-lang="tr">Bölüm Birincisi</span><span data-lang="en">Ranked 1st in IT Department</span></a></p>
+            <p class="achievements__note">Okurcalar Çok Programlı Anadolu Lisesi · <span data-lang="tr">Bilişim Teknolojileri</span><span data-lang="en">Information Technologies</span></p>
+          </li>
+          <li data-reveal>
+            <span class="achievements__year"><time datetime="2025-09">09/2025</time> – <time datetime="2026-06">06/2026</time></span>
+            <p><a class="ul-link" href="hakkimda.html#deneyim">Wome Deluxe</a></p>
+            <p class="achievements__note"><span data-lang="tr">Stajyer: Bilgi Teknolojileri ve Muhasebe</span><span data-lang="en">Intern, IT &amp; Accounting</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         İLGİ ALANLARI ŞERİTLERİ — birbirini çapraz kesen iki cam şerit (js/ribbons.js)
+         Kendi içinde sonsuz kayar; kaydırınca üst şerit sola, alt şerit sağa hızlanır;
+         fareyle üzerine gelince yavaşlar. Metin bir kez okunur (aria-label), tekrarlar gizlidir.
+         ===================================================================== -->
+    <section class="ribbons" aria-label="İlgi alanlarım ve becerilerim" data-i18n-attr="aria-label:home.ribbons">
+      <div class="ribbon ribbon--lilac" data-ribbon="-1">
+        <div class="ribbon__track" data-ribbon-track>
+          <p class="ribbon__text">
+            <span data-lang="tr">Web Tasarım <span class="ribbon__mark" aria-hidden="true">✦</span> Takı Tasarımı <span class="ribbon__mark" aria-hidden="true">✿</span> Çim Hokeyi <span class="ribbon__mark" aria-hidden="true">✦</span> Müzik &amp; Keman <span class="ribbon__mark" aria-hidden="true">✿</span> Motosiklet <span class="ribbon__mark" aria-hidden="true">✦</span> Photoshop &amp; Grafik <span class="ribbon__mark" aria-hidden="true">✿</span> Yazılım Geliştirme <span class="ribbon__mark" aria-hidden="true">✦</span></span>
+            <span data-lang="en">Web Design <span class="ribbon__mark" aria-hidden="true">✦</span> Jewelry Design <span class="ribbon__mark" aria-hidden="true">✿</span> Field Hockey <span class="ribbon__mark" aria-hidden="true">✦</span> Music &amp; Violin <span class="ribbon__mark" aria-hidden="true">✿</span> Motorcycle <span class="ribbon__mark" aria-hidden="true">✦</span> Photoshop &amp; Graphics <span class="ribbon__mark" aria-hidden="true">✿</span> Software Development <span class="ribbon__mark" aria-hidden="true">✦</span></span>
+          </p>
+        </div>
+      </div>
+      <div class="ribbon ribbon--gold" data-ribbon="1" aria-hidden="true">
+        <div class="ribbon__track" data-ribbon-track>
+          <p class="ribbon__text">
+            <span data-lang="tr">Web Tasarım <span class="ribbon__mark">✦</span> Takı Tasarımı <span class="ribbon__mark">✿</span> Çim Hokeyi <span class="ribbon__mark">✦</span> Müzik &amp; Keman <span class="ribbon__mark">✿</span> Motosiklet <span class="ribbon__mark">✦</span> Photoshop &amp; Grafik <span class="ribbon__mark">✿</span> Yazılım Geliştirme <span class="ribbon__mark">✦</span></span>
+            <span data-lang="en">Web Design <span class="ribbon__mark">✦</span> Jewelry Design <span class="ribbon__mark">✿</span> Field Hockey <span class="ribbon__mark">✦</span> Music &amp; Violin <span class="ribbon__mark">✿</span> Motorcycle <span class="ribbon__mark">✦</span> Photoshop &amp; Graphics <span class="ribbon__mark">✿</span> Software Development <span class="ribbon__mark">✦</span></span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. SEÇİLİ ÇALIŞMALAR — klasör destesi; kaydırdıkça klasörler tek tek açılır
+         ===================================================================== -->
+    <section id="calismalar" class="works section" data-mood="blush" data-nav-section="projects" aria-labelledby="works-title">
+      <div class="wrap works__grid">
+        <div class="works__intro">
+          <p class="eyebrow"><span data-lang="tr">Projeler</span><span data-lang="en">Projects</span></p>
+          <h2 id="works-title" class="section-title" data-lines>
+            <span data-lang="tr">Seçili <span class="script">çalışmalar</span></span>
+            <span data-lang="en">Selected <span class="script">work</span></span>
+          </h2>
+          <p class="works__lede" data-lines>
+            <span data-lang="tr">Her proje ayrı bir klasör. Ayrıntılar, görseller ve kullanılan teknolojiler projeler sayfasında.</span>
+            <span data-lang="en">Each project is its own folder. Details, images and technologies are on the projects page.</span>
+          </p>
+          <a class="ul-link works__all" href="projeler.html"><span data-lang="tr">Tüm projeler</span><span data-lang="en">All projects</span></a>
+        </div>
+
+        <ol class="deck" data-deck>
+          <li class="deck__item" style="--i:0">
+            <article class="deck-folder">
+              <span class="deck-folder__tab" lang="en">graphic animation</span>
+              <div class="deck-folder__doc">
+                <picture class="deck-folder__cover"><source srcset="assets/projects/grafik-animasyon/video-kapak.webp" type="image/webp"><img src="assets/projects/grafik-animasyon/video-kapak.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Grafik Animasyon I projelerinden dört çalışma: History Brush, karakalem renklendirme, Smart Object ve ürün tanıtımı" data-i18n-attr="alt:home.deck.animAlt"></picture>
+              </div>
+              <div class="deck-folder__meta">
+                <h3>Grafik Animasyon 1</h3>
+                <p><span data-lang="tr">6 Photoshop projesi · ders çalışmaları</span><span data-lang="en">6 Photoshop projects · coursework</span></p>
+                <a class="pill-cta" href="projeler.html#grafik-animasyon"><span data-lang="tr">Projeyi incele</span><span data-lang="en">View project</span> <span aria-hidden="true">+</span></a>
+              </div>
+            </article>
+          </li>
+          <li class="deck__item" style="--i:1">
+            <article class="deck-folder">
+              <span class="deck-folder__tab" lang="en">wordpress</span>
+              <div class="deck-folder__doc">
+                <picture class="deck-folder__cover"><source srcset="assets/projects/web/taki-sitesi/masaustu.webp" type="image/webp"><img src="assets/projects/web/taki-sitesi/masaustu.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="My Jewelry World WordPress sitesinin ana sayfası" data-i18n-attr="alt:home.deck.webAlt"></picture>
+              </div>
+              <div class="deck-folder__meta">
+                <h3><span data-lang="tr">Web Projeleri</span><span data-lang="en">Web Projects</span></h3>
+                <p>My Jewelry World · ZaneModa</p>
+                <a class="pill-cta" href="projeler.html#web-projeleri"><span data-lang="tr">Projeyi incele</span><span data-lang="en">View project</span> <span aria-hidden="true">+</span></a>
+              </div>
+            </article>
+          </li>
+          <!-- Tamamlanmış bir proje (data/projeler.js › web-arayuzu) -->
+          <li class="deck__item" style="--i:2">
+            <article class="deck-folder">
+              <span class="deck-folder__tab" lang="en">web ui</span>
+              <div class="deck-folder__doc">
+                <picture class="deck-folder__cover"><source srcset="assets/projects/grafik-animasyon/web-arayuzu/sonrasi.webp" type="image/webp"><img src="assets/projects/grafik-animasyon/web-arayuzu/sonrasi.jpg" width="510" height="1600" loading="lazy" decoding="async" alt="Wome Deluxe ana sayfasının 960 grid üzerinde yeniden tasarımı" data-i18n-attr="alt:home.deck.uiAlt"></picture>
+              </div>
+              <div class="deck-folder__meta">
+                <h3><span data-lang="tr">Web Arayüzü Hazırlama</span><span data-lang="en">Designing a Web Interface</span></h3>
+                <p><span data-lang="tr">Wome Deluxe · 960 Grid · Layer Comps ile 3 düzen</span><span data-lang="en">Wome Deluxe · 960 Grid · 3 layouts with Layer Comps</span></p>
+                <a class="pill-cta" href="projeler.html#web-arayuzu"><span data-lang="tr">Projeyi incele</span><span data-lang="en">View project</span> <span aria-hidden="true">+</span></a>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. HAYATIMDAN KARELER — farklı hızlarda kayan kartlar (parallax)
+         ===================================================================== -->
+    <section id="kareler" class="frames section" data-mood="pearl" data-nav-section="gallery" aria-labelledby="frames-title">
+      <div class="wrap">
+        <div class="frames__head">
+          <h2 id="frames-title" class="section-title" data-lines>
+            <span data-lang="tr">Hayatımdan <span class="script">kareler</span></span>
+            <span data-lang="en">Moments from <span class="script">my life</span></span>
+          </h2>
+          <a class="ul-link" href="galeri.html"><span data-lang="tr">Galeriye git</span><span data-lang="en">Open the gallery</span></a>
+        </div>
+        <ul class="frames__grid">
+          <li class="frame frame--tall" data-parallax="0.10"><a href="galeri.html" class="frame__card frame__card--photo"><picture><source srcset="assets/gallery/motor/motorla-800.webp" type="image/webp"><img src="assets/gallery/motor/motorla-800.jpg" width="600" height="800" loading="lazy" decoding="async" alt="Siyah bir motosikletin üzerinde" data-i18n-attr="alt:gallery.alt.motor.motorla"></picture><span class="frame__cap"><span data-lang="tr">Motor</span><span data-lang="en">Motorbike</span></span></a></li>
+          <li class="frame" data-parallax="0.30"><a href="galeri.html" class="frame__card frame__card--photo"><picture><source srcset="assets/gallery/taki/bileklikler-800.webp" type="image/webp"><img src="assets/gallery/taki/bileklikler-800.jpg" width="600" height="800" loading="lazy" decoding="async" alt="El yapımı doğal taş ve boncuk bileklikler" data-i18n-attr="alt:gallery.alt.taki.bileklikler"></picture><span class="frame__cap"><span data-lang="tr">Takı</span><span data-lang="en">Jewellery</span></span></a></li>
+          <li class="frame frame--arch" data-parallax="0.18"><a href="galeri.html" class="frame__card frame__card--photo"><picture><source srcset="assets/gallery/spor/hokey-forma-800.webp" type="image/webp"><img src="assets/gallery/spor/hokey-forma-800.jpg" width="600" height="800" loading="lazy" decoding="async" alt="Alanya Stars formasıyla, 11 numara, hokey sahasında" data-i18n-attr="alt:gallery.alt.spor.hokey-forma"></picture><span class="frame__cap"><span data-lang="tr">Çim hokeyi</span><span data-lang="en">Field hockey</span></span></a></li>
+          <li class="frame frame--tall" data-parallax="0.22"><a href="galeri.html" class="frame__card frame__card--photo"><picture><source srcset="assets/gallery/muzik/keman-800.webp" type="image/webp"><img src="assets/gallery/muzik/keman-800.jpg" width="600" height="800" loading="lazy" decoding="async" alt="Gözleri kapalı keman çalarken" data-i18n-attr="alt:gallery.alt.muzik.keman"></picture><span class="frame__cap"><span data-lang="tr">Müzik</span><span data-lang="en">Music</span></span></a></li>
+        </ul>
+
+        <!-- Küçük etkileşimli köşe: geniş ekranda yan yana, dar ekranda alt alta -->
+        <div class="extras">
+        <!-- Mini Takı Atölyesi: el yapımı takılara gönderme yapan küçük oyun (js/jewelry-studio.js).
+             Bir taş seçilince bileklikteki sıradaki boncuk (1→7, dolunca başa döner) o renge boyanır;
+             seçilen renk kombinasyonuna göre bir "enerji" mesajı yazılır. -->
+        <div class="studio" data-studio data-reveal>
+          <h3 class="studio__title"><span data-lang="tr">Mini Takı Atölyesi ✦</span><span data-lang="en">Mini Jewelry Studio ✦</span></h3>
+          <p class="studio__hint">
+            <span data-lang="tr">Bir taş seç; bileklikteki sıradaki boncuk o renge boyansın.</span>
+            <span data-lang="en">Pick a stone and the next bead on the bracelet takes its color.</span>
+          </p>
+
+          <svg class="studio__bracelet" viewBox="0 0 360 130" role="img" aria-label="Bileklik: 7 boş boncuk" data-studio-bracelet>
+            <defs>
+              <!-- boş boncuk: inci tonu, içten hafif ışıklı -->
+              <radialGradient id="studio-pearl" cx="38%" cy="32%" r="70%">
+                <stop class="studio-stop-1" offset="0"/>
+                <stop class="studio-stop-2" offset="0.45"/>
+                <stop class="studio-stop-3" offset="1"/>
+              </radialGradient>
+              <filter id="studio-glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="5"/></filter>
+            </defs>
+            <!-- ince altın ip (hafif kavisli) ve iki uçtaki düğüm -->
+            <path class="studio__string" d="M14 52 Q180 118 346 52"/>
+            <circle class="studio__knot" cx="14" cy="52" r="3"/>
+            <circle class="studio__knot" cx="346" cy="52" r="3"/>
+            <!-- 7 boncuk: ipin üzerinde eşit aralıklı (konumlar eğriden hesaplandı) -->
+            <g class="bead" data-bead="0" transform="translate(60 67.8)"><circle class="bead__halo" r="19" filter="url(#studio-glow)"/><circle class="bead__body" r="16"/><ellipse class="bead__shine" cx="-5" cy="-6" rx="5" ry="3.4"/></g>
+            <g class="bead" data-bead="1" transform="translate(100 77.3)"><circle class="bead__halo" r="19" filter="url(#studio-glow)"/><circle class="bead__body" r="16"/><ellipse class="bead__shine" cx="-5" cy="-6" rx="5" ry="3.4"/></g>
+            <g class="bead" data-bead="2" transform="translate(140 83.1)"><circle class="bead__halo" r="19" filter="url(#studio-glow)"/><circle class="bead__body" r="16"/><ellipse class="bead__shine" cx="-5" cy="-6" rx="5" ry="3.4"/></g>
+            <g class="bead" data-bead="3" transform="translate(180 85)"><circle class="bead__halo" r="19" filter="url(#studio-glow)"/><circle class="bead__body" r="16"/><ellipse class="bead__shine" cx="-5" cy="-6" rx="5" ry="3.4"/></g>
+            <g class="bead" data-bead="4" transform="translate(220 83.1)"><circle class="bead__halo" r="19" filter="url(#studio-glow)"/><circle class="bead__body" r="16"/><ellipse class="bead__shine" cx="-5" cy="-6" rx="5" ry="3.4"/></g>
+            <g class="bead" data-bead="5" transform="translate(260 77.3)"><circle class="bead__halo" r="19" filter="url(#studio-glow)"/><circle class="bead__body" r="16"/><ellipse class="bead__shine" cx="-5" cy="-6" rx="5" ry="3.4"/></g>
+            <g class="bead" data-bead="6" transform="translate(300 67.8)"><circle class="bead__halo" r="19" filter="url(#studio-glow)"/><circle class="bead__body" r="16"/><ellipse class="bead__shine" cx="-5" cy="-6" rx="5" ry="3.4"/></g>
+          </svg>
+
+          <div class="studio__stones" role="group" aria-label="Taş renkleri" data-i18n-attr="aria-label:studio.stones">
+            <button type="button" class="stone stone--gold" data-stone="gold" aria-label="Altın taş ekle" data-i18n-attr="aria-label:studio.stone.gold"></button>
+            <button type="button" class="stone stone--lavender" data-stone="lavender" aria-label="Lavanta taş ekle" data-i18n-attr="aria-label:studio.stone.lavender"></button>
+            <button type="button" class="stone stone--pearl" data-stone="pearl" aria-label="İnci beyazı taş ekle" data-i18n-attr="aria-label:studio.stone.pearl"></button>
+            <button type="button" class="stone stone--rose" data-stone="rose" aria-label="Gül kurusu taş ekle" data-i18n-attr="aria-label:studio.stone.rose"></button>
+            <button type="button" class="stone stone--turquoise" data-stone="turquoise" aria-label="Turkuaz taş ekle" data-i18n-attr="aria-label:studio.stone.turquoise"></button>
+          </div>
+
+          <p class="studio__info">
+            <span class="studio__msg" aria-live="polite" data-studio-msg>Bir taş seç, enerjini birlikte bulalım ✦</span>
+            <button type="button" class="studio__reset" data-studio-reset aria-label="Bilekliği sıfırla" data-i18n-attr="aria-label:studio.reset">
+              <svg class="icon" aria-hidden="true"><use href="#i-rotate-ccw"/></svg><span data-lang="tr">Sıfırla</span><span data-lang="en">Reset</span>
+            </button>
+          </p>
+        </div>
+
+        <!-- Ruh Haline Göre Plak Çalar (js/mood-player.js): CSS ile çizilmiş dönen plak + ekolayzır,
+             3 ruh hali sekmesi ve standart Spotify Embed <iframe>'i (API anahtarı gerekmez).
+             Çalma listesini değiştirmek için ilgili düğmenin data-src değerine kendi Spotify
+             "Embed" bağlantını yapıştır (Spotify › Paylaş › Çalma listesini yerleştir). -->
+        <div class="player" data-player data-reveal>
+          <div class="player__deck">
+            <div class="vinyl" data-vinyl aria-hidden="true">
+              <div class="vinyl__disc">
+                <span class="vinyl__label"><span class="vinyl__mono">HE</span></span>
+              </div>
+            </div>
+            <div class="player__head">
+              <h3 class="player__title"><span data-lang="tr">Ruh Haline Göre Plak Çalar</span><span data-lang="en">Mood Record Player</span></h3>
+              <p class="player__now" aria-live="polite" data-player-now>Şimdi çalıyor: Kodlama &amp; Odak</p>
+              <span class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+            </div>
+          </div>
+
+          <div class="player__moods" role="group" aria-label="Ruh hali seç" data-i18n-attr="aria-label:player.moods">
+            <!-- [[TODO: SPOTIFY PLAYLIST EMBED URL]] Kodlama & Odak — şimdilik örnek: Spotify "Deep Focus" -->
+            <button type="button" class="mood-tab" aria-pressed="true" data-playlist="focus"
+                    data-src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&amp;theme=0">
+              <span data-lang="tr">Kodlama &amp; Odak</span><span data-lang="en">Coding &amp; Focus</span> <span class="mood-tab__emoji" aria-hidden="true">💻</span>
+            </button>
+            <!-- [[TODO: SPOTIFY PLAYLIST EMBED URL]] Gece & Yıldızlar — şimdilik örnek: Spotify "Peaceful Piano" -->
+            <button type="button" class="mood-tab" aria-pressed="false" data-playlist="night"
+                    data-src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3LiO?utm_source=generator&amp;theme=0">
+              <span data-lang="tr">Gece &amp; Yıldızlar</span><span data-lang="en">Night &amp; Stars</span> <span class="mood-tab__emoji" aria-hidden="true">🌙</span>
+            </button>
+            <!-- [[TODO: SPOTIFY PLAYLIST EMBED URL]] Keman & Akustik — şimdilik örnek: Spotify "Classical Essentials" -->
+            <button type="button" class="mood-tab" aria-pressed="false" data-playlist="violin"
+                    data-src="https://open.spotify.com/embed/playlist/37i9dQZF1DWWEJlAGA9gs0?utm_source=generator&amp;theme=0">
+              <span data-lang="tr">Keman &amp; Akustik</span><span data-lang="en">Violin &amp; Acoustic</span> <span class="mood-tab__emoji" aria-hidden="true">🎻</span>
+            </button>
+          </div>
+
+          <div class="player__embed" data-player-embed>
+            <iframe class="player__frame" data-player-frame
+                    src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&amp;theme=0"
+                    title="Spotify çalma listesi: Kodlama ve Odak" width="100" height="352" loading="lazy"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          </div>
+          <p class="player__note">
+            <span data-lang="tr">Çalma listeleri Spotify'dan yüklenir; dinlemek için Spotify hesabı gerekebilir.</span>
+            <span data-lang="en">Playlists load from Spotify; listening may require a Spotify account.</span>
+          </p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. NELER YAPIYORUM — vesikalık + iki sütunlu liste
+         ===================================================================== -->
+    <section class="doing section" data-mood="paper" aria-labelledby="doing-title">
+      <div class="wrap doing__grid">
+        <figure class="doing__portrait" data-reveal>
+          <img src="assets/photos/hilal-esma-portrait-800.webp"
+               srcset="assets/photos/hilal-esma-portrait-480.webp 480w, assets/photos/hilal-esma-portrait-800.webp 800w"
+               sizes="(max-width: 900px) 70vw, 30vw" width="800" height="1067" loading="lazy"
+               alt="Hilal Esma Gündoğdu'nun vesikalık portresi" data-i18n-attr="alt:about.portraitAlt">
+        </figure>
+        <div>
+          <h2 id="doing-title" class="section-title" data-lines>
+            <span data-lang="tr">Neler <span class="script">yapıyorum</span></span>
+            <span data-lang="en">What I <span class="script">do</span></span>
+          </h2>
+          <ul class="doing__list">
+            <li data-reveal><span class="doing__num">01</span><span data-lang="tr">Web tasarım</span><span data-lang="en">Web design</span></li>
+            <li data-reveal><span class="doing__num">02</span>WordPress</li>
+            <li data-reveal><span class="doing__num">03</span><span data-lang="tr">Yazılım</span><span data-lang="en">Software</span></li>
+            <li data-reveal><span class="doing__num">04</span><span data-lang="tr">Grafik animasyon</span><span data-lang="en">Graphic animation</span></li>
+            <li data-reveal><span class="doing__num">05</span><span data-lang="tr">Takı tasarımı</span><span data-lang="en">Jewellery design</span></li>
+            <li data-reveal><span class="doing__num">06</span><span data-lang="tr">Teknik destek</span><span data-lang="en">Technical support</span></li>
+          </ul>
+          <a class="ul-link" href="hakkimda.html"><span data-lang="tr">Hakkımda'nın tamamı</span><span data-lang="en">Full About page</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         7. BLOG ÖNİZLEMESİ — 3 yazı
+         ===================================================================== -->
+    <section id="blog" class="posts section" data-mood="sand" data-nav-section="blog" aria-labelledby="posts-title">
+      <div class="wrap">
+        <div class="frames__head">
+          <h2 id="posts-title" class="section-title" data-lines>
+            <span data-lang="tr">Son <span class="script">yazılar</span></span>
+            <span data-lang="en">Latest <span class="script">posts</span></span>
+          </h2>
+          <a class="ul-link" href="blog.html"><span data-lang="tr">Tüm yazılar</span><span data-lang="en">All posts</span></a>
+        </div>
+        <ul class="posts__grid">
+          <!-- Blog sayfasındaki üç yazı (blog.html#kimlik) -->
+          <li data-reveal>
+            <a class="post-card" href="blog.html#layer-comps-960-grid">
+              <span class="post-card__cover">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/sonrasi.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/sonrasi.jpg" alt="" width="510" height="1600" loading="lazy" decoding="async">
+                </picture>
+              </span>
+              <span class="post-card__meta"><time datetime="2026-11-25">25.11.2026</time> · Photoshop · UI</span>
+              <span class="post-card__title"><span data-lang="tr">Photoshop'ta Layer Comps ve 960 Grid ile Web Arayüzü</span><span data-lang="en">A Web Interface in Photoshop with Layer Comps and the 960 Grid</span></span>
+              <span class="pill-cta pill-cta--small"><span data-lang="tr">Oku</span><span data-lang="en">Read</span> <span aria-hidden="true">+</span></span>
+            </a>
+          </li>
+          <li data-reveal>
+            <a class="post-card" href="blog.html#karakalemden-dijitale">
+              <span class="post-card__cover">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </span>
+              <span class="post-card__meta"><time datetime="2026-11-25">25.11.2026</time> · Photoshop · <span data-lang="tr">Dijital boyama</span><span data-lang="en">Digital painting</span></span>
+              <span class="post-card__title"><span data-lang="tr">Karakalemden Dijital İllüstrasyona: Multiply, Burn ve Dodge</span><span data-lang="en">From Pencil to Digital Illustration: Multiply, Burn and Dodge</span></span>
+              <span class="pill-cta pill-cta--small"><span data-lang="tr">Oku</span><span data-lang="en">Read</span> <span aria-hidden="true">+</span></span>
+            </a>
+          </li>
+          <li data-reveal>
+            <a class="post-card" href="blog.html#iki-wordpress-sitesi">
+              <span class="post-card__cover">
+                <picture>
+                  <source srcset="assets/projects/web/taki-sitesi/masaustu.webp" type="image/webp">
+                  <img src="assets/projects/web/taki-sitesi/masaustu.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async">
+                </picture>
+              </span>
+              <span class="post-card__meta"><time datetime="2026-11-25">25.11.2026</time> · WordPress · CMS</span>
+              <span class="post-card__title"><span data-lang="tr">Sıfırdan İki WordPress Sitesi: E-Ticaret ve İçerik</span><span data-lang="en">Two WordPress Sites from Scratch: Shop Window and Content</span></span>
+              <span class="pill-cta pill-cta--small"><span data-lang="tr">Oku</span><span data-lang="en">Read</span> <span aria-hidden="true">+</span></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         8. İLETİŞİME GEÇ — dev e-posta (tıklayınca kopyalanır)
+         ===================================================================== -->
+    <section id="iletisim" class="contact-xl section" data-mood="dusk" data-nav-section="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 id="contact-title" class="eyebrow"><span data-lang="tr">İletişime geç</span><span data-lang="en">Get in touch</span></h2>
+        <button type="button" class="contact-xl__email" data-copy="hilalesmagundogdu@gmail.com">
+          <span class="contact-xl__address">hilalesmagundogdu<wbr>@gmail.com</span>
+          <span class="contact-xl__hint"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span data-lang="tr">Kopyalamak için tıkla</span><span data-lang="en">Click to copy</span></span>
+        </button>
+        <ul class="contact-xl__links">
+          <li><a class="ul-link" href="tel:+905372018566">0537&nbsp;201&nbsp;85&nbsp;66</a></li>
+          <li data-github><a class="ul-link" href="https://github.com/hilalesma" target="_blank" rel="noopener noreferrer me">github.com/hilalesma</a></li>
+          <li><a class="ul-link" href="mailto:hilalesmagundogdu@gmail.com"><span data-lang="tr">E-posta gönder</span><span data-lang="en">Send an e-mail</span></a></li>
+          <li><a class="ul-link" href="iletisim.html"><span data-lang="tr">İletişim formu</span><span data-lang="en">Contact form</span></a></li>
+        </ul>
+        <!-- Dönen mühür (dekoratif): halka kaydırdıkça hızlanır (js/seal.js) -->
+        <div class="seal contact-xl__seal" data-seal aria-hidden="true">
+          <svg class="seal__ring" viewBox="0 0 200 200" data-seal-ring>
+            <defs><path id="seal-path" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+            <circle class="seal__circle" cx="100" cy="100" r="58"/>
+            <text data-lang="tr"><textPath href="#seal-path" textLength="486" lengthAdjust="spacing">WEB TASARIM ✦ YAZILIM ✦ GRAFİK TASARIM ✦</textPath></text>
+            <text data-lang="en"><textPath href="#seal-path" textLength="486" lengthAdjust="spacing">WEB DESIGN ✦ SOFTWARE ✦ GRAPHIC DESIGN ✦</textPath></text>
+          </svg>
+          <span class="seal__core">HE</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- partial:footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__name">Hilal Esma Gündoğdu</p>
+          <p data-i18n="footer.tagline">Bilgisayar Programcılığı öğrencisi · Akdeniz Üniversitesi</p>
+        </div>
+
+        <div>
+          <h2 class="eyebrow" data-i18n="footer.contact">İletişim</h2>
+          <address>
+            Eski Alanya/Antalya yolu üzeri, İncekum Mah.,<br>
+            Narçiçeği Villa Sitesi C2, Alanya/Antalya
+          </address>
+          <ul>
+            <li>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Eski%20Alanya%2FAntalya%20yolu%20%C3%BCzeri%2C%20%C4%B0ncekum%20Mah.%2C%20Nar%C3%A7i%C3%A7e%C4%9Fi%20Villa%20Sitesi%20C2%2C%20Alanya%2FAntalya" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg><span data-i18n="footer.map">Haritada aç</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+905372018566"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>0537&nbsp;201&nbsp;85&nbsp;66</a>
+            </li>
+            <li>
+              <a href="mailto:hilalesmagundogdu@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>hilalesmagundogdu@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="eyebrow" data-i18n="footer.pages">Sayfalar</h2>
+          <ul>
+            <li><a href="#hakkimda" data-i18n="nav.about">Hakkımda</a></li>
+            <li><a href="#calismalar" data-i18n="nav.projects">Projeler</a></li>
+            <li><a href="#blog" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="#kareler" data-i18n="nav.gallery">Galeri</a></li>
+            <li data-github><a href="https://github.com/hilalesma" target="_blank" rel="noopener noreferrer me"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>github.com/hilalesma</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© <span data-year>2026</span> Hilal Esma Gündoğdu. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
+        <a href="#main" data-i18n="footer.top">Başa dön</a>
+      </div>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="i18n/en.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/site.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="js/smooth.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/ribbons.js"></script>
+  <!-- Mini Takı Atölyesi kartı (Hayatımdan kareler bölümü) -->
+  <script src="js/jewelry-studio.js"></script>
+  <!-- Ruh haline göre plak çalar (Spotify Embed) -->
+  <script src="js/mood-player.js"></script>
+  <script src="js/ambient.js"></script>
+  <!-- Gece çiçek vadisi (intro): Three.js yalnız intro oynarken yüklenir (js/valley/intro.js) -->
+  <!-- İmleç ışıkları: yalnız ana sayfada (diğer sayfalarda partikül yoktur) -->
+  <script src="js/cursor-lights.js"></script>
+  <!-- Manyetik butonlar: ana aksiyon butonları imleci hafifçe izler -->
+  <script src="js/magnetic.js"></script>
+  <!-- Dönen mühür: kaydırdıkça hızlanır -->
+  <script src="js/seal.js"></script>
+  <script src="js/valley/audio.js"></script>
+  <script src="js/valley/intro.js"></script>
+</body>
+</html>

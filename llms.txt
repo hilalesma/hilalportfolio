@@ -1,0 +1,23 @@
+# Hilal Esma Gündoğdu — Kişisel Portfolyo
+
+> Akdeniz Üniversitesi Teknik Bilimler MYO, Bilgisayar Programcılığı 1. sınıf öğrencisi Hilal Esma Gündoğdu'nun kişisel web sitesi. Site Türkçe (varsayılan) ve İngilizcedir.
+
+## Kim
+- Okurcalar Çok Programlı Anadolu Lisesi Bilişim Teknolojileri bölümünden bölüm birincisi olarak mezun oldu.
+- Wome Deluxe otelinde Bilgi Teknolojileri ve Muhasebe stajı yaptı (Eylül 2025 – Haziran 2026).
+- Kendi el yapımı takılarını tasarlıyor; çim hokeyi oynuyor (Alanya Stars, okul takımı kaptanı); keman ve gitar çalıyor.
+- Yetenekler: WordPress, Python, HTML, Adobe Photoshop; ağ/Wi-Fi yönetimi, yapısal kablolama, CCTV, ön muhasebe.
+- Diller: Türkçe, İngilizce (B1), Felemenkçe (A2).
+
+## Sayfalar
+- [Ana sayfa](index.html): gece çiçek vadisi girişi, Hakkımda özeti, eğitim ve başarılar, seçili projeler, fotoğraflar, blog önizlemesi, iletişim.
+- [Hakkımda](hakkimda.html): özgeçmiş, eğitim, iş deneyimi, yetenekler (yüzdeli), diller, ilgi alanları, ders programı tablosu.
+- [Projeler](projeler.html): Grafik Animasyon I (Photoshop) dersinin 6 projesi (History Brush, Ürün Tanıtımı, Karakalem Renklendirme, Smart Object, Image Stack, Web Arayüzü) ve 2 WordPress sitesi (My Jewelry World, ZaneModa).
+- [Blog](blog.html): Adobe Photoshop'ta Layer Comps ve 960 Grid Sistemiyle Web Arayüzü Tasarlamak; Karakalem Çizimden Dijital İllüstrasyona: Photoshop Katman Modları ve Burn/Dodge Teknikleri; Sıfırdan İki Farklı WordPress Sitesi Kurma Deneyimim: E-Ticaret ve İçerik Odaklı Yaklaşımlar.
+- [Galeri](galeri.html): spor, sanat, müzik, motor, takı, el işi ve anılar fotoğrafları.
+- [İletişim](iletisim.html): adres (Alanya/Antalya), telefon ve iletişim formu.
+
+## Bağlantılar
+- My Jewelry World (WordPress): https://myjewelryworlld.wordpress.com/
+- ZaneModa (WordPress): https://zanemoda.wordpress.com/
+- GitHub: https://github.com/hilalesma

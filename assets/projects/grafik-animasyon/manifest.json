@@ -1,0 +1,126 @@
+{
+  "history-brush": {
+    "oncesi": {
+      "w": 736,
+      "h": 920
+    },
+    "sonrasi": {
+      "w": 1131,
+      "h": 1600
+    },
+    "sonrasi-yatay": {
+      "w": 800,
+      "h": 600
+    },
+    "history-paneli": {
+      "w": 291,
+      "h": 442
+    }
+  },
+  "urun-tanitimi": {
+    "oncesi": {
+      "w": 1600,
+      "h": 1600
+    },
+    "sonrasi": {
+      "w": 800,
+      "h": 600
+    }
+  },
+  "karakalem-renklendirme": {
+    "sonrasi": {
+      "w": 800,
+      "h": 600
+    },
+    "oncesi-katmanlar": {
+      "w": 1600,
+      "h": 845
+    },
+    "sonrasi-katmanlar": {
+      "w": 1600,
+      "h": 848
+    }
+  },
+  "smart-object": {
+    "sonrasi": {
+      "w": 800,
+      "h": 600
+    },
+    "bos-cerceveler": {
+      "w": 1600,
+      "h": 851
+    },
+    "ana-calisma-oncesi": {
+      "w": 1600,
+      "h": 848
+    },
+    "ana-calisma-sonrasi": {
+      "w": 1600,
+      "h": 845
+    },
+    "smart-object-oncesi": {
+      "w": 1600,
+      "h": 845
+    },
+    "smart-object-sonrasi": {
+      "w": 1600,
+      "h": 848
+    }
+  },
+  "image-stack": {
+    "sonrasi": {
+      "w": 800,
+      "h": 600
+    },
+    "oncesi-kirpma": {
+      "w": 1600,
+      "h": 851
+    },
+    "stack-sonucu": {
+      "w": 1600,
+      "h": 848
+    },
+    "sonrasi-ekran": {
+      "w": 1600,
+      "h": 848
+    }
+  },
+  "web-arayuzu": {
+    "sonrasi": {
+      "w": 510,
+      "h": 1600
+    },
+    "eskiz": {
+      "w": 1050,
+      "h": 1600
+    },
+    "duzen-1": {
+      "w": 510,
+      "h": 1600
+    },
+    "duzen-2": {
+      "w": 510,
+      "h": 1600
+    },
+    "duzen-3": {
+      "w": 583,
+      "h": 1600
+    },
+    "layer-comps": {
+      "w": 335,
+      "h": 310
+    },
+    "katman-yapisi-1": {
+      "w": 415,
+      "h": 581
+    },
+    "katman-yapisi-2": {
+      "w": 412,
+      "h": 577
+    },
+    "katman-yapisi-3": {
+      "w": 417,
+      "h": 607
+    }
+  }
+}

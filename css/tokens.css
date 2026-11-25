@@ -1,0 +1,153 @@
+/* ==========================================================================
+   tokens.css — Tasarım token'ları (renk, tipografi, boşluk, hareket)
+   Bu dosya, sitedeki renk hex değerlerinin TEK kaynağıdır. Diğer dosyalar
+   yalnızca buradaki değişkenleri (var(--...)) kullanır.
+   ========================================================================== */
+
+:root {
+  /* ---- Ham palet (kullanıcının belirlediği renkler) ---- */
+  --powder: #f3d9dc;      /* pudra pembesi */
+  --rose: #b9777e;        /* gül kurusu — yalnız dekoratif (krem üzerinde metin için yetersiz) */
+  --rose-deep: #8e4f57;   /* gül kurusunun metin sürümü: krem üzerinde ≈ 5.5:1 (WCAG AA) */
+  --lilac: #c9b6e4;       /* lila */
+  --lilac-deep: #6b5591;  /* lilanın metin sürümü ≈ 5.6:1 */
+  --cream: #f8f2ea;       /* krem — ana zemin */
+  --champagne: #e9d8be;   /* şampanya */
+  --pearl: #eeeaf0;       /* sedef */
+  --silver: #d9d9de;      /* hafif gümüş */
+  --espresso: #3b2a26;    /* koyu kahve — ana metin ≈ 13:1 */
+  --espresso-soft: #5e4842; /* ikincil metin ≥ 7:1 */
+  --white: #ffffff;
+
+  /* ---- Referanslardan örneklenen yardımcı tonlar ---- */
+  --night: #120e0b;       /* hero bahçe karanlığı (intro ekranı) */
+  --night-2: #241a12;
+  --folder: #e6c3c8;      /* ref 03 klasör pembesi */
+  --folder-deep: #d6a9b0;
+  --folder-ink: #3a1f24;  /* ref 03 başlık mürekkebi */
+  --sand: #eadccb;        /* ref 04 kum */
+  --sky-blush: #e8c7d3;   /* ref 04 gökyüzü */
+  --sky-lilac: #cdbbe0;
+  --smoke: #4a3a3c;       /* ref 04 dumanlı cam */
+  --gold: #c9a46a;        /* ince çerçeve çizgileri, madalya */
+  --shadow-ink: #3b2a26;  /* gölgelerin rengi (gece temasında siyaha döner) */
+
+  /* ---- Gece teması paleti (css/theme-night.css bu değerleri kullanır) ---- */
+  --moon: #f5f3ff;        /* kırık beyaz: ana metin */
+  --moon-soft: #d6cdea;   /* ikincil metin */
+  --night-deep: #0f0c1d;  /* sayfa zemini */
+  --night-plum: #1a1429;  /* ikinci gece tonu */
+  --night-surface: #1c1630; /* opak koyu yüzey (perde, panel) */
+  --night-surface-2: #251d3b;
+  --peach-gold: #f6c08a;  /* vurgu metni (şeftali-altın) */
+  --rose-light: #f2a7b4;  /* gül kurusunun koyu zemin metin sürümü */
+  --lilac-light: #cdb7ff; /* lilanın koyu zemin metin sürümü */
+  --gold-light: #e2b76a;  /* ince altın kenarlıklar */
+  --black: #000000;
+  /* arka plan ışık küreleri (css/ambient.css .ambient-orbs) */
+  --orb-lavender: #b89cff;
+  --orb-violet: #5b2d9e;
+  --orb-champagne: #f3d3a1;
+  /* Mini Takı Atölyesi taşları (css/home.css .studio) */
+  --stone-gold: #e9b95c;
+  --stone-lavender: #b89cff;
+  --stone-pearl: #f4efe8;
+  --stone-rose: #c98089;
+  --stone-turquoise: #4fc7bd;
+  /* kayan yıldız kuyruğu */
+  --shooting-head: #fff6e2;
+
+  /* ---- Projeler: dosya klasörü kartonları (gece temasında da sabit kalır; üzerindeki metin koyu kahve) ---- */
+  --f-pudra: #f3d9dc;
+  --f-gul: #d9a3a9;       /* gül kurusunun açık kartonu: koyu kahve metinle ≈ 6:1 */
+  --f-lila: #d5c6ec;
+  --f-krem: #f8f2ea;
+  --f-sampanya: #e9d8be;
+  --f-inci: #eeeaf0;
+  --f-ink: #3b2a26;       /* klasör üzerindeki metin (koyu kahve) */
+  --f-label-web: #f7eddc; /* Web (WordPress) grubu: şampanya tonlu etiket */
+  --f-label-web-edge: #c9a46a;
+  --f-label-grafik: #e7ddf7; /* Grafik Animasyon I grubu: lila tonlu etiket */
+  --f-label-grafik-edge: #9f86c9;
+  --f-glow-gold: #f6c08a; /* sekme kenarı parlaması */
+  --f-glow-lilac: #b9a2ff;
+
+  /* ---- Ana sayfa ilgi alanları şeritleri ---- */
+  --ribbon-lilac: #a88bfa;  /* rgba(168,139,250,.14) cam dolgu için */
+  --ribbon-gold: #f5d08a;   /* rgba(245,208,138,.14) cam dolgu için */
+  --mint: #7be0a8;        /* 'açık' rozet noktası */
+  --peach-vivid: #ffb383; /* canlı şeftali */
+  /* gece gökyüzü bulutsuları (atmosfer katmanları) */
+  --nebula-plum: #3a1f4f;
+  --nebula-deep: #2b1a3a;
+  --nebula-violet: #2e2353;
+  --nebula-ember: #3d1f3f;
+  --nebula-rose: #4a2540;
+  --nebula-indigo: #35265c;
+  --nebula-wine: #4a2236;
+
+  /* Sedef (iridescent) gradyanı */
+  --pearl-iridescent: linear-gradient(125deg, #f6eef3 0%, #e9e1f3 22%, #f3e6e3 44%, #e2eef0 66%, #f4e8f0 88%, #efe9f2 100%);
+  /* Madalya: sedef + şampanya */
+  --medal: linear-gradient(140deg, #fbf3e6 0%, #e9d8be 30%, #f6eef3 55%, #d9c3a0 78%, #fff8ee 100%);
+
+  /* ---- Anlamsal (semantic) token'lar ---- */
+  --bg: var(--cream);
+  --text: var(--espresso);
+  --text-muted: var(--espresso-soft);
+  --accent: var(--rose);
+  --accent-text: var(--rose-deep);
+  --accent-2-text: var(--lilac-deep);
+  --on-dark: var(--cream);
+  --rule: color-mix(in oklab, var(--espresso) 20%, transparent);
+  --focus-ring: var(--rose-deep);
+
+  /* ---- Cam panel ---- */
+  --glass-fill: color-mix(in oklab, var(--pearl) 55%, transparent);
+  --glass-fill-strong: color-mix(in oklab, var(--pearl) 84%, transparent);
+  --glass-fill-dark: color-mix(in oklab, var(--white) 14%, transparent);
+  --glass-smoke: color-mix(in oklab, var(--smoke) 80%, transparent);
+  --glass-border: color-mix(in oklab, var(--white) 64%, transparent);
+  --glass-border-dark: color-mix(in oklab, var(--white) 28%, transparent);
+  --glass-highlight: inset 0 1px 0 color-mix(in oklab, var(--white) 75%, transparent),
+    inset 0 0 0 1px color-mix(in oklab, var(--white) 16%, transparent);
+  --glass-shadow: 0 24px 60px -24px color-mix(in oklab, var(--espresso) 38%, transparent),
+    0 8px 18px -10px color-mix(in oklab, var(--espresso) 22%, transparent);
+  --glass-shadow-lift: 0 40px 80px -28px color-mix(in oklab, var(--espresso) 46%, transparent),
+    0 14px 26px -12px color-mix(in oklab, var(--espresso) 26%, transparent);
+  --glass-blur: 18px;
+
+  /* ---- Köşe yarıçapları ---- */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+  --radius-pill: 999px;
+
+  /* ---- Tipografi ---- */
+  /* v4: büyük başlıklar Antonio; tek kelimelik vurgular italik serif (Cormorant Garamond) */
+  --font-display: "Antonio", "Oswald", "Arial Narrow", sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-script: "Cormorant Garamond", Georgia, serif; /* .script = italik serif vurgu */
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --step--1: 0.875rem;
+  --step-0: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.45vw, 1.45rem);
+  --step-2: clamp(1.4rem, 1.2rem + 0.9vw, 1.9rem);
+  --step-3: clamp(2rem, 1.5rem + 2.2vw, 3.4rem);
+  --step-4: clamp(2.6rem, 1.7rem + 4vw, 5.4rem);
+  --step-5: clamp(3.2rem, 1.8rem + 6.6vw, 8.8rem);
+
+  /* ---- Boşluk ve düzen ---- */
+  --gutter: clamp(20px, 5vw, 96px);
+  --section-y: clamp(88px, 12vw, 180px);
+  --maxw: 1240px;
+  --nav-h: 76px;
+
+  /* ---- Hareket: tek ease ailesi ve süre ölçeği ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);   /* GSAP "expo.out" karşılığı */
+  --ease-ui: cubic-bezier(0.33, 1, 0.68, 1);   /* GSAP "power2.out" karşılığı */
+  --dur-ui: 260ms;
+  --dur-in: 1000ms;
+}

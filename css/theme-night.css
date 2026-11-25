@@ -1,0 +1,212 @@
+/* ==========================================================================
+   theme-night.css — Sitenin tamamı için GECE TEMASI (her sayfada en son yüklenir)
+   Girişteki gece vadisinin atmosferini bütün sayfalara taşır. Mevcut stiller silinmedi:
+   bu katman renk rollerini koyu temaya çevirir ve gereken bileşenleri ince ayarlar.
+   (Açık temaya dönmek için yalnız bu dosyanın <link>'ini kaldırmak yeterlidir.)
+
+   Nasıl çalışır?
+   - Açık temada --espresso "metin", --cream "zemin/yüzey" rolündeydi. Burada rolleri çeviriyoruz:
+     --espresso → kırık beyaz (metin), --cream / --pearl → koyu yüzey.
+     Böylece "koyu zemin + açık yazı" çiftleri (butonlar, bildirim, tablo başlığı) kendiliğinden
+     "açık zemin + koyu yazı"ya döner; yazılar her yerde okunur kalır.
+   - Doğası gereği koyu olan bileşenlerde (vadi, dumanlı cam, ışık kutusu, kod blokları)
+     eski anlamları yerel olarak geri veriyoruz (--cream: kırık beyaz).
+   Metin kontrastı: #f5f3ff / #0f0c1d ≈ 17:1, ikincil metin #d6cdea ≈ 12:1, vurgu #f6c08a ≈ 11:1.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ---- Ham renk rolleri ---- */
+  --night: var(--night-deep);
+  --night-2: var(--night-plum);
+  --espresso: var(--moon);
+  --espresso-soft: var(--moon-soft);
+  --cream: var(--night-surface);
+  --pearl: var(--night-surface-2);
+  --champagne: var(--night-surface-2);
+  --sand: var(--night-plum);
+  --sky-blush: var(--night-surface-2);
+  --sky-lilac: var(--night-surface);
+  --folder: var(--night-surface-2);
+  --folder-deep: var(--night-surface);
+  --folder-ink: var(--moon);
+  --rose-deep: var(--rose-light);
+  --lilac-deep: var(--lilac-light);
+  --gold: var(--gold-light);
+  --shadow-ink: var(--black);
+
+  /* ---- Anlamsal roller ---- */
+  --bg: var(--night-deep);
+  --text: var(--moon);
+  --text-muted: var(--moon-soft);
+  --accent-text: var(--peach-gold);
+  --accent-2-text: var(--lilac-light);
+  --on-dark: var(--moon);
+  --rule: color-mix(in oklab, var(--white) 14%, transparent);
+  --focus-ring: var(--peach-gold);
+
+  /* ---- Cam: rgba(255,255,255,0.05) + ince soluk altın/mor kenarlık ---- */
+  --glass-fill: color-mix(in oklab, var(--white) 5%, transparent);
+  --glass-fill-strong: color-mix(in oklab, var(--white) 8%, transparent);
+  --glass-fill-dark: color-mix(in oklab, var(--white) 6%, transparent);
+  --glass-smoke: color-mix(in oklab, var(--night-surface-2) 80%, transparent);
+  --glass-border: color-mix(in oklab, var(--gold-light) 28%, transparent);
+  --glass-border-dark: color-mix(in oklab, var(--lilac-light) 26%, transparent);
+  --glass-highlight: inset 0 1px 0 color-mix(in oklab, var(--white) 10%, transparent),
+    inset 0 0 0 1px color-mix(in oklab, var(--white) 3%, transparent);
+  --glass-shadow: 0 24px 60px -24px color-mix(in oklab, var(--black) 70%, transparent),
+    0 8px 18px -10px color-mix(in oklab, var(--black) 50%, transparent);
+  --glass-shadow-lift: 0 40px 80px -28px color-mix(in oklab, var(--black) 75%, transparent),
+    0 0 40px -10px color-mix(in oklab, var(--peach-gold) 18%, transparent);
+}
+
+html { background: var(--night-deep); }
+
+/* ---------- Doğası gereği koyu bileşenler: eski anlamları yerel olarak geri ver ---------- */
+.valley,
+.valley-loader,
+.valley__skip,
+.valley-veil,
+.glass--smoke,
+.glass--dark,
+.lightbox,
+.site-nav[data-tone="light"],
+pre {
+  --cream: var(--moon);
+  --pearl: var(--moon);
+}
+/* kod blokları koyu kalsın */
+pre { background: color-mix(in oklab, var(--black) 45%, var(--night-plum)) !important; color: var(--moon) !important; border: 1px solid var(--glass-border-dark); }
+
+/* ---------- Atmosfer katmanları: hepsi gece gökyüzünün tonları ---------- */
+.atmo__layer[data-for="night"] { background: var(--night-deep); }
+.atmo__layer[data-for="paper"],
+.atmo__layer[data-for="pearl"],
+.atmo__layer[data-for="blush"],
+.atmo__layer[data-for="sand"],
+.atmo__layer[data-for="dusk"] {
+  background:
+    radial-gradient(1100px 700px at 85% 8%, color-mix(in oklab, var(--nebula-plum) 70%, transparent), transparent 62%),
+    radial-gradient(900px 700px at 5% 92%, color-mix(in oklab, var(--nebula-deep) 80%, transparent), transparent 62%),
+    linear-gradient(180deg, var(--night-deep) 0%, var(--night-plum) 100%);
+}
+.atmo__layer[data-for="pearl"] { background:
+    radial-gradient(900px 600px at 12% 18%, color-mix(in oklab, var(--nebula-violet) 75%, transparent), transparent 62%),
+    radial-gradient(900px 700px at 92% 82%, color-mix(in oklab, var(--nebula-ember) 70%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--night-plum) 0%, var(--night-deep) 100%); }
+.atmo__layer[data-for="blush"] { background:
+    radial-gradient(1000px 700px at 80% 0%, color-mix(in oklab, var(--nebula-rose) 60%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--night-deep), var(--night-plum)); }
+.atmo__layer[data-for="dusk"] { background:
+    radial-gradient(900px 700px at 82% 18%, color-mix(in oklab, var(--nebula-indigo) 75%, transparent), transparent 60%),
+    radial-gradient(900px 700px at 8% 90%, color-mix(in oklab, var(--nebula-wine) 60%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--night-plum), var(--night-deep)); }
+
+/* ---------- Menü ve rozet ---------- */
+.site-nav__bar { background: color-mix(in oklab, var(--night-surface) 72%, transparent); }
+.nav-cta { background: var(--peach-gold); color: var(--night-deep); }
+.open-badge { background: color-mix(in oklab, var(--night-surface) 80%, transparent); color: var(--moon); border-color: var(--glass-border); }
+.open-badge__dot { background: var(--mint); }
+
+/* dil seçici: açık renkli kaydırıcının üzerindeki etkin dil koyu yazılsın */
+.lang-pill button[aria-pressed="true"] { color: var(--night-deep); }
+
+/* "Yakında" kapaklarındaki krem zemin koyulaşsın (satır içi SVG'nin ilk dikdörtgeni) */
+.deck-folder--soon .deck-folder__cover rect:first-of-type { fill: var(--night-surface); }
+
+/* ---------- Butonlar ve haplar: koyu cam + soluk altın kenarlık ---------- */
+.btn { background: var(--glass-fill); border-color: var(--glass-border); color: var(--moon); }
+.btn--solid,
+.filters .btn[aria-pressed="true"],
+.btn[aria-pressed="true"] { background: var(--peach-gold); color: var(--night-deep); border-color: transparent; }
+.pill-cta { background: color-mix(in oklab, var(--white) 8%, transparent); color: var(--moon); border: 1px solid var(--glass-border); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.pill-cta:hover { background: var(--peach-gold); color: var(--night-deep); }
+.chip { background: var(--glass-fill); border: 1px solid var(--glass-border); color: var(--moon); }
+.copy-btn { background: var(--glass-fill); border-color: var(--glass-border); color: var(--moon); }
+.ul-link { color: var(--moon); }
+
+/* ---------- Form alanları ---------- */
+.contact-form .field input,
+.contact-form .field textarea {
+  background: color-mix(in oklab, var(--white) 6%, transparent);
+  border-color: var(--glass-border-dark);
+  color: var(--moon);
+}
+.contact-form .field input::placeholder,
+.contact-form .field textarea::placeholder { color: color-mix(in oklab, var(--moon) 45%, transparent); }
+.contact-form [aria-invalid="true"] { background: color-mix(in oklab, var(--rose-light) 12%, transparent); }
+
+/* ---------- Ana sayfa bileşenleri ---------- */
+/* vadinin alt kenarı sayfa zeminine erir: sert yatay çizgi kalmaz */
+.valley { background:
+    radial-gradient(80% 60% at 50% 110%, color-mix(in oklab, var(--rose) 18%, transparent), transparent 70%),
+    radial-gradient(60% 50% at 50% 40%, color-mix(in oklab, var(--lilac) 8%, transparent), transparent 70%),
+    var(--night-deep); }
+.valley::after {
+  background: radial-gradient(70% 55% at 50% 50%, color-mix(in oklab, var(--night-deep) 45%, transparent), transparent 75%),
+    linear-gradient(to bottom, transparent 62%, color-mix(in oklab, var(--night-deep) 70%, transparent) 86%, var(--night-deep) 100%);
+}
+.intro-text::before { display: none; }   /* açık temadaki geçiş bandına gerek yok */
+.frame__card {
+  background: radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--peach-vivid) 16%, transparent), transparent 60%),
+    color-mix(in oklab, var(--white) 5%, transparent);
+  border-color: var(--glass-border);
+  color: var(--moon);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.frame__card .icon { color: var(--peach-gold); }
+.post-card__cover { background: color-mix(in oklab, var(--white) 5%, transparent); border: 1px solid var(--glass-border); }
+.post-card__cover--soon { border-style: dashed; color: var(--peach-gold); }
+.doing__portrait { background: var(--night-surface); box-shadow: 0 0 0 6px var(--night-surface), 0 0 0 7px var(--glass-border), var(--glass-shadow-lift); }
+.deck-folder__tab,
+.deck-folder__meta { background: repeating-linear-gradient(0deg, transparent 0 3px, color-mix(in oklab, var(--white) 4%, transparent) 3px 4px), var(--night-surface-2); }
+.deck-folder__doc { background: var(--night-surface-2); border: 1px solid var(--glass-border-dark); border-bottom: 0; }
+.deck-folder__meta { border: 1px solid var(--glass-border-dark); border-top: 0; }
+
+/* ---------- Projeler ----------
+   Klasör kartonları gece temasında da sabit pastel tonlardır (tokens.css: --f-*); stilleri css/projects.css'te. */
+
+/* ---------- Hakkımda ---------- */
+.tl-card--feature { --g-fill: color-mix(in oklab, var(--white) 7%, transparent); outline-color: var(--glass-border-dark); }
+.tasks details { background: color-mix(in oklab, var(--white) 4%, transparent); border-color: var(--glass-border-dark); }
+.timetable thead th { background: var(--peach-gold); color: var(--night-deep); }
+/* ders renkleri: açık pastel kutular yerine aynı tonların koyu zemine uygun, yarı saydam sürümleri */
+.c-prog { background: color-mix(in oklab, var(--powder) 22%, transparent); }
+.c-db   { background: color-mix(in oklab, var(--lilac) 24%, transparent); }
+.c-anim { background: color-mix(in oklab, var(--rose) 32%, transparent); }
+.c-web  { background: color-mix(in oklab, var(--lilac-light) 16%, transparent); }
+.c-ofis { background: color-mix(in oklab, var(--gold-light) 20%, transparent); }
+.c-turk { background: color-mix(in oklab, var(--silver) 16%, transparent); }
+.c-ata  { background: color-mix(in oklab, var(--rose-light) 16%, transparent); }
+.c-eng  { background: color-mix(in oklab, var(--lilac) 32%, transparent); }
+.c-fiz  { background: color-mix(in oklab, var(--peach-vivid) 14%, transparent); }
+.c-mat  { background: color-mix(in oklab, var(--gold-light) 30%, transparent); }
+.tt-course { color: var(--moon); }
+.tt-lunch th, .tt-lunch td { background: color-mix(in oklab, var(--white) 6%, transparent); }
+.tt-empty { color: color-mix(in oklab, var(--moon) 40%, transparent); background: color-mix(in oklab, var(--white) 3%, transparent); }
+
+/* ---------- Galeri ---------- */
+.photo__frame { background: color-mix(in oklab, var(--white) 5%, transparent); border-color: var(--glass-border); }
+.photo__placeholder { background: radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--peach-vivid) 14%, transparent), transparent 60%),
+    color-mix(in oklab, var(--white) 4%, transparent); color: var(--moon-soft); }
+.photo__placeholder .icon { color: var(--peach-gold); }
+
+/* ---------- Blog ---------- */
+.post__body,
+.prose-panel { color: var(--moon); }
+
+/* yazı içindeki görsel yer tutucuları (satır içi SVG) koyu zemine uysun */
+.prose figure svg > rect:first-of-type { fill: color-mix(in oklab, var(--white) 5%, var(--night-surface)); }
+.prose figure svg text { fill: var(--peach-gold); }
+
+/* [[TODO]] işaretleri: koyu zeminde okunur, sıcak vurgu */
+.todo {
+  background: color-mix(in oklab, var(--peach-gold) 14%, transparent);
+  color: var(--peach-gold);
+  outline: 1px dashed color-mix(in oklab, var(--peach-gold) 45%, transparent);
+}
+
+/* ---------- Ayırıcı çizgiler ---------- */
+hr { border-color: var(--rule); }

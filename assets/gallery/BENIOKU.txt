@@ -1,0 +1,1 @@
+﻿Galeri fotoğraflarını kategori klasörlerine koy (motor, taki, spor, hobi). Sonra galeri.html içindeki yer tutucu <li> öğesini sayfadaki yorumdaki örnek yapıyla değiştir. Ayrıntı: README.md > Galeri.

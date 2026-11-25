@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.blog.title">Blog — Hilal Esma Gündoğdu</title>
+  <meta name="description" content="Hilal Esma Gündoğdu'nun blogu: Photoshop'ta web arayüzü, dijital boyama ve WordPress siteleri üzerine adım adım süreç yazıları." data-i18n-attr="content:meta.blog.description">
+  <meta name="author" content="Hilal Esma Gündoğdu">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/ambient.css">
+  <link rel="stylesheet" href="css/blog.css">
+  <!-- Gece teması: girişteki gece atmosferi bütün sayfaya (en son yüklenir) -->
+  <link rel="stylesheet" href="css/theme-night.css">
+  <script src="js/boot.js"></script>
+  <!-- seo:start — scripts/build-seo.mjs üretir; elle düzenleme -->
+  <meta property="og:site_name" content="Hilal Esma Gündoğdu">
+  <meta property="og:title" content="Blog — Hilal Esma Gündoğdu">
+  <meta property="og:description" content="Hilal Esma Gündoğdu'nun blogu: Photoshop'ta web arayüzü, karakalemden dijital illüstrasyon ve iki WordPress sitesi üzerine adım adım yazılar.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og.jpg">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog — Hilal Esma Gündoğdu">
+  <meta name="twitter:description" content="Hilal Esma Gündoğdu'nun blogu: Photoshop'ta web arayüzü, karakalemden dijital illüstrasyon ve iki WordPress sitesi üzerine adım adım yazılar.">
+  <!-- Yapılandırılmış veri (schema.org JSON-LD): arama motorları ve yapay zekâ yanıt motorları için (SEO + GEO) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Blog",
+          "name": "Blog notlarım — Hilal Esma Gündoğdu",
+          "url": "blog.html",
+          "inLanguage": [
+            "tr",
+            "en"
+          ],
+          "author": {
+            "@id": "index.html#person"
+          },
+          "blogPost": [
+            {
+              "@type": "BlogPosting",
+              "headline": "Adobe Photoshop'ta Layer Comps ve 960 Grid Sistemiyle Web Arayüzü Tasarlamak",
+              "alternativeHeadline": "Designing a Web Interface in Adobe Photoshop with Layer Comps and the 960 Grid System",
+              "url": "blog.html#layer-comps-960-grid",
+              "datePublished": "2026-11-25",
+              "dateModified": "2026-11-25",
+              "author": {
+                "@id": "index.html#person"
+              },
+              "image": "assets/projects/grafik-animasyon/web-arayuzu/sonrasi.jpg",
+              "keywords": "Photoshop, 960 Grid, Layer Comps, UI/UX",
+              "articleSection": "Web Tasarım & UI",
+              "inLanguage": [
+                "tr",
+                "en"
+              ]
+            },
+            {
+              "@type": "BlogPosting",
+              "headline": "Karakalem Çizimden Dijital İllüstrasyona: Photoshop Katman Modları ve Burn/Dodge Teknikleri",
+              "alternativeHeadline": "From Pencil Drawing to Digital Illustration: Photoshop Blend Modes and Burn/Dodge Techniques",
+              "url": "blog.html#karakalemden-dijitale",
+              "datePublished": "2026-11-25",
+              "dateModified": "2026-11-25",
+              "author": {
+                "@id": "index.html#person"
+              },
+              "image": "assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi.jpg",
+              "keywords": "Photoshop, Multiply, Burn / Dodge, Dijital boyama",
+              "articleSection": "Grafik Tasarım & Dijital Boyama",
+              "inLanguage": [
+                "tr",
+                "en"
+              ]
+            },
+            {
+              "@type": "BlogPosting",
+              "headline": "Sıfırdan İki Farklı WordPress Sitesi Kurma Deneyimim: E-Ticaret ve İçerik Odaklı Yaklaşımlar",
+              "alternativeHeadline": "My Experience Building Two Different WordPress Sites from Scratch: Shop-Window and Content-Focused Approaches",
+              "url": "blog.html#iki-wordpress-sitesi",
+              "datePublished": "2026-11-25",
+              "dateModified": "2026-11-25",
+              "author": {
+                "@id": "index.html#person"
+              },
+              "image": "assets/projects/web/taki-sitesi/masaustu.jpg",
+              "keywords": "WordPress, CMS, Responsive, UI/UX",
+              "articleSection": "Web Geliştirme & CMS",
+              "inLanguage": [
+                "tr",
+                "en"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <!-- seo:end -->
+</head>
+<body class="blog-page" data-page="blog" data-mood="sand">
+  <!-- partial:header -->
+  <a class="skip-link" href="#main" data-i18n="nav.skip">İçeriğe geç</a>
+
+  <!-- Sabit atmosfer katmanları: bölüm değiştikçe biri görünür olur (js/site.js) -->
+  <div class="atmo" aria-hidden="true">
+    <div class="atmo__layer" data-for="night"></div>
+    <div class="atmo__layer" data-for="paper"></div>
+    <div class="atmo__layer" data-for="pearl"></div>
+    <div class="atmo__layer" data-for="blush"></div>
+    <div class="atmo__layer" data-for="sand"></div>
+    <div class="atmo__layer" data-for="dusk"></div>
+  </div>
+
+  <!-- En alt arka plan katmanı (z-index:-2): çok yavaş çapraz süzülen üç bulanık ışık küresi
+       (lavanta, koyu mor, şampanya). Çiçek ve yıldızların arkasında kalır (css/ambient.css). -->
+  <div class="ambient-orbs" aria-hidden="true">
+    <span class="ambient-orb ambient-orb--lavender"></span>
+    <span class="ambient-orb ambient-orb--violet"></span>
+    <span class="ambient-orb ambient-orb--champagne"></span>
+  </div>
+
+  <!-- Açık bölümlerin arka plan derinliği (tüm sayfalar): sıcak mesh gradient, mimari ızgara,
+       kâğıt greni, kaydırdıkça süzülen silik çiçek/yıldız motifleri ve imleci izleyen sıcak ışık.
+       Hepsi z-index:-1 ve pointer-events:none; metinlerin yerleşimine dokunmaz (css/ambient.css, js/ambient.js). -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__mesh"></div>
+    <div class="ambient__grid"></div>
+    <div class="ambient__grain"></div>
+    <div class="ambient__motifs" data-ambient-motifs></div>
+    <!-- her 10 sn'de bir sağ üstten sol alta geçen ince altın/beyaz kayan yıldız -->
+    <span class="ambient__shooting"></span>
+    <div class="ambient__glow" data-ambient-glow></div>
+  </div>
+
+  <!-- Icon sprite: Lucide icons (ISC License, lucide.dev) + hand-drawn site icons. Generated by scripts/build-icons.mjs -->
+  <svg class="sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+    <symbol id="i-external-link" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
+    <symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-folder-open" viewBox="0 0 24 24"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="3" width="5" height="18" rx="1"/><rect x="5" y="3" width="5" height="18" rx="1"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></symbol>
+    <symbol id="i-guitar" viewBox="0 0 24 24"><path d="m11.9 12.1 4.514-4.514"/><path d="M20.1 2.3a1 1 0 0 0-1.4 0l-1.114 1.114A2 2 0 0 0 17 4.828v1.344a2 2 0 0 1-.586 1.414A2 2 0 0 1 17.828 7h1.344a2 2 0 0 0 1.414-.586L21.7 5.3a1 1 0 0 0 0-1.4z"/><path d="m6 16 2 2"/><path d="M8.23 9.85A3 3 0 0 1 11 8a5 5 0 0 1 5 5 3 3 0 0 1-1.85 2.77l-.92.38A2 2 0 0 0 12 18a4 4 0 0 1-4 4 6 6 0 0 1-6-6 4 4 0 0 1 4-4 2 2 0 0 0 1.85-1.23z"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></symbol>
+    <symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
+    <symbol id="i-motorbike" viewBox="0 0 24 24"><path d="m18 14-1-3"/><path d="m3 9 6 2a2 2 0 0 1 2-2h2a2 2 0 0 1 1.99 1.81"/><path d="M8 17h3a1 1 0 0 0 1-1 6 6 0 0 1 6-6 1 1 0 0 0 1-1v-.75A5 5 0 0 0 17 5"/><circle cx="19" cy="17" r="3"/><circle cx="5" cy="17" r="3"/></symbol>
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></symbol>
+    <symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol>
+    <symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></symbol>
+    <symbol id="i-list-todo" viewBox="0 0 24 24"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><rect x="3" y="4" width="6" height="6" rx="1"/></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-zoom-in" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></symbol>
+    <symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></symbol>
+    <symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol>
+    <symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/><path d="M7 4h.01"/><path d="M12 4h.01"/><path d="M17 4h.01"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.8 2.9 5.8 3.2 5.8 3.2a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.4 9.6c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+    <symbol id="i-yarn" viewBox="0 0 24 24"><circle cx="11" cy="12" r="8"/><path d="M5 8c4 0 9 2 12 7M4 13c4-1 9 0 13 5M8 4.6c2 3 3 8 2 15M14 4.5c-2 4-2 10 1 14.8"/><path d="M18.5 15.5c2 1 2.5 3 1.5 4.5"/></symbol>
+    <symbol id="i-hockey" viewBox="0 0 24 24"><path d="M14 3 9 15.5c-.5 1.3-1.6 2.1-3 2.1H3.5"/><path d="M3.5 17.6v3h3c2 0 3.7-1.1 4.4-3L16.5 4"/><circle cx="17.5" cy="18.5" r="2"/></symbol>
+    <symbol id="i-medal" viewBox="0 0 24 24"><path d="M8 2.5 10.5 9M16 2.5 13.5 9M6 2.5h4M14 2.5h4"/><circle cx="12" cy="15" r="6"/><path d="m12 12 .9 1.9 2.1.3-1.5 1.5.4 2.1L12 16.8l-1.9 1 .4-2.1L9 14.2l2.1-.3Z"/></symbol>
+  </svg>
+
+  <!-- Üst menü (v4): solda monogram + isim; sağda bağlantılar, dil seçici ve "İletişime geç" -->
+  <header class="site-nav" data-nav data-tone="dark">
+    <div class="site-nav__bar">
+      <!-- Erişilebilir ad, görünen metinle aynı başlar (WCAG 2.5.3): "HE Hilal Esma Gündoğdu — ana sayfa" -->
+      <a class="nav-logo" href="index.html" data-nav-page="home">
+        <span class="monogram">HE</span>
+        <span class="nav-logo__name">Hilal Esma Gündoğdu</span>
+        <span class="sr-only"><span data-lang="tr"> — ana sayfa</span><span data-lang="en"> — home page</span></span>
+      </a>
+
+      <div class="nav-right">
+        <nav aria-label="Ana menü" data-i18n-attr="aria-label:nav.primary">
+          <ul class="nav-list">
+            <li><a class="nav-link" data-nav-page="about" href="hakkimda.html" data-i18n="nav.about">Hakkımda</a></li>
+            <li><a class="nav-link" data-nav-page="projects" href="projeler.html" data-i18n="nav.projects">Projeler</a></li>
+            <li><a class="nav-link" data-nav-page="blog" aria-current="page" href="blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a class="nav-link" data-nav-page="gallery" href="galeri.html" data-i18n="nav.gallery">Galeri</a></li>
+            <li><a class="nav-link" data-nav-page="contact" href="iletisim.html" data-i18n="nav.contact">İletişim</a></li>
+          </ul>
+        </nav>
+
+        <div class="lang-pill" role="group" aria-label="Dil" data-i18n-attr="aria-label:nav.language">
+          <button type="button" data-set-lang="tr" aria-pressed="true" lang="tr"><span aria-hidden="true">TR</span><span class="sr-only">Türkçe</span></button>
+          <button type="button" data-set-lang="en" aria-pressed="false" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></button>
+          <span class="lang-pill__thumb" aria-hidden="true"></span>
+        </div>
+
+        <a class="nav-cta" href="iletisim.html" data-i18n="nav.cta">İletişime geç</a>
+
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open
+          aria-label="Menüyü aç" data-i18n-attr="aria-label:nav.openMenu">
+          <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Sağ üstte sabit durum etiketi -->
+    <p class="open-badge">
+      <span class="open-badge__dot" aria-hidden="true"></span>
+      <span data-i18n="nav.open">Staj ve projelere açık</span>
+    </p>
+
+    <!-- Mobil tam ekran menü -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menü" data-i18n-attr="aria-label:nav.menu" hidden data-menu>
+      <div class="mobile-menu__panel glass glass--strong">
+        <div class="mobile-menu__head">
+          <span class="monogram" aria-hidden="true">HE</span>
+          <button class="menu-btn" type="button" data-menu-close aria-label="Menüyü kapat" data-i18n-attr="aria-label:nav.closeMenu">
+            <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+          </button>
+        </div>
+        <ul class="mobile-menu__list">
+          <li style="--i:0"><a data-nav-page="home" href="index.html"><span class="mobile-menu__num">01</span><span data-i18n="nav.home">Ana Sayfa</span></a></li>
+          <li style="--i:1"><a data-nav-page="about" href="hakkimda.html"><span class="mobile-menu__num">02</span><span data-i18n="nav.about">Hakkımda</span></a></li>
+          <li style="--i:2"><a data-nav-page="projects" href="projeler.html"><span class="mobile-menu__num">03</span><span data-i18n="nav.projects">Projeler</span></a></li>
+          <li style="--i:3"><a data-nav-page="blog" aria-current="page" href="blog.html"><span class="mobile-menu__num">04</span><span data-i18n="nav.blog">Blog</span></a></li>
+          <li style="--i:4"><a data-nav-page="gallery" href="galeri.html"><span class="mobile-menu__num">05</span><span data-i18n="nav.gallery">Galeri</span></a></li>
+          <li style="--i:5"><a data-nav-page="contact" href="iletisim.html"><span class="mobile-menu__num">06</span><span data-i18n="nav.contact">İletişim</span></a></li>
+        </ul>
+        <div class="mobile-menu__foot">
+          <p class="open-badge open-badge--inline">
+            <span class="open-badge__dot" aria-hidden="true"></span>
+            <span data-i18n="nav.open">Staj ve projelere açık</span>
+          </p>
+          <a class="nav-cta" href="iletisim.html" data-i18n="nav.cta">İletişime geç</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- /partial:header -->
+
+  <div class="dunes" aria-hidden="true"></div>
+
+  <main id="main" tabindex="-1">
+    <!-- =====================================================================
+         BAŞLIK: "Blog" + kısa giriş
+         ===================================================================== -->
+    <section class="page-head blog-head" aria-labelledby="blog-title">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal><span data-lang="tr">Blog · Bölüm V</span><span data-lang="en">Blog · Chapter V</span></p>
+        <h1 id="blog-title" class="page-head__title">
+          <span data-lang="tr">Blog <span class="script">notlarım</span></span>
+          <span data-lang="en">Blog <span class="script">notes</span></span>
+        </h1>
+        <p class="lede" data-reveal>
+          <span data-lang="tr">Burada IT ve tasarım üzerine çalışırken izlediğim süreçleri adım adım yazıyorum: Photoshop'ta bir arayüzü ızgara üzerine kurmaktan karakalem bir çizimi dijitalde renklendirmeye, sıfırdan WordPress siteleri hazırlamaya kadar. Her yazıda kendi ekran görüntülerim ve yolda öğrendiğim küçük notlar var.</span>
+          <span data-lang="en">This is where I write up, step by step, the processes I follow while working on IT and design: from building an interface on a grid in Photoshop to coloring a pencil drawing digitally and setting up WordPress sites from scratch. Each post comes with my own screenshots and the small lessons I picked up along the way.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         YAZI LİSTESİ: kategori hapları (filtre), kartlar, dizin
+         Kartlar aşağıdaki yazılara (#kimlik) kaydırır; filtre kartları ve yazıları birlikte süzer (js/blog.js).
+         ===================================================================== -->
+    <div class="wrap journal journal--list" id="yazilar">
+      <div class="pills" role="group" aria-label="Kategoriler" data-i18n-attr="aria-label:blog.tags" data-reveal>
+        <button type="button" class="pill glass glass--smoke" data-tag="" aria-pressed="true">
+          <span class="pill__icon"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg></span><span data-lang="tr">Tümü</span><span data-lang="en">All</span>
+        </button>
+        <button type="button" class="pill glass glass--smoke" data-tag="ui" aria-pressed="false">
+          <span class="pill__icon"><svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg></span><span data-lang="tr">Web Tasarım &amp; UI</span><span data-lang="en">Web Design &amp; UI</span>
+        </button>
+        <button type="button" class="pill glass glass--smoke" data-tag="grafik" aria-pressed="false">
+          <span class="pill__icon"><svg class="icon" aria-hidden="true"><use href="#i-palette"/></svg></span><span data-lang="tr">Grafik Tasarım</span><span data-lang="en">Graphic Design</span>
+        </button>
+        <button type="button" class="pill glass glass--smoke" data-tag="web" aria-pressed="false">
+          <span class="pill__icon"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg></span><span data-lang="tr">Web Geliştirme &amp; CMS</span><span data-lang="en">Web Development &amp; CMS</span>
+        </button>
+      </div>
+
+      <ul class="jcards">
+        <li data-tags="ui" data-reveal>
+          <article class="jcard glass glass--smoke">
+            <div class="jcard__cover">
+              <picture>
+                <source srcset="assets/projects/grafik-animasyon/web-arayuzu/sonrasi.webp" type="image/webp">
+                <img src="assets/projects/grafik-animasyon/web-arayuzu/sonrasi.jpg" alt="" width="510" height="1600" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <p class="jcard__cat"><span data-lang="tr">Web Tasarım &amp; UI</span><span data-lang="en">Web Design &amp; UI</span></p>
+            <h2><a href="#layer-comps-960-grid"><span data-lang="tr">Photoshop'ta Layer Comps ve 960 Grid ile Web Arayüzü</span><span data-lang="en">A Web Interface in Photoshop with Layer Comps and the 960 Grid</span></a></h2>
+            <p class="meta"><time datetime="2026-11-25">25.11.2026</time><span aria-hidden="true">·</span><span><span data-lang="tr">4 dk</span><span data-lang="en">4 min</span></span></p>
+          </article>
+        </li>
+        <li data-tags="grafik" data-reveal>
+          <article class="jcard glass glass--smoke">
+            <div class="jcard__cover">
+              <picture>
+                <source srcset="assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi.webp" type="image/webp">
+                <img src="assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <p class="jcard__cat"><span data-lang="tr">Grafik Tasarım &amp; Dijital Boyama</span><span data-lang="en">Graphic Design &amp; Digital Painting</span></p>
+            <h2><a href="#karakalemden-dijitale"><span data-lang="tr">Karakalemden Dijital İllüstrasyona: Multiply, Burn ve Dodge</span><span data-lang="en">From Pencil to Digital Illustration: Multiply, Burn and Dodge</span></a></h2>
+            <p class="meta"><time datetime="2026-11-25">25.11.2026</time><span aria-hidden="true">·</span><span><span data-lang="tr">4 dk</span><span data-lang="en">4 min</span></span></p>
+          </article>
+        </li>
+        <li data-tags="web" data-reveal>
+          <article class="jcard glass glass--smoke">
+            <div class="jcard__cover">
+              <picture>
+                <source srcset="assets/projects/web/taki-sitesi/masaustu.webp" type="image/webp">
+                <img src="assets/projects/web/taki-sitesi/masaustu.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <p class="jcard__cat"><span data-lang="tr">Web Geliştirme &amp; CMS</span><span data-lang="en">Web Development &amp; CMS</span></p>
+            <h2><a href="#iki-wordpress-sitesi"><span data-lang="tr">Sıfırdan İki WordPress Sitesi: E-Ticaret ve İçerik</span><span data-lang="en">Two WordPress Sites from Scratch: Shop Window and Content</span></a></h2>
+            <p class="meta"><time datetime="2026-11-25">25.11.2026</time><span aria-hidden="true">·</span><span><span data-lang="tr">5 dk</span><span data-lang="en">5 min</span></span></p>
+          </article>
+        </li>
+      </ul>
+
+      <aside class="jindex glass glass--smoke" aria-labelledby="index-title" data-reveal>
+        <h2 id="index-title"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg><span data-lang="tr">Dizin</span><span data-lang="en">Index</span></h2>
+        <ol>
+          <li><a href="#layer-comps-960-grid"><span><span data-lang="tr">Layer Comps ve 960 Grid</span><span data-lang="en">Layer Comps and the 960 Grid</span></span><time datetime="2026-11-25">25.11.2026</time></a><span class="jindex__bar" aria-hidden="true"><span class="w60"></span></span></li>
+          <li><a href="#karakalemden-dijitale"><span><span data-lang="tr">Karakalemden dijitale</span><span data-lang="en">From pencil to digital</span></span><time datetime="2026-11-25">25.11.2026</time></a><span class="jindex__bar" aria-hidden="true"><span class="w60"></span></span></li>
+          <li><a href="#iki-wordpress-sitesi"><span><span data-lang="tr">İki WordPress sitesi</span><span data-lang="en">Two WordPress sites</span></span><time datetime="2026-11-25">25.11.2026</time></a><span class="jindex__bar" aria-hidden="true"><span class="w75"></span></span></li>        </ol>
+      </aside>
+    </div>
+
+    <!-- =====================================================================
+         YAZILAR (akıcı makale düzeni). Her yazı: başlık + okuma alanı (düz, yüksek kontrastlı)
+         + altta cam rozetler (okuma süresi, tarih, araçlar). Metinler data-lang="tr|en" bloklarında.
+         Görseller assets/projects/ içinden; 960 grid adımı CSS ile çizilmiş bir görselleştirmedir (.grid-viz).
+         ===================================================================== -->
+    <div class="posts-flow">
+
+      <!-- ============ YAZI 1 ============ -->
+      <article id="layer-comps-960-grid" class="post-entry" data-tags="ui" aria-labelledby="p1-title">
+        <div class="wrap post-entry__wrap">
+          <header class="post-entry__head">
+            <p class="post-entry__cat"><span class="post-entry__no">01</span><span data-lang="tr">Web Tasarım &amp; UI</span><span data-lang="en">Web Design &amp; UI</span></p>
+            <h2 id="p1-title" class="post-entry__title">
+              <span data-lang="tr">Adobe Photoshop'ta Layer Comps ve 960 Grid Sistemiyle Web Arayüzü Tasarlamak</span>
+              <span data-lang="en">Designing a Web Interface in Adobe Photoshop with Layer Comps and the 960 Grid System</span>
+            </h2>
+            <p class="post-entry__lede">
+              <span data-lang="tr">Grafik Animasyon I dersindeki altıncı projemde Wome Deluxe'ün ana sayfasını 960 grid sistemi üzerinde yeniden tasarladım ve tek bir PSD dosyasında üç farklı sayfa düzeni hazırladım. Bu yazıda izlediğim adımları anlatıyorum.</span>
+              <span data-lang="en">In the sixth project of my Graphic Animation I course, I redesigned the Wome Deluxe home page on the 960 grid system and prepared three different page layouts in a single PSD file. In this post I walk through the steps I followed.</span>
+            </p>
+          </header>
+
+          <div class="post-entry__sheet prose">
+            <div data-lang="tr">
+              <h3>1. Önce eskiz: ne nereye gelecek?</h3>
+              <p>Photoshop'u açmadan önce ana sayfayı kaba bir tel kafes eskizle planladım. Hangi bölümlerin olacağını ve hangi sırayla dizileceğini önceden belirlemek, tasarıma geçtiğimde "ne çizeceğim?" yerine "bunu nasıl hizalarım?" sorusuna odaklanmamı sağladı.</p>
+              <figure class="post-fig post-fig--narrow">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/eskiz.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/eskiz.jpg" alt="Wome Deluxe ana sayfasının tel kafes eskizi" width="1050" height="1600" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Adım 1 · Ana sayfanın tel kafes eskizi: bölümler ve sıraları tasarımdan önce belirlendi.</figcaption>
+              </figure>
+
+              <h3>2. 960 grid: hizalamanın görünmez iskeleti</h3>
+              <p>960 grid, 960 piksel genişliğinde, eşit sütunlara ve aralarındaki sabit boşluklara bölünmüş bir yerleşim sistemidir. Ben 12 sütunlu şablonu kullandım: her sütun 60 px, aralıklar 20 px. Logo, menü, görseller ve metin bloklarını bu sütunların kenarlarına oturttuğumda sayfa kendiliğinden düzenli görünmeye başladı.</p>
+              <ul>
+                <li><strong>Hizalama:</strong> başlıklar ve kartlar aynı dikey çizgilerden başlıyor; göz sayfada rahatça ilerliyor.</li>
+                <li><strong>Ritim:</strong> sütun aralıkları her yerde aynı olduğu için boşluklar tekrar eden, sakin bir düzen oluşturuyor.</li>
+                <li><strong>Karar hızı:</strong> bir öğenin genişliğini "kaç sütun?" diye düşünmek, rastgele piksel denemekten çok daha hızlı.</li>
+              </ul>
+              <figure class="post-fig grid-viz">
+                <div class="grid-viz__frame">
+                  <picture>
+                    <source srcset="assets/projects/grafik-animasyon/web-arayuzu/sonrasi.webp" type="image/webp">
+                    <img src="assets/projects/grafik-animasyon/web-arayuzu/sonrasi.jpg" alt="Wome Deluxe ana sayfa tasarımının üst kısmı, üzerinde 960 grid'in 12 sütunu" width="510" height="1600" loading="lazy" decoding="async">
+                  </picture>
+                  <span class="grid-viz__cols" aria-hidden="true"></span>
+                </div>
+                <figcaption>Adım 2 · Görselleştirme: tasarımın üst kısmı ve üzerine işlenmiş 960 grid'in 12 sütunu (60 px sütun, 20 px aralık). İçerik, 1020 px'lik belgenin ortasındaki 960 px'lik alana oturuyor.</figcaption>
+              </figure>
+
+              <h3>3. Katman gruplama disiplini</h3>
+              <p>Bir ana sayfa tasarımı kısa sürede onlarca katmana ulaşıyor. Kaybolmamak için her bölümü kendi grubunda topladım ve grupları sayfadaki sıralarıyla aynı düzende tuttum. Böylece bir kartı ya da bir alanı taşımak istediğimde tek tek katman aramak yerine ilgili grubu seçmem yetti.</p>
+              <figure class="post-fig post-fig--duo">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/katman-yapisi-1.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/katman-yapisi-1.jpg" alt="Photoshop katmanlar paneli: ana gruplar" width="415" height="581" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/katman-yapisi-2.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/katman-yapisi-2.jpg" alt="Photoshop katmanlar paneli: içerik kartları grubu" width="412" height="577" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Adım 3 · Katman yapısı: solda ana gruplar, sağda içerik kartlarının grubu.</figcaption>
+              </figure>
+
+              <h3>4. Layer Comps: tek PSD'de üç düzen</h3>
+              <p><strong>Layer Comps</strong> (Katman Kompozisyonları), katmanların o anki görünürlüğünü, konumunu ve görünüm (katman stili) ayarlarını bir "anlık durum" olarak kaydeder. <em>Window › Layer Comps</em> panelinden yeni bir comp oluşturup aralarında tek tıkla geçiş yapılabilir.</p>
+              <p>Ben bu panelde üç düzen hazırladım: özgün yerleşim, rezervasyon odaklı düzen ve aktivite odaklı düzen. Üç ayrı dosya yerine tek PSD'de çalışmanın en büyük kazancı şuydu: ortak bir öğede yaptığım düzeltme üç düzene birden yansıdı.</p>
+              <figure class="post-fig post-fig--small">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/layer-comps.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/layer-comps.jpg" alt="Photoshop Layer Comps paneli: üç kayıtlı düzen" width="335" height="310" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Adım 4 · Layer Comps paneli: üç düzen tek dosyada kayıtlı.</figcaption>
+              </figure>
+              <figure class="post-fig post-fig--trio">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/duzen-1.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/duzen-1.jpg" alt="Düzen 1: özgün yerleşim" width="510" height="1600" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/duzen-2.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/duzen-2.jpg" alt="Düzen 2: rezervasyon odaklı" width="510" height="1600" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/duzen-3.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/duzen-3.jpg" alt="Düzen 3: aktivite odaklı" width="583" height="1600" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Üç masaüstü varyasyonu: özgün yerleşim, rezervasyon odaklı ve aktivite odaklı düzen.</figcaption>
+              </figure>
+
+              <h3>5. Aklımda kalanlar</h3>
+              <p>Izgara, tasarımın "neden düzenli göründüğü" sorusuna somut bir cevap veriyor; Layer Comps ise aynı tasarımın farklı fikirlerini dosya kalabalığı olmadan denemeyi sağlıyor. İkisini birlikte kullanmak, düzen değiştirirken bile hizalamanın bozulmamasını sağladı.</p>
+            </div>
+
+            <div data-lang="en">
+              <h3>1. Sketch first: what goes where?</h3>
+              <p>Before opening Photoshop, I planned the home page with a rough wireframe sketch. Deciding which sections the page needs and in what order meant that, once I started designing, I could focus on "how do I align this?" instead of "what do I draw?".</p>
+              <figure class="post-fig post-fig--narrow">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/eskiz.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/eskiz.jpg" alt="Wireframe sketch of the Wome Deluxe home page" width="1050" height="1600" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Step 1 · Wireframe sketch of the home page: sections and their order were set before designing.</figcaption>
+              </figure>
+
+              <h3>2. The 960 grid: the invisible skeleton of alignment</h3>
+              <p>The 960 grid is a layout system 960 pixels wide, divided into equal columns with fixed gutters between them. I used the 12-column template: 60 px columns with 20 px gutters. Once I snapped the logo, menu, images and text blocks to the edges of those columns, the page started to look orderly on its own.</p>
+              <ul>
+                <li><strong>Alignment:</strong> headings and cards start from the same vertical lines, so the eye moves through the page easily.</li>
+                <li><strong>Rhythm:</strong> because the gutters are the same everywhere, the spacing forms a calm, repeating pattern.</li>
+                <li><strong>Faster decisions:</strong> thinking "how many columns?" for an element's width is much quicker than trying random pixel values.</li>
+              </ul>
+              <figure class="post-fig grid-viz">
+                <div class="grid-viz__frame">
+                  <picture>
+                    <source srcset="assets/projects/grafik-animasyon/web-arayuzu/sonrasi.webp" type="image/webp">
+                    <img src="assets/projects/grafik-animasyon/web-arayuzu/sonrasi.jpg" alt="Top of the Wome Deluxe home page design with the 12 columns of the 960 grid on top" width="510" height="1600" loading="lazy" decoding="async">
+                  </picture>
+                  <span class="grid-viz__cols" aria-hidden="true"></span>
+                </div>
+                <figcaption>Step 2 · Visualization: the top of the design with the 12 columns of the 960 grid drawn over it (60 px columns, 20 px gutters). The content sits in the 960 px area centered in the 1020 px document.</figcaption>
+              </figure>
+
+              <h3>3. The discipline of grouping layers</h3>
+              <p>A home page design reaches dozens of layers very quickly. To avoid getting lost, I gathered each section into its own group and kept the groups in the same order as on the page. That way, when I wanted to move a card or an area, selecting its group was enough instead of hunting for individual layers.</p>
+              <figure class="post-fig post-fig--duo">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/katman-yapisi-1.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/katman-yapisi-1.jpg" alt="Photoshop Layers panel: main groups" width="415" height="581" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/katman-yapisi-2.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/katman-yapisi-2.jpg" alt="Photoshop Layers panel: content cards group" width="412" height="577" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Step 3 · Layer structure: main groups on the left, the content cards group on the right.</figcaption>
+              </figure>
+
+              <h3>4. Layer Comps: three layouts in one PSD</h3>
+              <p><strong>Layer Comps</strong> save the current visibility, position and appearance (layer style) settings of layers as a "snapshot". From the <em>Window › Layer Comps</em> panel you can create a new comp and switch between comps with a single click.</p>
+              <p>I prepared three layouts in this panel: the original arrangement, a reservation-focused layout and an activity-focused layout. The biggest gain of working in one PSD instead of three separate files was this: a fix I made to a shared element showed up in all three layouts at once.</p>
+              <figure class="post-fig post-fig--small">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/layer-comps.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/layer-comps.jpg" alt="Photoshop Layer Comps panel: three saved layouts" width="335" height="310" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Step 4 · The Layer Comps panel: three layouts saved in one file.</figcaption>
+              </figure>
+              <figure class="post-fig post-fig--trio">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/duzen-1.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/duzen-1.jpg" alt="Layout 1: original arrangement" width="510" height="1600" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/duzen-2.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/duzen-2.jpg" alt="Layout 2: reservation-focused" width="510" height="1600" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/web-arayuzu/duzen-3.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/web-arayuzu/duzen-3.jpg" alt="Layout 3: activity-focused" width="583" height="1600" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Three desktop variations: original, reservation-focused and activity-focused layout.</figcaption>
+              </figure>
+
+              <h3>5. What stayed with me</h3>
+              <p>The grid gives a concrete answer to "why does this design look orderly?", while Layer Comps let me try different ideas for the same design without a pile of files. Using them together kept the alignment intact even while switching layouts.</p>
+            </div>
+          </div>
+
+          <footer class="post-entry__foot">
+            <ul class="badges" aria-label="Yazı bilgileri" data-i18n-attr="aria-label:blog.postInfo">
+              <li class="badge badge--info"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span data-lang="tr">4 dk okuma</span><span data-lang="en">4 min read</span></li>
+              <li class="badge badge--info"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><time datetime="2026-11-25"><span data-lang="tr">25 Kasım 2026</span><span data-lang="en">25 November 2026</span></time></li>
+              <li class="badge">Photoshop</li>
+              <li class="badge">960 Grid</li>
+              <li class="badge">Layer Comps</li>
+              <li class="badge">UI/UX</li>
+            </ul>
+            <p class="post-entry__links">
+              <a class="ul-link" href="projeler.html#web-arayuzu"><span data-lang="tr">Projeyi klasörde incele</span><span data-lang="en">View the project folder</span></a>
+              <a class="ul-link" href="#yazilar"><span data-lang="tr">Yazı listesine dön</span><span data-lang="en">Back to the list</span></a>
+            </p>
+          </footer>
+        </div>
+      </article>
+
+      <!-- ============ YAZI 2 ============ -->
+      <article id="karakalemden-dijitale" class="post-entry" data-tags="grafik" aria-labelledby="p2-title">
+        <div class="wrap post-entry__wrap">
+          <header class="post-entry__head">
+            <p class="post-entry__cat"><span class="post-entry__no">02</span><span data-lang="tr">Grafik Tasarım &amp; Dijital Boyama</span><span data-lang="en">Graphic Design &amp; Digital Painting</span></p>
+            <h2 id="p2-title" class="post-entry__title">
+              <span data-lang="tr">Karakalem Çizimden Dijital İllüstrasyona: Photoshop Katman Modları ve Burn/Dodge Teknikleri</span>
+              <span data-lang="en">From Pencil Drawing to Digital Illustration: Photoshop Blend Modes and Burn/Dodge Techniques</span>
+            </h2>
+            <p class="post-entry__lede">
+              <span data-lang="tr">Grafik Animasyon I dersindeki üçüncü projemde karakalem bir kurbağa çizimini Photoshop'ta renklendirdim. Amacım çizginin dokusunu kaybetmeden ona renk ve derinlik kazandırmaktı.</span>
+              <span data-lang="en">In the third project of my Graphic Animation I course, I colored a pencil drawing of a frog in Photoshop. My goal was to give it color and depth without losing the texture of the line.</span>
+            </p>
+          </header>
+
+          <div class="post-entry__sheet prose">
+            <div data-lang="tr">
+              <h3>1. Başlangıç: ham karakalem çizim</h3>
+              <p>Her şey Photoshop'ta açtığım ham karakalem çizimle başladı. Bu aşamada çizimin üzerine doğrudan boya sürmek, kalemin tonlarını ve kâğıdın dokusunu kapatırdı. Bu yüzden çizimi olduğu gibi bırakıp rengi ayrı katmanlarda vermeye karar verdim.</p>
+              <figure class="post-fig">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/karakalem-renklendirme/oncesi-katmanlar.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/karakalem-renklendirme/oncesi-katmanlar.jpg" alt="Photoshop'ta renklendirme öncesi karakalem kurbağa çizimi" width="1600" height="845" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Adım 1 · Renklendirme öncesi: ham karakalem çizim Photoshop'ta.</figcaption>
+              </figure>
+
+              <h3>2. Multiply: çizgiyi koruyan katman modu</h3>
+              <p><strong>Multiply</strong> (Çoğalt) karışım modu, üst katmanın renklerini alttakilerle çarpar. Sonuç hiçbir zaman daha açık olmaz: beyaz alanlar görünmez hâle gelir, koyu kalem çizgileri ise rengin üzerinde olduğu gibi kalır. Bu sayede renk ile çizim birbirini silmeden birleşti; karakalemin gölgeleri ve dokusu rengin içinden görünmeye devam etti.</p>
+              <div class="callout"><strong>Kısaca:</strong> Multiply ile beyaz "kaybolur", siyah "kalır". Karakalem renklendirmede çizgi dokusunu korumanın en sade yolu budur.</div>
+
+              <h3>3. Her renk bölgesi ayrı katmanda</h3>
+              <p>Kurbağanın her renk bölgesini ayrı bir katmanda boyadım. Bu, en çok revizyon sırasında işe yaradı: bir tonu beğenmediğimde yalnız o katmanı seçip değiştirdim, diğer bölgelere hiç dokunmadım. Taşan bir rengi düzeltmek de çizimi bozma korkusu olmadan yapılabiliyordu.</p>
+              <figure class="post-fig">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi-katmanlar.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi-katmanlar.jpg" alt="Photoshop'ta ayrı renk katmanlarıyla renklendirilmiş kurbağa çizimi ve katmanlar paneli" width="1600" height="848" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Adım 3 · Renk bölgeleri ayrı katmanlarda: her biri tek başına düzenlenebiliyor.</figcaption>
+              </figure>
+
+              <h3>4. Burn ve Dodge ile ışık ve gölge</h3>
+              <p>Düz renkler çizime renk verir ama hacim vermez. Derinlik için iki aracı birlikte kullandım: <strong>Burn</strong> (Yakma) dokunduğu yeri koyulaştırır, <strong>Dodge</strong> (Soldurma) ise açar. Gölge düşen kısımları Burn ile, ışığın geldiği yerleri Dodge ile çalıştım. Araç seçeneklerindeki <em>Range</em> (gölgeler, orta tonlar, vurgular) ve <em>Exposure</em> (etki gücü) ayarları, etkinin nereye ve ne kadar uygulanacağını belirliyor.</p>
+              <p>Bu adımda en önemli şey dengeydi: fazla Burn rengi kirletiyor, fazla Dodge ise rengi soldurup düzleştiriyor. İkisini ölçülü kullanmaya özen gösterdim.</p>
+
+              <h3>5. Sonuç</h3>
+              <figure class="post-fig post-fig--narrow">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi.jpg" alt="Renklendirilmiş kurbağa illüstrasyonunun son hâli" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Final · Karakalem dokusu korunmuş, ışık ve gölgesi verilmiş dijital illüstrasyon.</figcaption>
+              </figure>
+              <p>Bu çalışmadan aklımda kalan şu: dijital boyamada önce düzeni (katmanlar ve modlar) kurmak, sonra boyamak gerekiyor. Çizgi Multiply sayesinde korunurken, ayrı katmanlar ve ölçülü Burn/Dodge, düzeltmeyi kolay ve sonucu derin yaptı.</p>
+            </div>
+
+            <div data-lang="en">
+              <h3>1. The starting point: a raw pencil drawing</h3>
+              <p>It all started with the raw pencil drawing I opened in Photoshop. Painting directly over the drawing at this stage would have covered the pencil tones and the paper texture, so I decided to leave the drawing as it was and add color on separate layers.</p>
+              <figure class="post-fig">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/karakalem-renklendirme/oncesi-katmanlar.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/karakalem-renklendirme/oncesi-katmanlar.jpg" alt="The pencil drawing of a frog in Photoshop before coloring" width="1600" height="845" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Step 1 · Before coloring: the raw pencil drawing in Photoshop.</figcaption>
+              </figure>
+
+              <h3>2. Multiply: the blend mode that protects the line</h3>
+              <p>The <strong>Multiply</strong> blend mode multiplies the colors of the upper layer with the ones below. The result is never lighter: white areas become invisible, while dark pencil lines stay just as they are on top of the color. This let color and drawing combine without erasing each other; the shading and texture of the pencil kept showing through the color.</p>
+              <div class="callout"><strong>In short:</strong> with Multiply, white "disappears" and black "stays". It is the simplest way to keep the line texture when coloring a pencil drawing.</div>
+
+              <h3>3. Each color area on its own layer</h3>
+              <p>I painted each color area of the frog on a separate layer. This paid off most during revisions: when I didn't like a tone, I selected only that layer and changed it without touching the other areas. Fixing a color that went over the edge could also be done without the fear of ruining the drawing.</p>
+              <figure class="post-fig">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi-katmanlar.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi-katmanlar.jpg" alt="The frog drawing colored on separate layers in Photoshop, with the Layers panel" width="1600" height="848" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Step 3 · Color areas on separate layers: each one can be edited on its own.</figcaption>
+              </figure>
+
+              <h3>4. Light and shadow with Burn and Dodge</h3>
+              <p>Flat colors add color to a drawing but not volume. For depth I used two tools together: <strong>Burn</strong> darkens the area it touches and <strong>Dodge</strong> lightens it. I worked the shaded parts with Burn and the parts facing the light with Dodge. The <em>Range</em> (shadows, midtones, highlights) and <em>Exposure</em> (strength) settings in the tool options decide where and how strongly the effect is applied.</p>
+              <p>Balance mattered most in this step: too much Burn muddies the color, too much Dodge washes it out and flattens it. I took care to use both in moderation.</p>
+
+              <h3>5. The result</h3>
+              <figure class="post-fig post-fig--narrow">
+                <picture>
+                  <source srcset="assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi.webp" type="image/webp">
+                  <img src="assets/projects/grafik-animasyon/karakalem-renklendirme/sonrasi.jpg" alt="Final version of the colored frog illustration" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Final · A digital illustration that keeps the pencil texture, with light and shadow added.</figcaption>
+              </figure>
+              <p>What stayed with me from this work: in digital painting you set up the structure first (layers and modes) and paint second. Multiply protected the line, while separate layers and measured Burn/Dodge made revisions easy and the result deeper.</p>
+            </div>
+          </div>
+
+          <footer class="post-entry__foot">
+            <ul class="badges" aria-label="Yazı bilgileri" data-i18n-attr="aria-label:blog.postInfo">
+              <li class="badge badge--info"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span data-lang="tr">4 dk okuma</span><span data-lang="en">4 min read</span></li>
+              <li class="badge badge--info"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><time datetime="2026-11-25"><span data-lang="tr">25 Kasım 2026</span><span data-lang="en">25 November 2026</span></time></li>
+              <li class="badge">Photoshop</li>
+              <li class="badge">Multiply</li>
+              <li class="badge">Burn / Dodge</li>
+              <li class="badge"><span data-lang="tr">Dijital boyama</span><span data-lang="en">Digital painting</span></li>
+            </ul>
+            <p class="post-entry__links">
+              <a class="ul-link" href="projeler.html#karakalem-renklendirme"><span data-lang="tr">Projeyi klasörde incele</span><span data-lang="en">View the project folder</span></a>
+              <a class="ul-link" href="#yazilar"><span data-lang="tr">Yazı listesine dön</span><span data-lang="en">Back to the list</span></a>
+            </p>
+          </footer>
+        </div>
+      </article>
+
+      <!-- ============ YAZI 3 ============ -->
+      <article id="iki-wordpress-sitesi" class="post-entry" data-tags="web" aria-labelledby="p3-title">
+        <div class="wrap post-entry__wrap">
+          <header class="post-entry__head">
+            <p class="post-entry__cat"><span class="post-entry__no">03</span><span data-lang="tr">Web Geliştirme &amp; CMS</span><span data-lang="en">Web Development &amp; CMS</span></p>
+            <h2 id="p3-title" class="post-entry__title">
+              <span data-lang="tr">Sıfırdan İki Farklı WordPress Sitesi Kurma Deneyimim: E-Ticaret ve İçerik Odaklı Yaklaşımlar</span>
+              <span data-lang="en">My Experience Building Two Different WordPress Sites from Scratch: Shop-Window and Content-Focused Approaches</span>
+            </h2>
+            <p class="post-entry__lede">
+              <span data-lang="tr">Kendi el yapımı takılarım için My Jewelry World'ü, moda ve kombin içerikleri için ZaneModa'yı WordPress ile kurdum. İki site aynı platformda ama bambaşka amaçlarla çalışıyor; bu yazıda iki sürecin nerede ayrıştığını anlatıyorum.</span>
+              <span data-lang="en">I built My Jewelry World for my own handmade jewelry and ZaneModa for fashion and outfit content, both with WordPress. The two sites share a platform but serve very different purposes; in this post I explain where the two processes parted ways.</span>
+            </p>
+          </header>
+
+          <div class="post-entry__sheet prose">
+            <div data-lang="tr">
+              <h3>1. İki site, iki farklı hedef</h3>
+              <p>İşe her sitenin ziyaretçiden ne beklediğini netleştirerek başladım. <strong>My Jewelry World</strong> bir ürün vitrini: ziyaretçinin takıları görsel olarak gezmesi ve beğendiğini bulması gerekiyor. <strong>ZaneModa</strong> ise bir içerik sitesi: ziyaretçi okumaya, fikir almaya ve bir sonraki yazıya geçmeye geliyor. Bu iki hedef, sonraki bütün kararları belirledi.</p>
+              <figure class="post-fig post-fig--duo post-fig--wide">
+                <picture>
+                  <source srcset="assets/projects/web/taki-sitesi/masaustu.webp" type="image/webp">
+                  <img src="assets/projects/web/taki-sitesi/masaustu.jpg" alt="My Jewelry World ana sayfası: takı fotoğrafları ve kategoriler" width="1440" height="900" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                  <source srcset="assets/projects/web/zanemoda/masaustu.webp" type="image/webp">
+                  <img src="assets/projects/web/zanemoda/masaustu.jpg" alt="ZaneModa ana sayfası: Tarzını keşfet başlığı" width="1440" height="900" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Adım 1 · Solda ürün vitrini (My Jewelry World), sağda içerik sitesi (ZaneModa).</figcaption>
+              </figure>
+
+              <h3>2. Tema seçimi ve özelleştirme</h3>
+              <p>Tema seçerken önceliğim, içeriğin türüne uyan bir yerleşimdi: takı sitesi için görselleri büyük ve ızgara hâlinde gösterebilen, moda sitesi için yazıları ve başlıkları rahat okutan bir yapı. Ardından temayı özelleştirici üzerinden renk, yazı tipi, logo ve menü ayarlarıyla her sitenin karakterine uydurdum.</p>
+
+              <h3>3. Eklenti yönetimi</h3>
+              <p>Her eklenti siteye yeni bir özellik kazandırırken yükü ve bakım ihtiyacını da artırır. Bu yüzden eklenti eklerken "bu işlev gerçekten gerekli mi?" sorusunu sordum; ihtiyaç duymadıklarımı siteden kaldırdım ve kullandıklarımı güncel tuttum.</p>
+
+              <h3>4. Mobil uyumluluk (responsive)</h3>
+              <p>Ziyaretçilerin çoğu siteye telefondan gelebileceği için her iki siteyi de dar ekranda ayrıca kontrol ettim: menünün açılır hâle gelmesi, görsellerin ekrana sığması ve metinlerin büyütmeye gerek kalmadan okunabilmesi.</p>
+              <figure class="post-fig post-fig--phones">
+                <picture>
+                  <source srcset="assets/projects/web/taki-sitesi/mobil.webp" type="image/webp">
+                  <img src="assets/projects/web/taki-sitesi/mobil.jpg" alt="My Jewelry World sitesinin mobil görünümü" width="390" height="844" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                  <source srcset="assets/projects/web/zanemoda/mobil.webp" type="image/webp">
+                  <img src="assets/projects/web/zanemoda/mobil.jpg" alt="ZaneModa sitesinin mobil görünümü" width="390" height="844" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Adım 4 · Mobil görünüm: solda My Jewelry World, sağda ZaneModa.</figcaption>
+              </figure>
+
+              <h3>5. Ürün vitrini ile içerik blogu arasındaki arayüz farkları</h3>
+              <section class="table-wrap" tabindex="0" aria-label="Karşılaştırma tablosu (yatay kaydırılabilir)">
+                <table class="compare">
+                  <caption>İki sitenin arayüz kararları</caption>
+                  <thead><tr><th scope="col">Konu</th><th scope="col">My Jewelry World</th><th scope="col">ZaneModa</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Ana odak</th><td>Ürün görselleri</td><td>Yazılar ve rehberler</td></tr>
+                    <tr><th scope="row">Ana sayfa</th><td>Takı fotoğrafları galerisi ve kategoriler</td><td>"Tarzını keşfet" başlığı; şal stilleri, renk rehberi ve kombinler</td></tr>
+                    <tr><th scope="row">Ziyaretçinin yolu</th><td>Görerek gezinme: kategori → ürün</td><td>Okuyarak gezinme: konu → yazı → sonraki yazı</td></tr>
+                    <tr><th scope="row">Görsellerin rolü</th><td>İçeriğin kendisi</td><td>Yazıyı destekleyen anlatım</td></tr>
+                  </tbody>
+                </table>
+              </section>
+              <p>İki projeyi yan yana yapmak, aynı aracın bambaşka deneyimler üretebileceğini gösterdi: farkı platform değil, içeriğe göre verilen arayüz kararları yaratıyor.</p>
+              <p class="post-entry__visit">
+                <a class="btn" href="https://myjewelryworlld.wordpress.com/" target="_blank" rel="noopener noreferrer">My Jewelry World <span aria-hidden="true">↗</span></a>
+                <a class="btn" href="https://zanemoda.wordpress.com/" target="_blank" rel="noopener noreferrer">ZaneModa <span aria-hidden="true">↗</span></a>
+                <a class="ul-link" href="https://www.instagram.com/my.jewelry_worlld/" target="_blank" rel="noopener noreferrer">My Jewelry World · Instagram</a>
+              </p>
+            </div>
+
+            <div data-lang="en">
+              <h3>1. Two sites, two different goals</h3>
+              <p>I started by making clear what each site expects from its visitors. <strong>My Jewelry World</strong> is a shop window: visitors need to browse the jewelry visually and find what they like. <strong>ZaneModa</strong> is a content site: visitors come to read, get ideas and move on to the next post. These two goals shaped every decision that followed.</p>
+              <figure class="post-fig post-fig--duo post-fig--wide">
+                <picture>
+                  <source srcset="assets/projects/web/taki-sitesi/masaustu.webp" type="image/webp">
+                  <img src="assets/projects/web/taki-sitesi/masaustu.jpg" alt="My Jewelry World home page: jewelry photos and categories" width="1440" height="900" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                  <source srcset="assets/projects/web/zanemoda/masaustu.webp" type="image/webp">
+                  <img src="assets/projects/web/zanemoda/masaustu.jpg" alt="ZaneModa home page: Discover your style header" width="1440" height="900" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Step 1 · Left, the shop window (My Jewelry World); right, the content site (ZaneModa).</figcaption>
+              </figure>
+
+              <h3>2. Choosing and customizing the theme</h3>
+              <p>When choosing a theme, my priority was a layout that suits the type of content: for the jewelry site, one that shows images large and in a grid; for the fashion site, one that makes posts and headings easy to read. I then fitted each theme to its site's character through the customizer, with color, font, logo and menu settings.</p>
+
+              <h3>3. Managing plugins</h3>
+              <p>Every plugin adds a feature to a site, but also adds weight and maintenance. So before adding a plugin I asked "is this feature really needed?"; I removed the ones I didn't need and kept the ones I used up to date.</p>
+
+              <h3>4. Mobile-friendliness (responsive)</h3>
+              <p>Since most visitors may arrive on a phone, I checked both sites separately on a narrow screen: the menu collapsing into a toggle, images fitting the screen and text being readable without zooming.</p>
+              <figure class="post-fig post-fig--phones">
+                <picture>
+                  <source srcset="assets/projects/web/taki-sitesi/mobil.webp" type="image/webp">
+                  <img src="assets/projects/web/taki-sitesi/mobil.jpg" alt="My Jewelry World on a phone" width="390" height="844" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                  <source srcset="assets/projects/web/zanemoda/mobil.webp" type="image/webp">
+                  <img src="assets/projects/web/zanemoda/mobil.jpg" alt="ZaneModa on a phone" width="390" height="844" loading="lazy" decoding="async">
+                </picture>
+                <figcaption>Step 4 · Mobile view: My Jewelry World on the left, ZaneModa on the right.</figcaption>
+              </figure>
+
+              <h3>5. Interface differences between a shop window and a content blog</h3>
+              <section class="table-wrap" tabindex="0" aria-label="Comparison table (scrolls horizontally)">
+                <table class="compare">
+                  <caption>Interface decisions of the two sites</caption>
+                  <thead><tr><th scope="col">Topic</th><th scope="col">My Jewelry World</th><th scope="col">ZaneModa</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Main focus</th><td>Product images</td><td>Posts and guides</td></tr>
+                    <tr><th scope="row">Home page</th><td>Jewelry photo gallery and categories</td><td>"Discover your style" header; scarf styles, colour guide and outfits</td></tr>
+                    <tr><th scope="row">Visitor's path</th><td>Browsing by looking: category → product</td><td>Browsing by reading: topic → post → next post</td></tr>
+                    <tr><th scope="row">Role of images</th><td>The content itself</td><td>Support for the story</td></tr>
+                  </tbody>
+                </table>
+              </section>
+              <p>Building the two projects side by side showed me that the same tool can produce completely different experiences: the difference comes not from the platform but from interface decisions made for the content.</p>
+              <p class="post-entry__visit">
+                <a class="btn" href="https://myjewelryworlld.wordpress.com/" target="_blank" rel="noopener noreferrer">My Jewelry World <span aria-hidden="true">↗</span></a>
+                <a class="btn" href="https://zanemoda.wordpress.com/" target="_blank" rel="noopener noreferrer">ZaneModa <span aria-hidden="true">↗</span></a>
+                <a class="ul-link" href="https://www.instagram.com/my.jewelry_worlld/" target="_blank" rel="noopener noreferrer">My Jewelry World · Instagram</a>
+              </p>
+            </div>
+          </div>
+
+          <footer class="post-entry__foot">
+            <ul class="badges" aria-label="Yazı bilgileri" data-i18n-attr="aria-label:blog.postInfo">
+              <li class="badge badge--info"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span data-lang="tr">5 dk okuma</span><span data-lang="en">5 min read</span></li>
+              <li class="badge badge--info"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><time datetime="2026-11-25"><span data-lang="tr">25 Kasım 2026</span><span data-lang="en">25 November 2026</span></time></li>
+              <li class="badge">WordPress</li>
+              <li class="badge">CMS</li>
+              <li class="badge">Responsive</li>
+              <li class="badge">UI/UX</li>
+            </ul>
+            <p class="post-entry__links">
+              <a class="ul-link" href="projeler.html#taki-sitesi"><span data-lang="tr">Projeleri klasörde incele</span><span data-lang="en">View the project folders</span></a>
+              <a class="ul-link" href="#yazilar"><span data-lang="tr">Yazı listesine dön</span><span data-lang="en">Back to the list</span></a>
+            </p>
+          </footer>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- partial:footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__name">Hilal Esma Gündoğdu</p>
+          <p data-i18n="footer.tagline">Bilgisayar Programcılığı öğrencisi · Akdeniz Üniversitesi</p>
+        </div>
+
+        <div>
+          <h2 class="eyebrow" data-i18n="footer.contact">İletişim</h2>
+          <address>
+            Eski Alanya/Antalya yolu üzeri, İncekum Mah.,<br>
+            Narçiçeği Villa Sitesi C2, Alanya/Antalya
+          </address>
+          <ul>
+            <li>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Eski%20Alanya%2FAntalya%20yolu%20%C3%BCzeri%2C%20%C4%B0ncekum%20Mah.%2C%20Nar%C3%A7i%C3%A7e%C4%9Fi%20Villa%20Sitesi%20C2%2C%20Alanya%2FAntalya" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg><span data-i18n="footer.map">Haritada aç</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+905372018566"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>0537&nbsp;201&nbsp;85&nbsp;66</a>
+            </li>
+            <li>
+              <a href="mailto:hilalesmagundogdu@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>hilalesmagundogdu@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="eyebrow" data-i18n="footer.pages">Sayfalar</h2>
+          <ul>
+            <li><a href="hakkimda.html" data-i18n="nav.about">Hakkımda</a></li>
+            <li><a href="projeler.html" data-i18n="nav.projects">Projeler</a></li>
+            <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="galeri.html" data-i18n="nav.gallery">Galeri</a></li>
+            <li data-github><a href="https://github.com/hilalesma" target="_blank" rel="noopener noreferrer me"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>github.com/hilalesma</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© <span data-year>2026</span> Hilal Esma Gündoğdu. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
+        <a href="#main" data-i18n="footer.top">Başa dön</a>
+      </div>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="i18n/en.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/site.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="js/smooth.js"></script>
+  <script src="js/reveal.js"></script>
+  <!-- Arka plan derinliği ve imleç ışıkları (tüm sayfalarda aynı) -->
+  <script src="js/ambient.js"></script>
+  <script src="js/cursor-lights.js"></script>
+  <!-- Manyetik butonlar: ana aksiyon butonları imleci hafifçe izler -->
+  <script src="js/magnetic.js"></script>
+  <script src="js/blog.js"></script>
+</body>
+</html>

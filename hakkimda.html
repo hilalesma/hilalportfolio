@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.about.title">Hakkımda — Hilal Esma Gündoğdu</title>
+  <meta name="description" content="Hilal Esma Gündoğdu: Akdeniz Üniversitesi Bilgisayar Programcılığı öğrencisi. Eğitim, iş deneyimi, yetenekler, diller ve ders programı." data-i18n-attr="content:meta.about.description">
+  <meta name="author" content="Hilal Esma Gündoğdu">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/ambient.css">
+  <link rel="stylesheet" href="css/about.css">
+  <!-- Gece teması: girişteki gece atmosferi bütün sayfaya (en son yüklenir) -->
+  <link rel="stylesheet" href="css/theme-night.css">
+  <script src="js/boot.js"></script>
+  <!-- seo:start — scripts/build-seo.mjs üretir; elle düzenleme -->
+  <meta property="og:site_name" content="Hilal Esma Gündoğdu">
+  <meta property="og:title" content="Hakkımda — Hilal Esma Gündoğdu">
+  <meta property="og:description" content="Hilal Esma Gündoğdu: Akdeniz Üniversitesi Bilgisayar Programcılığı öğrencisi. Özgeçmiş, eğitim, iş deneyimi, yetenekler, diller ve ders programı.">
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="assets/og.jpg">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hakkımda — Hilal Esma Gündoğdu">
+  <meta name="twitter:description" content="Hilal Esma Gündoğdu: Akdeniz Üniversitesi Bilgisayar Programcılığı öğrencisi. Özgeçmiş, eğitim, iş deneyimi, yetenekler, diller ve ders programı.">
+  <!-- Yapılandırılmış veri (schema.org JSON-LD): arama motorları ve yapay zekâ yanıt motorları için (SEO + GEO) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfilePage",
+          "name": "Hakkımda — Hilal Esma Gündoğdu",
+          "url": "hakkimda.html",
+          "inLanguage": [
+            "tr",
+            "en"
+          ],
+          "mainEntity": {
+            "@type": "Person",
+            "@id": "index.html#person",
+            "name": "Hilal Esma Gündoğdu",
+            "image": "assets/photos/hilal-esma-portrait.jpg",
+            "jobTitle": "Bilgisayar Programcılığı öğrencisi",
+            "description": "Akdeniz Üniversitesi Bilgisayar Programcılığı öğrencisi; web tasarımı, WordPress ve Photoshop ile çalışıyor.",
+            "telephone": "+905372018566",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Eski Alanya/Antalya yolu üzeri, İncekum Mah., Narçiçeği Villa Sitesi C2",
+              "addressLocality": "Alanya",
+              "addressRegion": "Antalya",
+              "addressCountry": "TR"
+            },
+            "alumniOf": {
+              "@type": "EducationalOrganization",
+              "name": "Okurcalar Çok Programlı Anadolu Lisesi"
+            },
+            "affiliation": {
+              "@type": "CollegeOrUniversity",
+              "name": "Akdeniz Üniversitesi"
+            },
+            "knowsLanguage": [
+              "tr",
+              "en",
+              "nl"
+            ],
+            "knowsAbout": [
+              "WordPress",
+              "Python",
+              "HTML",
+              "Adobe Photoshop",
+              "Web tasarımı",
+              "Ağ ve Wi-Fi yönetimi",
+              "Yapısal kablolama",
+              "CCTV",
+              "Ön muhasebe"
+            ],
+            "sameAs": [
+              "https://github.com/hilalesma",
+              "https://myjewelryworlld.wordpress.com/",
+              "https://zanemoda.wordpress.com/"
+            ]
+          }
+        }
+      ]
+    }
+  </script>
+  <!-- seo:end -->
+</head>
+<body data-page="about" data-mood="paper">
+  <!-- partial:header -->
+  <a class="skip-link" href="#main" data-i18n="nav.skip">İçeriğe geç</a>
+
+  <!-- Sabit atmosfer katmanları: bölüm değiştikçe biri görünür olur (js/site.js) -->
+  <div class="atmo" aria-hidden="true">
+    <div class="atmo__layer" data-for="night"></div>
+    <div class="atmo__layer" data-for="paper"></div>
+    <div class="atmo__layer" data-for="pearl"></div>
+    <div class="atmo__layer" data-for="blush"></div>
+    <div class="atmo__layer" data-for="sand"></div>
+    <div class="atmo__layer" data-for="dusk"></div>
+  </div>
+
+  <!-- En alt arka plan katmanı (z-index:-2): çok yavaş çapraz süzülen üç bulanık ışık küresi
+       (lavanta, koyu mor, şampanya). Çiçek ve yıldızların arkasında kalır (css/ambient.css). -->
+  <div class="ambient-orbs" aria-hidden="true">
+    <span class="ambient-orb ambient-orb--lavender"></span>
+    <span class="ambient-orb ambient-orb--violet"></span>
+    <span class="ambient-orb ambient-orb--champagne"></span>
+  </div>
+
+  <!-- Açık bölümlerin arka plan derinliği (tüm sayfalar): sıcak mesh gradient, mimari ızgara,
+       kâğıt greni, kaydırdıkça süzülen silik çiçek/yıldız motifleri ve imleci izleyen sıcak ışık.
+       Hepsi z-index:-1 ve pointer-events:none; metinlerin yerleşimine dokunmaz (css/ambient.css, js/ambient.js). -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__mesh"></div>
+    <div class="ambient__grid"></div>
+    <div class="ambient__grain"></div>
+    <div class="ambient__motifs" data-ambient-motifs></div>
+    <!-- her 10 sn'de bir sağ üstten sol alta geçen ince altın/beyaz kayan yıldız -->
+    <span class="ambient__shooting"></span>
+    <div class="ambient__glow" data-ambient-glow></div>
+  </div>
+
+  <!-- Icon sprite: Lucide icons (ISC License, lucide.dev) + hand-drawn site icons. Generated by scripts/build-icons.mjs -->
+  <svg class="sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+    <symbol id="i-external-link" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
+    <symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-folder-open" viewBox="0 0 24 24"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="3" width="5" height="18" rx="1"/><rect x="5" y="3" width="5" height="18" rx="1"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></symbol>
+    <symbol id="i-guitar" viewBox="0 0 24 24"><path d="m11.9 12.1 4.514-4.514"/><path d="M20.1 2.3a1 1 0 0 0-1.4 0l-1.114 1.114A2 2 0 0 0 17 4.828v1.344a2 2 0 0 1-.586 1.414A2 2 0 0 1 17.828 7h1.344a2 2 0 0 0 1.414-.586L21.7 5.3a1 1 0 0 0 0-1.4z"/><path d="m6 16 2 2"/><path d="M8.23 9.85A3 3 0 0 1 11 8a5 5 0 0 1 5 5 3 3 0 0 1-1.85 2.77l-.92.38A2 2 0 0 0 12 18a4 4 0 0 1-4 4 6 6 0 0 1-6-6 4 4 0 0 1 4-4 2 2 0 0 0 1.85-1.23z"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></symbol>
+    <symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
+    <symbol id="i-motorbike" viewBox="0 0 24 24"><path d="m18 14-1-3"/><path d="m3 9 6 2a2 2 0 0 1 2-2h2a2 2 0 0 1 1.99 1.81"/><path d="M8 17h3a1 1 0 0 0 1-1 6 6 0 0 1 6-6 1 1 0 0 0 1-1v-.75A5 5 0 0 0 17 5"/><circle cx="19" cy="17" r="3"/><circle cx="5" cy="17" r="3"/></symbol>
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></symbol>
+    <symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol>
+    <symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></symbol>
+    <symbol id="i-list-todo" viewBox="0 0 24 24"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><rect x="3" y="4" width="6" height="6" rx="1"/></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-zoom-in" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></symbol>
+    <symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></symbol>
+    <symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol>
+    <symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/><path d="M7 4h.01"/><path d="M12 4h.01"/><path d="M17 4h.01"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.8 2.9 5.8 3.2 5.8 3.2a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.4 9.6c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+    <symbol id="i-yarn" viewBox="0 0 24 24"><circle cx="11" cy="12" r="8"/><path d="M5 8c4 0 9 2 12 7M4 13c4-1 9 0 13 5M8 4.6c2 3 3 8 2 15M14 4.5c-2 4-2 10 1 14.8"/><path d="M18.5 15.5c2 1 2.5 3 1.5 4.5"/></symbol>
+    <symbol id="i-hockey" viewBox="0 0 24 24"><path d="M14 3 9 15.5c-.5 1.3-1.6 2.1-3 2.1H3.5"/><path d="M3.5 17.6v3h3c2 0 3.7-1.1 4.4-3L16.5 4"/><circle cx="17.5" cy="18.5" r="2"/></symbol>
+    <symbol id="i-medal" viewBox="0 0 24 24"><path d="M8 2.5 10.5 9M16 2.5 13.5 9M6 2.5h4M14 2.5h4"/><circle cx="12" cy="15" r="6"/><path d="m12 12 .9 1.9 2.1.3-1.5 1.5.4 2.1L12 16.8l-1.9 1 .4-2.1L9 14.2l2.1-.3Z"/></symbol>
+  </svg>
+
+  <!-- Üst menü (v4): solda monogram + isim; sağda bağlantılar, dil seçici ve "İletişime geç" -->
+  <header class="site-nav" data-nav data-tone="dark">
+    <div class="site-nav__bar">
+      <!-- Erişilebilir ad, görünen metinle aynı başlar (WCAG 2.5.3): "HE Hilal Esma Gündoğdu — ana sayfa" -->
+      <a class="nav-logo" href="index.html" data-nav-page="home">
+        <span class="monogram">HE</span>
+        <span class="nav-logo__name">Hilal Esma Gündoğdu</span>
+        <span class="sr-only"><span data-lang="tr"> — ana sayfa</span><span data-lang="en"> — home page</span></span>
+      </a>
+
+      <div class="nav-right">
+        <nav aria-label="Ana menü" data-i18n-attr="aria-label:nav.primary">
+          <ul class="nav-list">
+            <li><a class="nav-link" data-nav-page="about" aria-current="page" href="hakkimda.html" data-i18n="nav.about">Hakkımda</a></li>
+            <li><a class="nav-link" data-nav-page="projects" href="projeler.html" data-i18n="nav.projects">Projeler</a></li>
+            <li><a class="nav-link" data-nav-page="blog" href="blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a class="nav-link" data-nav-page="gallery" href="galeri.html" data-i18n="nav.gallery">Galeri</a></li>
+            <li><a class="nav-link" data-nav-page="contact" href="iletisim.html" data-i18n="nav.contact">İletişim</a></li>
+          </ul>
+        </nav>
+
+        <div class="lang-pill" role="group" aria-label="Dil" data-i18n-attr="aria-label:nav.language">
+          <button type="button" data-set-lang="tr" aria-pressed="true" lang="tr"><span aria-hidden="true">TR</span><span class="sr-only">Türkçe</span></button>
+          <button type="button" data-set-lang="en" aria-pressed="false" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></button>
+          <span class="lang-pill__thumb" aria-hidden="true"></span>
+        </div>
+
+        <a class="nav-cta" href="iletisim.html" data-i18n="nav.cta">İletişime geç</a>
+
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open
+          aria-label="Menüyü aç" data-i18n-attr="aria-label:nav.openMenu">
+          <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Sağ üstte sabit durum etiketi -->
+    <p class="open-badge">
+      <span class="open-badge__dot" aria-hidden="true"></span>
+      <span data-i18n="nav.open">Staj ve projelere açık</span>
+    </p>
+
+    <!-- Mobil tam ekran menü -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menü" data-i18n-attr="aria-label:nav.menu" hidden data-menu>
+      <div class="mobile-menu__panel glass glass--strong">
+        <div class="mobile-menu__head">
+          <span class="monogram" aria-hidden="true">HE</span>
+          <button class="menu-btn" type="button" data-menu-close aria-label="Menüyü kapat" data-i18n-attr="aria-label:nav.closeMenu">
+            <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+          </button>
+        </div>
+        <ul class="mobile-menu__list">
+          <li style="--i:0"><a data-nav-page="home" href="index.html"><span class="mobile-menu__num">01</span><span data-i18n="nav.home">Ana Sayfa</span></a></li>
+          <li style="--i:1"><a data-nav-page="about" aria-current="page" href="hakkimda.html"><span class="mobile-menu__num">02</span><span data-i18n="nav.about">Hakkımda</span></a></li>
+          <li style="--i:2"><a data-nav-page="projects" href="projeler.html"><span class="mobile-menu__num">03</span><span data-i18n="nav.projects">Projeler</span></a></li>
+          <li style="--i:3"><a data-nav-page="blog" href="blog.html"><span class="mobile-menu__num">04</span><span data-i18n="nav.blog">Blog</span></a></li>
+          <li style="--i:4"><a data-nav-page="gallery" href="galeri.html"><span class="mobile-menu__num">05</span><span data-i18n="nav.gallery">Galeri</span></a></li>
+          <li style="--i:5"><a data-nav-page="contact" href="iletisim.html"><span class="mobile-menu__num">06</span><span data-i18n="nav.contact">İletişim</span></a></li>
+        </ul>
+        <div class="mobile-menu__foot">
+          <p class="open-badge open-badge--inline">
+            <span class="open-badge__dot" aria-hidden="true"></span>
+            <span data-i18n="nav.open">Staj ve projelere açık</span>
+          </p>
+          <a class="nav-cta" href="iletisim.html" data-i18n="nav.cta">İletişime geç</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- /partial:header -->
+
+  <main id="main" tabindex="-1">
+    <!-- export: bu işaretler arasındaki içerik index.html'e de kopyalanır (npm run partials) -->
+
+    <!-- =====================================================================
+         1. AÇILIŞ: dergi sayfası (portre + özgeçmiş özeti)
+         ===================================================================== -->
+    <section class="about-head" data-mood="paper" aria-labelledby="about-title">
+      <div class="paper-grain" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="running-head" data-reveal>
+          <span>Hilal Esma Gündoğdu — Portfolyo</span>
+          <span><span data-lang="tr">Bölüm I · Hakkımda</span><span data-lang="en">Chapter I · About</span></span>
+          <span><span data-lang="tr">s. 02</span><span data-lang="en">p. 02</span></span>
+        </div>
+
+        <div class="spread">
+
+
+          <div>
+            <p class="eyebrow" data-reveal><span data-lang="tr">Bölüm I</span><span data-lang="en">Chapter I</span></p>
+            <h1 id="about-title" class="about-title" data-lines>
+              <span data-lang="tr">Hakkımda</span>
+              <span data-lang="en">About <span class="script">me</span></span>
+            </h1>
+            <svg class="flourish" viewBox="0 0 240 24" fill="none" aria-hidden="true">
+              <g stroke="currentColor" stroke-width="1" stroke-linecap="round">
+                <path d="M2 12H96M144 12H238"/><path d="M120 3C126 8 128 12 120 21C112 12 114 8 120 3Z"/>
+                <path d="M96 12C104 6 110 6 114 12C110 18 104 18 96 12ZM144 12C136 6 130 6 126 12C130 18 136 18 144 12Z"/>
+              </g>
+            </svg>
+
+            <!-- Özgeçmiş özeti (CONTENT.md §2) — ilk harf drop cap -->
+            <div class="summary-prose" data-reveal>
+              <p data-lang="tr">Akdeniz Üniversitesi'nde Bilgisayar Programcılığı okuyorum. Okurcalar Çok Programlı Anadolu Lisesi Bilişim Teknolojileri bölümünden bölüm birincisi olarak mezun oldum. IT ve muhasebe alanında staj yaptım, otelcilikte çalıştım ve kendi takılarımı tasarlıyorum. Grafik Animasyon dersinde Photoshop ile altı proje tamamladım ve WordPress ile iki web sitesi hazırladım.</p>
+              <p data-lang="en">I study Computer Programming at Akdeniz University. I graduated from the Information Technologies department of Okurcalar Multi-Program Anatolian High School, ranked first in my department. I have completed an internship in IT and accounting, worked in hospitality and I design my own jewellery. In my Graphic Animation course I completed six projects in Photoshop, and I built two websites with WordPress.</p>
+            </div>
+
+            <!-- Künye: tanım listesi -->
+            <dl class="facts" data-reveal>
+              <div>
+                <dt><span data-lang="tr">Okul</span><span data-lang="en">School</span></dt>
+                <dd>Akdeniz Üniversitesi</dd>
+              </div>
+              <div>
+                <dt><span data-lang="tr">Bölüm</span><span data-lang="en">Programme</span></dt>
+                <dd><span data-lang="tr">Bilgisayar Programcılığı</span><span data-lang="en">Computer Programming</span></dd>
+              </div>
+              <div>
+                <dt><span data-lang="tr">Yaşadığı yer</span><span data-lang="en">Based in</span></dt>
+                <dd>Alanya, Antalya</dd>
+              </div>
+              <div>
+                <dt><span data-lang="tr">Diller</span><span data-lang="en">Languages</span></dt>
+                <dd><span data-lang="tr">Türkçe · İngilizce B1 · Felemenkçe A2</span><span data-lang="en">Turkish · English B1 · Dutch A2</span></dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Portre sağda (kemer çerçeve + botanik gül) -->
+          <figure class="portrait" data-reveal>
+            <div class="portrait__frame">
+              <img src="assets/photos/hilal-esma-portrait-800.webp"
+                   srcset="assets/photos/hilal-esma-portrait-480.webp 480w, assets/photos/hilal-esma-portrait-800.webp 800w"
+                   sizes="(max-width: 1024px) 80vw, 34vw" width="800" height="1067"
+                   alt="Hilal Esma Gündoğdu'nun vesikalık portresi" data-i18n-attr="alt:about.portraitAlt">
+            </div>
+            <!-- Kendi çizilmiş botanik gül (SVG, kaydırınca kendini çizer) -->
+            <svg class="botanical" viewBox="0 0 200 420" fill="none" aria-hidden="true" data-draw>
+              <g stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M100 418C96 360 110 300 98 240S92 150 104 108"/>
+                <path d="M98 330C70 320 52 300 44 280C66 284 88 300 98 330Z"/>
+                <path d="M98 330Q72 306 44 280"/>
+                <path d="M101 268C126 256 146 238 154 218C132 224 110 242 101 268Z"/>
+                <path d="M101 268Q128 244 154 218"/>
+                <path d="M97 205C80 198 70 186 66 172C80 176 92 188 97 205Z"/>
+                <path d="M100 180C118 170 130 152 134 132"/>
+                <path d="M134 134C126 122 130 108 138 102C146 108 146 122 138 134Z"/>
+                <path d="M80 92C74 70 88 52 104 50C122 50 134 66 128 90C120 106 90 108 80 92Z"/>
+                <path d="M104 62C94 64 92 78 102 82C112 84 116 72 108 68C102 66 100 74 106 75"/>
+                <path d="M84 90C92 80 98 86 104 96M126 88C118 80 112 86 104 96"/>
+                <path d="M96 104L86 116M106 104L116 116M101 106L101 118"/>
+              </g>
+            </svg>
+            <figcaption>
+              <span class="fig" lang="en">FIG. 1</span>
+              <span class="serif-italic"><span data-lang="tr">Hilal Esma Gündoğdu, portre</span><span data-lang="en">Hilal Esma Gündoğdu, portrait</span></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         2. EĞİTİM (zaman çizelgesi)
+         ===================================================================== -->
+    <section id="egitim" class="section" data-mood="paper" aria-labelledby="egitim-title">
+      <div class="wrap">
+        <header class="chapter-head" data-reveal>
+          <h2 id="egitim-title"><span data-lang="tr">Eğitim</span><span data-lang="en">Education</span></h2>
+          <span class="folio">II</span>
+        </header>
+
+        <ol class="timeline">
+          <li>
+            <article class="tl-card glass glass--strong">
+              <p class="tl-card__when">
+                <time datetime="2026">2026</time> – <span data-lang="tr">devam ediyor</span><span data-lang="en">present</span>
+              </p>
+              <h3>Akdeniz Üniversitesi</h3>
+              <p class="tl-card__sub">
+                <span data-lang="tr">Teknik Bilimler <abbr title="Meslek Yüksekokulu">MYO</abbr> · Bilgisayar Programcılığı, 1. sınıf</span>
+                <span data-lang="en">Vocational School of Technical Sciences · Computer Programming (Associate Degree), 1st year</span>
+              </p>
+              <p class="tl-card__links">
+                <a href="#ders-programi"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span data-lang="tr">Ders programım</span><span data-lang="en">My timetable</span></a>
+              </p>
+            </article>
+          </li>
+          <li>
+            <article class="tl-card glass glass--strong">
+              <p class="tl-card__when"><time datetime="2022">2022</time> – <time datetime="2026">2026</time></p>
+              <h3>Okurcalar Çok Programlı Anadolu Lisesi</h3>
+              <p class="tl-card__sub">
+                <span data-lang="tr">Bilişim Teknolojileri bölümü</span>
+                <span data-lang="en">Information Technologies department</span>
+              </p>
+              <!-- Tek rozet: Bölüm Birincisi (SVG madalya, sedef-şampanya) -->
+              <p class="badge">
+                <svg class="badge__medal" viewBox="0 0 48 48" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="medal-fill" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#fbf3e6"/><stop offset=".35" stop-color="#e9d8be"/>
+                      <stop offset=".6" stop-color="#f6eef3"/><stop offset="1" stop-color="#c9a46a"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M16 3l6 12M32 3l-6 12" stroke="#b9777e" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="24" cy="29" r="14" fill="url(#medal-fill)" stroke="#c9a46a" stroke-width="1.5"/>
+                  <circle cx="24" cy="29" r="10" fill="none" stroke="#fff" stroke-opacity=".7"/>
+                  <text x="24" y="34" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" fill="#3b2a26">1</text>
+                </svg>
+                <span data-lang="tr">Bölüm Birincisi</span><span data-lang="en">Ranked 1st in IT Department</span>
+                <span class="badge__glint" aria-hidden="true"></span>
+              </p>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. İŞ DENEYİMİ (yeniden eskiye: <ol reversed>)
+         ===================================================================== -->
+    <section id="deneyim" class="section" data-mood="pearl" aria-labelledby="deneyim-title">
+      <div class="wrap">
+        <header class="chapter-head" data-reveal>
+          <h2 id="deneyim-title"><span data-lang="tr">İş <span class="script">deneyimi</span></span><span data-lang="en">Work <span class="script">experience</span></span></h2>
+          <span class="folio">III</span>
+        </header>
+
+        <div class="timeline-wrap">
+        <span class="timeline__line" aria-hidden="true"></span>
+        <ol class="timeline timeline--split" reversed>
+          <li>
+            <article class="tl-card glass glass--strong glass--tilt" data-tilt>
+              <p class="tl-card__when"><time datetime="2026">
+                <span data-lang="tr">Yaz 2026</span><span data-lang="en">Summer 2026</span></time></p>
+              <h3>Feniks Priority</h3>
+              <dl>
+                <dt><span data-lang="tr">Kurum</span><span data-lang="en">Company</span></dt><dd>Feniks Priority</dd>
+                <dt><span data-lang="tr">Rol</span><span data-lang="en">Role</span></dt><dd><span data-lang="tr">Garson</span><span data-lang="en">Waiter</span></dd>
+                <dt><span data-lang="tr">Tarih</span><span data-lang="en">Date</span></dt><dd><time datetime="2026"><span data-lang="tr">Yaz 2026</span><span data-lang="en">Summer 2026</span></time></dd>
+              </dl>
+            </article>
+          </li>
+
+          <li>
+            <article class="tl-card tl-card--feature glass glass--strong">
+              <p class="tl-card__when">
+                <time datetime="2025-09"><span data-lang="tr">Eylül 2025</span><span data-lang="en">September 2025</span></time> –
+                <time datetime="2026-06"><span data-lang="tr">Haziran 2026</span><span data-lang="en">June 2026</span></time>
+              </p>
+              <h3>Wome Deluxe</h3>
+              <p class="tl-card__sub">
+                <span data-lang="tr">Stajyer: Bilgi Teknolojileri ve Muhasebe</span>
+                <span data-lang="en">Intern, IT &amp; Accounting</span>
+              </p>
+              <p class="tl-card__tags">
+                <span class="chip chip--lilac">IT</span>
+                <span class="chip chip--rose"><span data-lang="tr">Muhasebe</span><span data-lang="en">Accounting</span></span>
+              </p>
+              <dl>
+                <dt><span data-lang="tr">Kurum</span><span data-lang="en">Company</span></dt><dd>Wome Deluxe</dd>
+                <dt><span data-lang="tr">Rol</span><span data-lang="en">Role</span></dt><dd><span data-lang="tr">Stajyer (IT ve Muhasebe)</span><span data-lang="en">Intern (IT &amp; Accounting)</span></dd>
+                <dt><span data-lang="tr">Tarih</span><span data-lang="en">Date</span></dt><dd><time datetime="2025-09">09/2025</time> – <time datetime="2026-06">06/2026</time></dd>
+              </dl>
+
+              <!-- Görevler: IT stajı ve muhasebe stajı (açılır/kapanır) -->
+              <div class="tasks">
+                <details open>
+                  <summary>
+                    <span><span data-lang="tr">IT stajı: ağ, kablolama, güvenlik ve teknik destek</span><span data-lang="en">IT internship: network, cabling, security and technical support</span></span>
+                    <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+                  </summary>
+                  <p class="tasks__lede" data-lang="tr">Otel genelindeki kesintisiz ağ altyapısının, güvenlik sistemlerinin ve departman donanımlarının saha operasyonlarında aktif görev aldım.</p>
+                  <p class="tasks__lede" data-lang="en">I worked hands-on in field operations for the hotel's uninterrupted network infrastructure, security systems and department hardware.</p>
+                  <ul data-lang="tr">
+                    <li><strong>Ağ ve internet yönetimi:</strong> misafir ve personel Wi-Fi (Access Point) ağlarının takibi ve bağlantı sorunlarının çözümü</li>
+                    <li><strong>Yapısal kablolama:</strong> Cat6 kablo çekimi, RJ45 sonlandırma ve sistem odası (kabinet) düzenlemeleri</li>
+                    <li><strong><abbr title="Closed-Circuit Television — kapalı devre kamera sistemi">CCTV</abbr> ve güvenlik:</strong> IP kamera kurulumu, arıza tespiti ve <abbr title="Network Video Recorder — ağ video kaydedici">NVR</abbr> kayıt sistemlerinin kontrolü</li>
+                    <li><strong>Teknik destek:</strong> resepsiyon, muhasebe ve operasyon birimlerinin bilgisayar, yazıcı ve <abbr title="Point of Sale — satış noktası">POS</abbr> cihazı destekleri</li>
+                  </ul>
+                  <ul data-lang="en">
+                    <li><strong>Network and internet management:</strong> monitoring the guest and staff Wi-Fi (access point) networks and fixing connection problems</li>
+                    <li><strong>Structured cabling:</strong> running Cat6 cable, RJ45 termination and organising the server room (cabinet)</li>
+                    <li><strong><abbr title="Closed-Circuit Television">CCTV</abbr> and security:</strong> installing IP cameras, troubleshooting and checking <abbr title="Network Video Recorder">NVR</abbr> recording systems</li>
+                    <li><strong>Technical support:</strong> computer, printer and <abbr title="Point of Sale">POS</abbr> device support for reception, accounting and operations</li>
+                  </ul>
+                </details>
+                <details>
+                  <summary>
+                    <span><span data-lang="tr">Muhasebe stajı: fatura, kasa ve cari takibi</span><span data-lang="en">Accounting internship: invoices, cash and accounts</span></span>
+                    <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+                  </summary>
+                  <p class="tasks__lede" data-lang="tr">Otel içi günlük gelir-gider takibi, faturalandırma ve ön muhasebe süreçlerinin dijital ortamda yürütülmesine destek verdim.</p>
+                  <p class="tasks__lede" data-lang="en">I supported the hotel's daily income and expense tracking, invoicing and pre-accounting processes, all run digitally.</p>
+                  <ul data-lang="tr">
+                    <li><strong>Fatura ve evrak takibi:</strong> e-fatura / e-arşiv kesimi, tedarikçi faturalarının kontrolü ve sisteme işlenmesi</li>
+                    <li><strong>Günlük kasa ve gelir kontrolü:</strong> ön büro (resepsiyon) ve yiyecek-içecek (<abbr title="Food &amp; Beverage — yiyecek ve içecek">F&amp;B</abbr>) departmanlarının gün sonu gelir raporlarının (Night Audit) eşleştirilmesi</li>
+                    <li><strong>Cari hesap ve stok:</strong> tedarikçi cari hesap mutabakatları ve genel depo/maliyet kontrol süreçlerine destek</li>
+                  </ul>
+                  <ul data-lang="en">
+                    <li><strong>Invoices and documents:</strong> issuing e-invoices / e-archive invoices, checking supplier invoices and entering them into the system</li>
+                    <li><strong>Daily cash and revenue control:</strong> matching the end-of-day revenue reports (night audit) of the front office (reception) and food &amp; beverage (<abbr title="Food &amp; Beverage">F&amp;B</abbr>) departments</li>
+                    <li><strong>Current accounts and stock:</strong> supplier account reconciliations and support for general warehouse and cost control</li>
+                  </ul>
+                </details>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="tl-card glass glass--strong glass--tilt" data-tilt>
+              <p class="tl-card__when"><time datetime="2025"><span data-lang="tr">Yaz 2025</span><span data-lang="en">Summer 2025</span></time> · <time datetime="P3M"><span data-lang="tr">3 ay</span><span data-lang="en">3 months</span></time></p>
+              <h3>Rubi Platinum Spa Resort &amp; Suites</h3>
+              <dl>
+                <dt><span data-lang="tr">Kurum</span><span data-lang="en">Company</span></dt><dd>Rubi Platinum Spa Resort &amp; Suites</dd>
+                <dt><span data-lang="tr">Rol</span><span data-lang="en">Role</span></dt><dd><span data-lang="tr">Pastane Bölümü</span><span data-lang="en">Pastry Department</span></dd>
+                <dt><span data-lang="tr">Süre</span><span data-lang="en">Duration</span></dt><dd><time datetime="P3M"><span data-lang="tr">3 ay</span><span data-lang="en">3 months</span></time></dd>
+              </dl>
+            </article>
+          </li>
+
+          <li>
+            <article class="tl-card glass glass--strong glass--tilt" data-tilt>
+              <p class="tl-card__when"><span data-lang="tr">Devam ediyor</span><span data-lang="en">Ongoing</span></p>
+              <h3><span data-lang="tr">Kendi Takı Tasarımlarım</span><span data-lang="en">My Own Jewellery Designs</span></h3>
+              <p class="tl-card__sub">
+                <span data-lang="tr">El yapımı takılar tasarlayıp üretiyor ve çevreme satıyorum.</span>
+                <span data-lang="en">I design and make handmade jewellery and sell it to people around me.</span>
+              </p>
+              <p class="tl-card__links">
+                <a href="galeri.html#filtre-taki"><svg class="icon" aria-hidden="true"><use href="#i-gem"/></svg><span data-lang="tr">Galeri: Takılarım</span><span data-lang="en">Gallery: My jewellery</span></a>
+                <a href="projeler.html#taki-sitesi"><svg class="icon" aria-hidden="true"><use href="#i-folder"/></svg><span data-lang="tr">Proje: My Jewelry World</span><span data-lang="en">Project: My Jewelry World</span></a>
+                <a href="blog.html#iki-wordpress-sitesi"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg><span data-lang="tr">Blog yazısı</span><span data-lang="en">Blog post</span></a>
+              </p>
+            </article>
+          </li>
+        </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. YETENEKLER · DİLLER · İLGİ ALANLARI
+         ===================================================================== -->
+    <section id="yetenekler" class="section" data-mood="dusk" aria-labelledby="yetenek-title">
+      <div class="wrap">
+        <header class="chapter-head" data-reveal>
+          <h2 id="yetenek-title"><span data-lang="tr">Yetenekler</span><span data-lang="en">Skills</span></h2>
+          <span class="folio">IV</span>
+        </header>
+
+        <div class="skills">
+          <!-- Yazılım ve Tasarım Araçları (yüzdeye göre büyükten küçüğe) -->
+          <article class="skill-card glass glass--tilt float" data-tilt>
+            <h3><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span data-lang="tr">Yazılım ve Tasarım</span><span data-lang="en">Software &amp; Design</span></h3>
+            <ol class="skill-list">
+              <li class="skill">
+                <span class="skill__name" id="sk-wp">WordPress</span>
+                <span class="skill__pct">%100</span>
+                <meter class="skill__bar" min="0" max="100" value="100" aria-labelledby="sk-wp">%100</meter>
+              </li>
+              <li class="skill">
+                <span class="skill__name" id="sk-py">Python</span>
+                <span class="skill__pct">%100</span>
+                <meter class="skill__bar" min="0" max="100" value="100" aria-labelledby="sk-py">%100</meter>
+              </li>
+              <li class="skill">
+                <span class="skill__name" id="sk-html"><abbr title="HyperText Markup Language">HTML</abbr></span>
+                <span class="skill__pct">%80</span>
+                <meter class="skill__bar" min="0" max="100" value="80" aria-labelledby="sk-html">%80</meter>
+              </li>
+              <li class="skill">
+                <span class="skill__name" id="sk-ps">Photoshop</span>
+                <span class="skill__pct">%70</span>
+                <meter class="skill__bar" min="0" max="100" value="70" aria-labelledby="sk-ps">%70</meter>
+              </li>
+            </ol>
+          </article>
+
+          <!-- Spor -->
+          <article class="skill-card glass glass--tilt float" data-tilt>
+            <h3><svg class="icon" aria-hidden="true"><use href="#i-hockey"/></svg><span data-lang="tr">Spor</span><span data-lang="en">Sport</span></h3>
+            <ol class="skill-list">
+              <li class="skill">
+                <span class="skill__name" id="sk-hockey"><span data-lang="tr">Çim Hokeyi</span><span data-lang="en">Field Hockey</span></span>
+                <span class="skill__pct">%70</span>
+                <meter class="skill__bar" min="0" max="100" value="70" aria-labelledby="sk-hockey">%70</meter>
+              </li>
+              <li class="skill">
+                <span class="skill__name" id="sk-flag">Flag Football</span>
+                <span class="skill__pct">%30</span>
+                <meter class="skill__bar" min="0" max="100" value="30" aria-labelledby="sk-flag">%30</meter>
+              </li>
+            </ol>
+          </article>
+
+          <!-- Teknik yetenekler: Wome Deluxe stajındaki yetenek dağılımı (toplam %100, büyükten küçüğe) + Diller -->
+          <article class="skill-card glass glass--tilt float" data-tilt>
+            <h3><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span data-lang="tr">Teknik Yetenekler</span><span data-lang="en">Technical Skills</span></h3>
+            <p class="skill-note"><span data-lang="tr">Wome Deluxe stajımdaki yetenek dağılımı</span><span data-lang="en">How my skills were distributed during my Wome Deluxe internship</span></p>
+            <ol class="skill-list">
+              <li class="skill">
+                <span class="skill__name" id="sk-net"><span data-lang="tr">Ağ (network) ve Wi-Fi yönetimi</span><span data-lang="en">Network and Wi-Fi management</span></span>
+                <span class="skill__pct">%35</span>
+                <meter class="skill__bar" min="0" max="100" value="35" aria-labelledby="sk-net">%35</meter>
+              </li>
+              <li class="skill">
+                <span class="skill__name" id="sk-cable"><span data-lang="tr">Yapısal kablolama ve donanım desteği</span><span data-lang="en">Structured cabling and hardware support</span></span>
+                <span class="skill__pct">%25</span>
+                <meter class="skill__bar" min="0" max="100" value="25" aria-labelledby="sk-cable">%25</meter>
+              </li>
+              <li class="skill">
+                <span class="skill__name" id="sk-cctv"><span data-lang="tr"><abbr title="Closed-Circuit Television — kapalı devre kamera sistemi">CCTV</abbr> ve güvenlik sistemleri</span><span data-lang="en"><abbr title="Closed-Circuit Television">CCTV</abbr> and security systems</span></span>
+                <span class="skill__pct">%20</span>
+                <meter class="skill__bar" min="0" max="100" value="20" aria-labelledby="sk-cctv">%20</meter>
+              </li>
+              <li class="skill">
+                <span class="skill__name" id="sk-acc"><span data-lang="tr">Ön muhasebe ve fatura/cari takibi</span><span data-lang="en">Pre-accounting and invoice/account tracking</span></span>
+                <span class="skill__pct">%20</span>
+                <meter class="skill__bar" min="0" max="100" value="20" aria-labelledby="sk-acc">%20</meter>
+              </li>
+            </ol>
+            <p class="skill-note"><a href="#deneyim"><span data-lang="tr">Görevlerin ayrıntısı: İş deneyimi › Wome Deluxe</span><span data-lang="en">Task details: Work experience › Wome Deluxe</span></a></p>
+
+            <h3 class="languages-title"><svg class="icon" aria-hidden="true"><use href="#i-languages"/></svg><span data-lang="tr">Diller</span><span data-lang="en">Languages</span></h3>
+            <p class="cefr-note"><abbr title="Common European Framework of Reference for Languages / Avrupa Dilleri Ortak Çerçevesi">CEFR</abbr></p>
+            <ul class="cefr-list">
+              <li class="cefr">
+                <p class="cefr__head"><span><span data-lang="tr">İngilizce</span><span data-lang="en">English</span></span><span>B1</span></p>
+                <ol class="cefr__steps" aria-hidden="true">
+                  <li class="is-on">A1</li><li class="is-on">A2</li><li class="is-on is-level">B1</li><li>B2</li><li>C1</li><li>C2</li>
+                </ol>
+              </li>
+              <li class="cefr">
+                <p class="cefr__head"><span><span data-lang="tr">Felemenkçe</span><span data-lang="en">Dutch</span></span><span>A2</span></p>
+                <ol class="cefr__steps" aria-hidden="true">
+                  <li class="is-on">A1</li><li class="is-on is-level">A2</li><li>B1</li><li>B2</li><li>C1</li><li>C2</li>
+                </ol>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- İlgi alanları -->
+        <h3 class="interests-title" data-reveal><span data-lang="tr">İlgi alanları</span><span data-lang="en">Interests</span></h3>
+        <ul class="interests" data-reveal>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span data-lang="tr">Yazılım yazmak</span><span data-lang="en">Writing software</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-motorbike"/></svg><span data-lang="tr">Motor sürmek</span><span data-lang="en">Riding motorbikes</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-gem"/></svg><span data-lang="tr">Takı tasarımı</span><span data-lang="en">Jewellery design</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-guitar"/></svg><span data-lang="tr">Gitar</span><span data-lang="en">Guitar</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-palette"/></svg><span data-lang="tr">Resim</span><span data-lang="en">Drawing</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-hockey"/></svg><span data-lang="tr">Çim hokeyi</span><span data-lang="en">Field hockey</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-flag"/></svg>Flag football</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-languages"/></svg><span data-lang="tr">Dil öğrenmek</span><span data-lang="en">Learning languages</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. KOD KÖŞESİ: <blockquote cite>, <figure>, <pre><code>
+         ===================================================================== -->
+    <section id="kod" class="section" data-mood="paper" aria-labelledby="kod-title">
+      <div class="wrap">
+        <header class="chapter-head" data-reveal>
+          <h2 id="kod-title"><span data-lang="tr">Kod <span class="script">köşesi</span></span><span data-lang="en">Code <span class="script">corner</span></span></h2>
+          <span class="folio">V</span>
+        </header>
+        <div class="code-corner">
+          <figure data-reveal>
+            <blockquote cite="https://mitpress.mit.edu/9780262510875/structure-and-interpretation-of-computer-programs/" lang="en">
+              <p>Programs must be written for people to read, and only incidentally for machines to execute.</p>
+            </blockquote>
+            <figcaption>
+              Harold Abelson &amp; Gerald Jay Sussman, <cite>Structure and Interpretation of Computer Programs</cite> (<time datetime="1985">1985</time>)
+              <span data-lang="tr"> — bu sitenin kaynak kodu da bu ilkeyle; okunaklı, girintili ve yorumlu yazıldı.</span>
+              <span data-lang="en"> — this site's source code follows the same idea: readable, indented and commented.</span>
+            </figcaption>
+          </figure>
+          <figure data-reveal>
+            <pre tabindex="0" aria-label="Kod örneği: dil seçimi"><code>// js/boot.js — dil seçimi (sayfa çizilmeden önce)
+var lang = params.get("lang")
+        || store.get("localStorage", "he-lang")
+        || "tr";
+if (lang !== "tr" &amp;&amp; lang !== "en") lang = "tr";
+html.lang = lang;</code></pre>
+            <figcaption>
+              <span data-lang="tr">Bu sitede dil tercihi <code>localStorage</code> ile hatırlanır; <code>&lt;html lang&gt;</code> değeri değişince içerik blokları CSS ile seçilir.</span>
+              <span data-lang="en">On this site the language choice is remembered with <code>localStorage</code>; when <code>&lt;html lang&gt;</code> changes, CSS shows the matching content blocks.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. DERS PROGRAMI: gerçek <table> (caption, thead, tbody, scope, rowspan)
+         ===================================================================== -->
+    <section id="ders-programi" class="section" data-mood="pearl" aria-labelledby="ders-title">
+      <div class="wrap">
+        <header class="chapter-head" data-reveal>
+          <h2 id="ders-title"><span data-lang="tr">Ders <span class="script">programım</span></span><span data-lang="en">My <span class="script">timetable</span></span></h2>
+          <span class="folio">VI</span>
+        </header>
+
+        <!-- Mobilde yatay kaydırılabilir; saat sütunu sabit (position: sticky) -->
+        <section class="timetable-wrap glass glass--strong" tabindex="0" aria-labelledby="tt-caption">
+          <table class="timetable">
+            <caption id="tt-caption">
+              <span data-lang="tr">Ders Programım — Akdeniz Üniversitesi Teknik Bilimler MYO, Bilgisayar Programcılığı 1. Sınıf, Güz Dönemi</span>
+              <span data-lang="en">My Timetable — Akdeniz University, Vocational School of Technical Sciences, Computer Programming 1st Year, Fall Term</span>
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col"><span data-lang="tr">Saat</span><span data-lang="en">Time</span></th>
+                <th scope="col"><span data-lang="tr">Pazartesi</span><span data-lang="en">Monday</span></th>
+                <th scope="col"><span data-lang="tr">Salı</span><span data-lang="en">Tuesday</span></th>
+                <th scope="col"><span data-lang="tr">Çarşamba</span><span data-lang="en">Wednesday</span></th>
+                <th scope="col"><span data-lang="tr">Perşembe</span><span data-lang="en">Thursday</span></th>
+                <th scope="col"><span data-lang="tr">Cuma</span><span data-lang="en">Friday</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><time datetime="08:30">08:30</time>–<time datetime="09:20">09:20</time></th>
+                <td class="tt-empty" data-day="0">—</td>
+                <td class="tt-course c-turk" data-day="1" rowspan="2">
+                  <span class="tt-code">TDB 101</span>
+                  <span class="tt-name">Türk Dili I</span>
+                  <span class="tt-room">Sanal Sınıf</span>
+                  <span class="tt-teacher">Öğr. Gör. Talha Tunç</span>
+                </td>
+                <td class="tt-course c-fiz" data-day="2" rowspan="2">
+                  <span class="tt-code">MYO 123</span>
+                  <span class="tt-name">Fizik I</span>
+                  <span class="tt-room">Z05</span>
+                  <span class="tt-teacher">Öğr. Gör. Dr. Reyhan Özaydın Özkara</span>
+                </td>
+                <td class="tt-course c-anim" data-day="3" rowspan="2">
+                  <span class="tt-code">MBIL 105</span>
+                  <span class="tt-name"><a href="projeler.html#grafik-animasyon">Grafik Animasyon I</a></span>
+                  <span class="tt-room">Lab. L23</span>
+                  <span class="tt-teacher">Öğr. Gör. Dr. Erokan Canbazoğlu</span>
+                </td>
+                <td class="tt-empty" data-day="4">—</td>
+              </tr>
+              <tr>
+                <th scope="row"><time datetime="09:30">09:30</time>–<time datetime="10:20">10:20</time></th>
+                <td class="tt-empty" data-day="0">—</td>
+                <td class="tt-empty" data-day="4">—</td>
+              </tr>
+              <tr>
+                <th scope="row"><time datetime="10:30">10:30</time>–<time datetime="11:20">11:20</time></th>
+                <td class="tt-empty" data-day="0">—</td>
+                <td class="tt-empty" data-day="1">—</td>
+                <td class="tt-course c-mat" data-day="2" rowspan="2">
+                  <span class="tt-code">MYO 131</span>
+                  <span class="tt-name">Temel Matematik</span>
+                  <span class="tt-room">Z03</span>
+                  <span class="tt-teacher">Prof. Dr. Harun Barış Çolakoğlu</span>
+                </td>
+                <td class="tt-course c-anim" data-day="3" rowspan="2">
+                  <span class="tt-code">MBIL 105</span>
+                  <span class="tt-name"><a href="projeler.html#grafik-animasyon">Grafik Animasyon I</a></span>
+                  <span class="tt-room">303</span>
+                  <span class="tt-teacher">Öğr. Gör. Dr. Erokan Canbazoğlu</span>
+                </td>
+                <td class="tt-empty" data-day="4">—</td>
+              </tr>
+              <tr>
+                <th scope="row"><time datetime="11:30">11:30</time>–<time datetime="12:20">12:20</time></th>
+                <td class="tt-empty" data-day="0">—</td>
+                <td class="tt-empty" data-day="1">—</td>
+                <td class="tt-empty" data-day="4">—</td>
+              </tr>
+              <tr class="tt-lunch">
+                <th scope="row"><span data-lang="tr">Öğle Arası</span><span data-lang="en">Lunch break</span></th>
+                <td colspan="5"><span data-lang="tr">Öğle Arası · 12:20–13:30</span><span data-lang="en">Lunch break · 12:20–13:30</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><time datetime="13:30">13:30</time>–<time datetime="14:20">14:20</time></th>
+                <td class="tt-course c-prog" data-day="0" rowspan="2">
+                  <span class="tt-code">MBIL 101</span>
+                  <span class="tt-name">Programlamanın Temelleri</span>
+                  <span class="tt-room">303</span>
+                  <span class="tt-teacher">Öğr. Gör. Hasan Özalp</span>
+                </td>
+                <td class="tt-course c-ata" data-day="1" rowspan="2">
+                  <span class="tt-code">ATA 101</span>
+                  <span class="tt-name">Atatürk İlkeleri ve İnkılap Tarihi I</span>
+                  <span class="tt-room">Uzaktan Eğitim Dersliği 2</span>
+                  <span class="tt-teacher">Öğr. Gör. Dr. Koray Ergin</span>
+                </td>
+                <td class="tt-course c-db" data-day="2" rowspan="2">
+                  <span class="tt-code">MBIL 103</span>
+                  <span class="tt-name">Veri Tabanı I</span>
+                  <span class="tt-room">303</span>
+                  <span class="tt-teacher">Öğr. Gör. Hasan Özalp</span>
+                </td>
+                <td class="tt-course c-web" data-day="3">
+                  <span class="tt-code">MBIL 113</span>
+                  <span class="tt-name"><a href="projeler.html#web-projeleri">Web Tasarımının Temelleri</a></span>
+                  <span class="tt-room">303</span>
+                  <span class="tt-teacher">Öğr. Gör. Dr. Erokan Canbazoğlu</span>
+                </td>
+                <td class="tt-course c-ofis" data-day="4">
+                  <span class="tt-code">MBIL 111</span>
+                  <span class="tt-name">Ofis Yazılımları</span>
+                  <span class="tt-room">303</span>
+                  <span class="tt-teacher">Öğr. Gör. Hasan Özalp</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><time datetime="14:30">14:30</time>–<time datetime="15:20">15:20</time></th>
+                <td class="tt-course c-web" data-day="3">
+                  <span class="tt-code">MBIL 113</span>
+                  <span class="tt-name"><a href="projeler.html#web-projeleri">Web Tasarımının Temelleri</a></span>
+                  <span class="tt-room">Lab. L23</span>
+                  <span class="tt-teacher">Öğr. Gör. Dr. Erokan Canbazoğlu</span>
+                </td>
+                <td class="tt-course c-ofis" data-day="4">
+                  <span class="tt-code">MBIL 111</span>
+                  <span class="tt-name">Ofis Yazılımları</span>
+                  <span class="tt-room">Lab. L23</span>
+                  <span class="tt-teacher">Öğr. Gör. Hasan Özalp</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><time datetime="15:30">15:30</time>–<time datetime="16:20">16:20</time></th>
+                <td class="tt-course c-prog" data-day="0" rowspan="2">
+                  <span class="tt-code">MBIL 101</span>
+                  <span class="tt-name">Programlamanın Temelleri</span>
+                  <span class="tt-room">Lab. L23</span>
+                  <span class="tt-teacher">Öğr. Gör. Hasan Özalp</span>
+                </td>
+                <td class="tt-course c-eng" data-day="1" rowspan="2">
+                  <span class="tt-code">YBD 121</span>
+                  <span class="tt-name">İngilizce I</span>
+                  <span class="tt-room">Uzaktan Eğitim</span>
+                  <span class="tt-teacher">Öğr. Gör. Bengü Şahin Kimyon</span>
+                </td>
+                <td class="tt-course c-db" data-day="2" rowspan="2">
+                  <span class="tt-code">MBIL 103</span>
+                  <span class="tt-name">Veri Tabanı I</span>
+                  <span class="tt-room">Lab. L23</span>
+                  <span class="tt-teacher">Öğr. Gör. Hasan Özalp</span>
+                </td>
+                <td class="tt-empty" data-day="3">—</td>
+                <td class="tt-empty" data-day="4">—</td>
+              </tr>
+              <tr>
+                <th scope="row"><time datetime="16:30">16:30</time>–<time datetime="17:20">17:20</time></th>
+                <td class="tt-empty" data-day="3">—</td>
+                <td class="tt-empty" data-day="4">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Renk açıklaması (lejant) -->
+        <ul class="legend" aria-label="Renk açıklaması" data-i18n-attr="aria-label:about.legend">
+          <li><i class="c-prog"></i>MBIL 101 · Programlamanın Temelleri</li>
+          <li><i class="c-db"></i>MBIL 103 · Veri Tabanı I</li>
+          <li><i class="c-anim"></i>MBIL 105 · Grafik Animasyon I</li>
+          <li><i class="c-ofis"></i>MBIL 111 · Ofis Yazılımları</li>
+          <li><i class="c-web"></i>MBIL 113 · Web Tasarımının Temelleri</li>
+          <li><i class="c-turk"></i>TDB 101 · Türk Dili I</li>
+          <li><i class="c-ata"></i>ATA 101 · Atatürk İlkeleri ve İnkılap Tarihi I</li>
+          <li><i class="c-eng"></i>YBD 121 · İngilizce I</li>
+          <li><i class="c-fiz"></i>MYO 123 · Fizik I</li>
+          <li><i class="c-mat"></i>MYO 131 · Temel Matematik</li>
+        </ul>
+      </div>
+    </section>
+    <!-- /export -->
+  </main>
+
+  <!-- partial:footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__name">Hilal Esma Gündoğdu</p>
+          <p data-i18n="footer.tagline">Bilgisayar Programcılığı öğrencisi · Akdeniz Üniversitesi</p>
+        </div>
+
+        <div>
+          <h2 class="eyebrow" data-i18n="footer.contact">İletişim</h2>
+          <address>
+            Eski Alanya/Antalya yolu üzeri, İncekum Mah.,<br>
+            Narçiçeği Villa Sitesi C2, Alanya/Antalya
+          </address>
+          <ul>
+            <li>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Eski%20Alanya%2FAntalya%20yolu%20%C3%BCzeri%2C%20%C4%B0ncekum%20Mah.%2C%20Nar%C3%A7i%C3%A7e%C4%9Fi%20Villa%20Sitesi%20C2%2C%20Alanya%2FAntalya" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg><span data-i18n="footer.map">Haritada aç</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+905372018566"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>0537&nbsp;201&nbsp;85&nbsp;66</a>
+            </li>
+            <li>
+              <a href="mailto:hilalesmagundogdu@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>hilalesmagundogdu@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="eyebrow" data-i18n="footer.pages">Sayfalar</h2>
+          <ul>
+            <li><a href="hakkimda.html" data-i18n="nav.about">Hakkımda</a></li>
+            <li><a href="projeler.html" data-i18n="nav.projects">Projeler</a></li>
+            <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="galeri.html" data-i18n="nav.gallery">Galeri</a></li>
+            <li data-github><a href="https://github.com/hilalesma" target="_blank" rel="noopener noreferrer me"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>github.com/hilalesma</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© <span data-year>2026</span> Hilal Esma Gündoğdu. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
+        <a href="#main" data-i18n="footer.top">Başa dön</a>
+      </div>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="i18n/en.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/site.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="js/smooth.js"></script>
+  <script src="js/reveal.js"></script>
+  <!-- Arka plan derinliği ve imleç ışıkları (tüm sayfalarda aynı) -->
+  <script src="js/ambient.js"></script>
+  <script src="js/cursor-lights.js"></script>
+  <!-- Manyetik butonlar: ana aksiyon butonları imleci hafifçe izler -->
+  <script src="js/magnetic.js"></script>
+  <script src="js/about.js"></script>
+</body>
+</html>

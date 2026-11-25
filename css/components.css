@@ -1,0 +1,600 @@
+/* ==========================================================================
+   components.css — Ortak bileşenler: cam panel, butonlar, menü (nav),
+   dil hapı, mobil menü, alt bilgi (footer), sayfa başlığı, etiketler, bildirim
+   ========================================================================== */
+
+/* ---------- Cam panel (tek bileşen, her yerde) ---------- */
+.glass {
+  --g-fill: var(--glass-fill);
+  --g-border: var(--glass-border);
+  position: relative;
+  isolation: isolate;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--g-border);
+  background:
+    linear-gradient(155deg, color-mix(in oklab, var(--white) 38%, transparent) 0%, transparent 42%),
+    var(--g-fill);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  transition: box-shadow var(--dur-ui) var(--ease-ui);
+}
+.glass--strong { --g-fill: var(--glass-fill-strong); }
+.glass--dark { --g-fill: var(--glass-fill-dark); --g-border: var(--glass-border-dark); color: var(--on-dark); }
+.glass--smoke { --g-fill: var(--glass-smoke); --g-border: color-mix(in oklab, var(--white) 30%, transparent); color: var(--cream); }
+.glass.is-lifted { box-shadow: var(--glass-highlight), var(--glass-shadow-lift); }
+
+/* Cam kart spotlight'ı: imleci izleyen yumuşak altın/lavanta ışık
+   (js/site.js §5 .glass-spot öğesini ekler, --mx/--my piksel olarak yazar) */
+.glass-spot {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%),
+      color-mix(in oklab, var(--gold-light) 26%, transparent),
+      color-mix(in oklab, var(--lilac-light) 12%, transparent) 45%,
+      transparent 72%);
+  mix-blend-mode: screen;
+  opacity: var(--sheen, 0);
+  transition: opacity 0.45s var(--ease-ui);
+}
+/* kenar çizgisi de ışığın geldiği yerde hafifçe parlar */
+.glass-spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(200px circle at var(--mx, 50%) var(--my, 0%),
+    color-mix(in oklab, var(--gold-light) 70%, transparent), transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+/* ---------- Dönen mühür (js/seal.js) ----------
+   Dairesel yazı + ortada "HE"; halka döner, merkez sabit kalır. Dekoratiftir (aria-hidden). */
+.seal {
+  --seal-size: clamp(104px, 7vw + 40px, 150px);
+  position: relative;
+  width: var(--seal-size);
+  aspect-ratio: 1;
+  flex: none;
+  pointer-events: none;
+}
+.seal__ring {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  will-change: transform;
+}
+.seal__ring text {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  fill: color-mix(in oklab, var(--gold-light) 80%, var(--moon) 20%);
+}
+.seal__circle { fill: none; stroke: color-mix(in oklab, var(--gold-light) 35%, transparent); stroke-width: 0.8; }
+.seal__core {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: calc(var(--seal-size) * 0.2);
+  letter-spacing: 0.06em;
+  color: var(--peach-gold);
+  text-shadow: 0 0 18px color-mix(in oklab, var(--peach-gold) 45%, transparent);
+}
+
+/* backdrop-filter desteklemeyen tarayıcılar için opak yedek */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { --g-fill: color-mix(in oklab, var(--pearl) 95%, transparent); }
+  .glass--dark { --g-fill: color-mix(in oklab, var(--night-2) 92%, transparent); }
+  .glass--smoke { --g-fill: color-mix(in oklab, var(--smoke) 96%, transparent); }
+}
+
+/* Havada süzülme (kartlar arasında faz kayması: --float-delay) */
+.motion-ok .float {
+  animation: float 7s var(--float-delay, 0s) ease-in-out infinite alternate;
+}
+@keyframes float {
+  from { translate: 0 -6px; }
+  to { translate: 0 8px; }
+}
+
+/* Eriyen cam kenarı (ref 04) */
+.glass__drip {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  top: calc(100% - 1px);
+  height: 26px;
+  fill: var(--g-fill);
+  pointer-events: none;
+}
+
+/* ---------- Butonlar ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill-strong);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  transition: transform var(--dur-ui) var(--ease-ui), box-shadow var(--dur-ui) var(--ease-ui);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--glass-highlight), var(--glass-shadow-lift); }
+.btn--solid { background: var(--espresso); color: var(--cream); border-color: transparent; }
+.btn--ghost-dark { background: var(--glass-fill-dark); border-color: var(--glass-border-dark); color: var(--cream); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Üst menü (cam bar) ---------- */
+.site-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  padding: 14px var(--gutter);
+  pointer-events: none;
+}
+.site-nav__bar {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: var(--maxw);
+  height: 58px;
+  margin-inline: auto;
+  padding: 0 8px 0 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill-strong);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  color: var(--text);
+  transition: height var(--dur-ui) var(--ease-ui), background 400ms var(--ease-out), color 400ms var(--ease-out);
+}
+/* Karanlık hero üzerinde: daha şeffaf bar, açık yazı */
+.site-nav[data-tone="light"] .site-nav__bar {
+  background: color-mix(in oklab, var(--night) 32%, transparent);
+  border-color: var(--glass-border-dark);
+  color: var(--cream);
+}
+.site-nav.is-compact .site-nav__bar { height: 52px; }
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  text-decoration: none;
+  color: inherit;
+}
+.monogram {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.nav-logo__name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.nav-list {
+  display: none;
+  list-style: none;
+  gap: clamp(10px, 1.6vw, 26px);
+}
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 4px;
+  color: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  opacity: 0.86;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 8px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-ui) var(--ease-ui);
+}
+.nav-link:hover,
+.nav-link[aria-current="page"] { opacity: 1; }
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after { transform: scaleX(1); }
+
+.nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Dil değiştirici: cam hap */
+.lang-pill {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill);
+  isolation: isolate;
+}
+.site-nav[data-tone="light"] .lang-pill { border-color: var(--glass-border-dark); background: var(--glass-fill-dark); }
+.lang-pill button {
+  position: relative;
+  z-index: 1;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: none;
+  color: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  opacity: 0.75;
+}
+.lang-pill button[aria-pressed="true"] { opacity: 1; color: var(--espresso); }
+.lang-pill__thumb {
+  position: absolute;
+  z-index: 0;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  border-radius: var(--radius-pill);
+  background: var(--pearl-iridescent);
+  box-shadow: inset 0 1px 0 var(--white), 0 4px 12px -4px color-mix(in oklab, var(--shadow-ink) 40%, transparent);
+  transition: transform var(--dur-ui) var(--ease-ui);
+}
+html[lang="en"] .lang-pill__thumb { transform: translateX(100%); }
+
+.menu-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill);
+  color: inherit;
+}
+.site-nav[data-tone="light"] .menu-btn { border-color: var(--glass-border-dark); background: var(--glass-fill-dark); }
+
+@media (min-width: 1080px) {
+  .nav-list { display: flex; }
+  .menu-btn { display: none; }
+}
+
+/* Mobil tam ekran cam menü */
+.mobile-menu {
+  pointer-events: auto;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  padding: 12px;
+  background: color-mix(in oklab, var(--shadow-ink) 28%, transparent);
+}
+.mobile-menu__panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 18px 22px 28px;
+  overflow-y: auto;
+  color: var(--text);
+}
+.mobile-menu__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mobile-menu__list {
+  display: grid;
+  gap: 2px;
+  margin: auto 0;
+  padding: 24px 0;
+  list-style: none;
+}
+.mobile-menu__list a {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  min-height: 52px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 9vw, 2.8rem);
+  font-weight: 300;
+  text-decoration: none;
+}
+.mobile-menu__list a[aria-current="page"] { color: var(--accent-text); }
+.mobile-menu__num {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--accent-text);
+}
+.motion-ok .mobile-menu { animation: menu-fade 320ms var(--ease-out); }
+.motion-ok .mobile-menu__list li { animation: menu-in 600ms calc(80ms + var(--i) * 45ms) var(--ease-out) both; }
+@keyframes menu-fade { from { opacity: 0; } }
+@keyframes menu-in { from { opacity: 0; transform: translateY(18px); filter: blur(6px); } }
+
+/* ---------- Alt sayfa başlığı ---------- */
+.page-head {
+  position: relative;
+  padding: calc(var(--nav-h) + clamp(56px, 9vw, 120px)) 0 clamp(40px, 6vw, 80px);
+}
+.page-head__title {
+  font-size: var(--step-5);
+  font-weight: 300;
+  line-height: 0.92;
+}
+.page-head__title .script {
+  font-size: 0.8em;
+  color: var(--accent-text);
+}
+.page-head .lede { margin-top: 22px; }
+
+/* ---------- Etiket / çip ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--rule);
+  background: color-mix(in oklab, var(--cream) 80%, transparent);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.chip--rose { background: color-mix(in oklab, var(--powder) 70%, transparent); color: var(--rose-deep); border-color: transparent; }
+.chip--lilac { background: color-mix(in oklab, var(--lilac) 45%, transparent); color: var(--lilac-deep); border-color: transparent; }
+
+/* ---------- Bildirim (toast) ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 200;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  background: var(--espresso);
+  color: var(--cream);
+  font-weight: 600;
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-ui) var(--ease-ui), transform var(--dur-ui) var(--ease-ui);
+}
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+
+/* ---------- Alt bilgi ---------- */
+.site-footer {
+  position: relative;
+  padding: 56px 0 40px;
+  border-top: 1px solid var(--rule);
+  background: color-mix(in oklab, var(--cream) 82%, transparent);
+  color: var(--text);
+}
+.site-footer__grid {
+  display: grid;
+  gap: 28px;
+}
+@media (min-width: 900px) {
+  .site-footer__grid { grid-template-columns: 1.3fr 1fr 1fr; align-items: start; }
+}
+.site-footer__name {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+}
+.site-footer address {
+  font-style: normal;
+  color: var(--text-muted);
+}
+.site-footer ul { list-style: none; display: grid; gap: 4px; }
+.site-footer a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+
+
+
+
+/* ---------- Lightbox (galeri ile ortak) ---------- */
+.lightbox { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: color-mix(in oklab, var(--night) 94%, transparent); color: var(--cream); }
+.lightbox::backdrop { background: transparent; }
+.lightbox figure { display: grid; place-items: center; gap: 14px; height: 100%; padding: 72px 72px 56px; }
+.lightbox img { max-width: 100%; max-height: calc(100dvh - 170px); object-fit: contain; border-radius: 6px; touch-action: pan-y; user-select: none; }
+.lightbox figcaption { display: flex; gap: 16px; align-items: baseline; }
+.lightbox__count { font-size: 0.8rem; opacity: 0.8; letter-spacing: 0.1em; }
+.lightbox__btn { position: absolute; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--glass-border-dark); background: var(--glass-fill-dark); color: var(--cream); }
+.lightbox__close { top: 16px; right: 16px; }
+.lightbox__prev { left: 16px; top: 50%; margin-top: -24px; }
+.lightbox__next { right: 16px; top: 50%; margin-top: -24px; }
+@media (max-width: 640px) {
+  .lightbox figure { padding: 72px 12px 96px; }
+  .lightbox__prev, .lightbox__next { top: auto; bottom: 24px; margin-top: 0; }
+}
+
+/* Dar ekranlar: menü çubuğu ekrana sığsın (monogram kalır, isim gizlenir) */
+.site-nav__bar { min-width: 0; }
+.site-nav__bar > nav { min-width: 0; }
+@media (max-width: 1079px) {
+  .site-nav__bar > nav { display: none; }
+}
+@media (max-width: 480px) {
+  .site-nav__bar { gap: 8px; padding: 0 6px 0 12px; }
+  .nav-logo__name { display: none; }
+}
+
+/* 44 px dokunma hedefi: tek başına duran kısa bağlantılar */
+.nav-logo { min-width: 44px; justify-content: center; }
+.site-footer a { min-width: 44px; }
+
+
+/* ==========================================================================
+   v4 üst menü: üstte şeffaf, kaydırınca cam bar; sağda bağlantılar + TR/EN + "İletişime geç"
+   ========================================================================== */
+.site-nav__bar {
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 8px 0 14px;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.site-nav[data-tone="light"] .site-nav__bar { background: transparent; border-color: transparent; }
+.site-nav.is-compact .site-nav__bar {
+  height: 56px;
+  background: var(--glass-fill-strong);
+  border-color: var(--glass-border);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+}
+.site-nav.is-compact[data-tone="light"] .site-nav__bar {
+  background: color-mix(in oklab, var(--night) 45%, transparent);
+  border-color: var(--glass-border-dark);
+}
+.nav-logo__name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.monogram { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.06em; }
+.nav-right { display: flex; align-items: center; gap: clamp(10px, 1.6vw, 22px); }
+.nav-right > nav { display: none; }
+.nav-list { gap: clamp(12px, 1.8vw, 28px); }
+.nav-link { font-size: 0.92rem; }
+
+/* Krem "İletişime geç" pill butonu */
+.nav-cta {
+  display: none;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid color-mix(in oklab, var(--espresso) 18%, transparent);
+  background: var(--cream);
+  color: var(--espresso);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px -12px color-mix(in oklab, var(--shadow-ink) 60%, transparent);
+  transition: transform var(--dur-ui) var(--ease-ui), background var(--dur-ui) var(--ease-ui);
+}
+.nav-cta:hover { transform: translateY(-2px); background: var(--white); }
+
+/* Sağ üstte sabit durum etiketi: "● Staj ve projelere açık" */
+.open-badge {
+  pointer-events: auto;
+  position: fixed;
+  top: 86px;
+  right: max(var(--gutter), calc((100vw - var(--maxw)) / 2));
+  z-index: 59;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill-strong);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: var(--espresso);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: var(--glass-highlight);
+  transition: top var(--dur-ui) var(--ease-ui);
+}
+.site-nav.is-compact .open-badge { top: 78px; }
+.open-badge--inline { position: static; display: inline-flex; }
+.open-badge__dot {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--rose-deep);
+}
+.open-badge__dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--rose);
+  opacity: 0;
+}
+.motion-ok .open-badge__dot::after { animation: badge-pulse 2.2s ease-out infinite; }
+@keyframes badge-pulse { 0% { transform: scale(0.6); opacity: 0.9; } 100% { transform: scale(1.6); opacity: 0; } }
+
+.mobile-menu__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+.mobile-menu__foot .nav-cta { display: inline-flex; }
+
+@media (min-width: 1100px) {
+  .nav-right > nav { display: block; }
+  .nav-cta { display: inline-flex; }
+  .open-badge { display: inline-flex; }
+}

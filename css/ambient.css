@@ -1,0 +1,245 @@
+/* ==========================================================================
+   ambient.css — Tüm sayfalarda arka plan derinliği + imleç ışıkları
+   Girişteki gece vadisinin sıcak, masalsı atmosferini açık bölümlere taşır:
+     1. Sıcak mesh gradient: fildişi/şampanyadan şeftali ve toz pembeye yayılan bulanık renk lekeleri
+     2. 1px mimari ızgara (%4) ve sabit kâğıt greni (%3)
+     3. Kaydırdıkça farklı hızlarda süzülüp dönen silik çiçek/yıldız motifleri (js/ambient.js)
+     4. İmleci gecikmeyle izleyen 400px şeftali/altın ışık (js/ambient.js)
+     5. İmleç ışıltıları tuvali ve sayfa geçişi perdesi (js/cursor-lights.js)
+   Arka plan katmanları z-index:-1 ve pointer-events:none: metinlerin yerleşimine ve
+   tıklamalara dokunmaz; opaklıklar koyu metinler rahat okunacak düzeyde tutuldu.
+   ========================================================================== */
+
+/* ---------- Arka plan katmanı ----------
+   Sabit atmosfer katmanının (.atmo, z-index:-2) üstünde, içeriğin altında (z-index:-1).
+   Ana sayfadaki vadi bölümü kendi koyu zeminiyle bu katmanı örter. */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.ambient > * { position: absolute; pointer-events: none; }
+
+/* ---------- 0. Işık küreleri (en alt katman, z-index:-2) ----------
+   Üç geniş, çok bulanık, düşük opaklıklı küre 20–25 sn'lik sonsuz döngüyle çapraz yönlerde süzülür.
+   Yalnız transform canlandırılır (GPU'da birleştirilir); bulanıklık bir kez çizilir. */
+.ambient-orbs {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+.ambient-orb {
+  position: absolute;
+  width: var(--orb-size);
+  height: var(--orb-size);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--orb-color) 0%, transparent 70%);
+  filter: blur(120px);
+  opacity: 0.14;
+  will-change: transform;
+  animation: var(--orb-anim) var(--orb-dur) ease-in-out infinite alternate;
+}
+.ambient-orb--lavender  { --orb-size: 640px; --orb-color: var(--orb-lavender);  --orb-dur: 22s; --orb-anim: orb-drift-a; left: -8%;  top: 6%; }
+.ambient-orb--violet    { --orb-size: 700px; --orb-color: var(--orb-violet);    --orb-dur: 25s; --orb-anim: orb-drift-b; right: -12%; top: 38%; }
+.ambient-orb--champagne { --orb-size: 520px; --orb-color: var(--orb-champagne); --orb-dur: 20s; --orb-anim: orb-drift-c; left: 30%;  bottom: -14%; }
+/* çapraz yönler: biri sağ-aşağı, biri sol-yukarı, biri sağ-yukarı süzülür */
+@keyframes orb-drift-a { from { transform: translate3d(0, 0, 0); }        to { transform: translate3d(22vw, 18vh, 0) scale(1.08); } }
+@keyframes orb-drift-b { from { transform: translate3d(0, 0, 0); }        to { transform: translate3d(-24vw, -20vh, 0) scale(0.94); } }
+@keyframes orb-drift-c { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(16vw, -22vh, 0) scale(1.1); } }
+@media (max-width: 760px) {
+  .ambient-orb { --orb-size: 380px; filter: blur(90px); }
+}
+
+/* ---------- Kayan yıldız ----------
+   10 sn'lik döngünün ilk ~1,1 sn'sinde sağ üstten sol alta kayar, sonra görünmez bekler.
+   Öğe hareket yönüne döndürülür (149°), sonra kendi ekseni boyunca ilerler: yalnız transform + opacity. */
+.ambient__shooting {
+  top: 9%;
+  left: 88%;
+  width: 170px;
+  height: 1.5px;
+  border-radius: 2px;
+  transform-origin: 100% 50%;
+  /* kuyruk saydamdan başlar, baş (sağ uç) parlak altın/beyaz */
+  background: linear-gradient(to right, transparent, color-mix(in oklab, var(--gold-light) 70%, transparent) 70%, var(--shooting-head));
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: shooting-star 10s 3s linear infinite;
+}
+.ambient__shooting::after {   /* parlayan baş */
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin-top: -2px;
+  border-radius: 50%;
+  background: var(--shooting-head);
+  box-shadow: 0 0 8px 2px color-mix(in oklab, var(--peach-gold) 80%, transparent);
+}
+@keyframes shooting-star {
+  0%   { opacity: 0; transform: rotate(149deg) translateX(-170px); }
+  1.5% { opacity: 1; }
+  9%   { opacity: 0.9; }
+  11%  { opacity: 0; transform: rotate(149deg) translateX(min(1100px, 95vw)); }
+  100% { opacity: 0; transform: rotate(149deg) translateX(min(1100px, 95vw)); }
+}
+
+/* Hareket azaltma: küreler yerinde durur, kayan yıldız hiç görünmez */
+html.motion-reduced .ambient-orb { animation: none; }
+html.motion-reduced .ambient__shooting { display: none; }
+@media print { .ambient-orbs { display: none !important; } }
+
+/* 1. Sıcak mesh gradient (yavaşça nefes alır; hareket azaltmada durur) */
+.ambient__mesh {
+  inset: -12%;
+  opacity: 0.55;
+  /* gece gökyüzü bulutsuları: mor, erik ve gül kurusu; arada çok hafif şeftali ışıması */
+  background:
+    radial-gradient(38% 34% at 18% 22%, rgba(78, 52, 130, 0.75), transparent 70%),
+    radial-gradient(34% 32% at 82% 18%, rgba(110, 50, 100, 0.6), transparent 70%),
+    radial-gradient(40% 38% at 72% 78%, rgba(150, 80, 90, 0.45), transparent 70%),
+    radial-gradient(36% 34% at 22% 82%, rgba(60, 40, 110, 0.6), transparent 70%),
+    radial-gradient(30% 30% at 50% 50%, rgba(246, 170, 120, 0.12), transparent 70%);
+  filter: blur(50px);
+  animation: mesh-drift 36s ease-in-out infinite alternate;
+}
+@keyframes mesh-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-2%, 1.5%, 0) scale(1.04); }
+  100% { transform: translate3d(1.5%, -1%, 0) scale(1.02); }
+}
+
+/* 2. 1px mimari ızgara (%4) */
+.ambient__grid {
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(245, 243, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 243, 255, 0.035) 1px, transparent 1px);
+  background-size: 96px 96px;
+  background-position: center top;
+}
+/* sabit kâğıt greni (SVG gürültüsü), opacity 0.03 */
+.ambient__grain {
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.23 0 0 0 0 0.16 0 0 0 0 0.15 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* 3. Silik çiçek/yıldız motifleri (pastel altın ve şeftali); konum ve parallax JS'te */
+.ambient__motifs { inset: 0; }
+.ambient__motif {
+  position: absolute;
+  opacity: 0.12;
+  filter: drop-shadow(0 0 18px currentColor);   /* koyu zeminde yumuşak parlama */
+  will-change: transform;
+}
+/* girişteki yıldızların devamı: küçük, göz kırpan ışık noktaları (js/ambient.js) */
+.ambient__star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 6px currentColor, 0 0 12px currentColor;
+  animation: star-twinkle 3.2s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+@keyframes star-twinkle {
+  from { opacity: 0.25; }
+  to   { opacity: 0.95; }
+}
+/* yavaş göz kırpanlar: neredeyse kaybolup hafif büyüyerek parlar (yalnız opacity + transform) */
+.ambient__star--slow { animation: star-twinkle-slow var(--tw-dur, 5s) ease-in-out infinite; }
+@keyframes star-twinkle-slow {
+  0%, 100% { opacity: 0.08; transform: scale(0.7); }
+  50%      { opacity: 1;    transform: scale(1.35); }
+}
+.ambient__motif svg { display: block; width: 100%; height: 100%; }
+
+/* 4. İmleci gecikmeyle izleyen 400px sıcak ışık */
+.ambient__glow {
+  left: 0;
+  top: 0;
+  width: 400px;
+  height: 400px;
+  margin: -200px 0 0 -200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246, 170, 110, 0.32) 0%, rgba(226, 183, 106, 0.18) 38%, transparent 70%);
+  filter: blur(40px);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  will-change: transform;
+}
+.ambient__glow.is-on { opacity: 1; }
+@media (pointer: coarse) { .ambient__glow { display: none; } }
+
+/* ---------- 5. İmleç ışıltıları (js/cursor-lights.js) ----------
+   Tam ekran, tıklamaları geçiren tuval; vadi yükleyicisinin (300) altında, sayfa perdesinin üstünde */
+.cursor-lights {
+  position: fixed;
+  inset: 0;
+  z-index: 260;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* ışıltılara hafif parlama: koyu vadide sıcak altın, açık zeminde daha sade */
+  filter: drop-shadow(0 0 6px rgba(255, 196, 130, 0.55));   /* yoğun ışık bulutuna hafif sıcak hale */
+}
+.cursor-lights.is-light { filter: drop-shadow(0 0 6px rgba(232, 150, 80, 0.7)) drop-shadow(0 0 2px rgba(255, 210, 150, 0.8)); }
+/* ---------- İmleç modu düğmesi (js/cursor-lights.js) ----------
+   Sağ alt köşede küçük koyu cam hap: Çiçek ✿ / Yıldız Tozu ✦ / Müzik Notaları ♪ */
+.cursor-mode {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  max-width: calc(100vw - 32px);
+  padding: 0 6px 0 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid color-mix(in oklab, var(--gold-light) 38%, transparent);
+  background: color-mix(in oklab, var(--night-deep) 62%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px -16px color-mix(in oklab, var(--black) 90%, transparent);
+  color: var(--moon);
+  font: 600 0.8rem/1 var(--font-body);
+  cursor: pointer;
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), border-color 260ms ease;
+}
+.cursor-mode:hover { transform: translateY(-2px); border-color: color-mix(in oklab, var(--gold-light) 70%, transparent); }
+.cursor-mode:active { transform: scale(0.96); }
+.cursor-mode:focus-visible { outline: 2px solid var(--moon); outline-offset: 3px; }
+.cursor-mode__icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, color-mix(in oklab, var(--white) 30%, transparent), transparent 60%),
+              color-mix(in oklab, var(--lilac) 22%, transparent);
+  color: var(--peach-gold);
+  font-size: 1rem;
+  font-family: "Segoe UI Symbol", "Noto Sans Symbols 2", "Apple Symbols", var(--font-body);
+}
+/* satır yüksekliği 1.4: "Ç" gibi harflerin çengeli taşma gizlemesinde kesilmesin */
+.cursor-mode__label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.4; }
+/* intro oynarken ve yazdırırken görünmez */
+html.intro-play .cursor-mode { display: none; }
+@media (max-width: 768px) {
+  .cursor-mode { right: 16px; bottom: 16px; padding-left: 13px; font-size: 0.74rem; }
+}
+
+/* Sayfa geçiş perdesi artık css/base.css içinde (.page-curtain, gece perdesi + "HE") */
+
+@media print { .ambient, .cursor-lights, .cursor-mode { display: none !important; } }

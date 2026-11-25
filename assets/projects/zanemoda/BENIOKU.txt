@@ -1,0 +1,1 @@
+﻿Bu projenin ekran görüntülerini bu klasöre koy; sonra projeler.html içindeki ilgili <template> bölümünde yer tutucu SVG'yi <img> ile değiştir. Ayrıntı: README.md.

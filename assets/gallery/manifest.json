@@ -1,0 +1,66 @@
+{
+  "sanat/ataturk-silueti-cerceve": {
+    "w": 1200,
+    "h": 1600
+  },
+  "sanat/kolaj-defteri": {
+    "w": 1200,
+    "h": 1600
+  },
+  "motor/motorla": {
+    "w": 1200,
+    "h": 1600
+  },
+  "hobi/el-orgusu-atki": {
+    "w": 1125,
+    "h": 1500
+  },
+  "muzik/keman": {
+    "w": 1200,
+    "h": 1600
+  },
+  "anilar/alanya-kalesi": {
+    "w": 1600,
+    "h": 1200
+  },
+  "spor/hokey-forma": {
+    "w": 1200,
+    "h": 1600
+  },
+  "spor/hokey-kupa": {
+    "w": 1200,
+    "h": 1600
+  },
+  "spor/hokey-toplu-fotograf": {
+    "w": 1600,
+    "h": 900
+  },
+  "taki/bileklikler": {
+    "w": 1125,
+    "h": 1500
+  },
+  "sanat/june-ajanda": {
+    "w": 1200,
+    "h": 1600
+  },
+  "spor/hokey-saha": {
+    "w": 900,
+    "h": 1600
+  },
+  "motor/skuter": {
+    "w": 1200,
+    "h": 1600
+  },
+  "muzik/gitarlar": {
+    "w": 1200,
+    "h": 1600
+  },
+  "sanat/ataturk-silueti-calisirken": {
+    "w": 1200,
+    "h": 1600
+  },
+  "muzik/gitar-dersi": {
+    "w": 1200,
+    "h": 1600
+  }
+}

@@ -1,0 +1,33 @@
+# Bağımlılıklar ve derleme çıktıları
+node_modules/
+dist/
+.astro/
+
+# Ortam değişkenleri
+.env
+.env.*
+!.env.example
+
+# Sistem / araç dosyaları
+.DS_Store
+Thumbs.db
+.vercel/
+.netlify/
+.claude/
+*.log
+
+# Vize teslim dosyaları (öğrenci numaralı ZIP/PDF ve Word raporu) — depoya girmez
+teslim/
+
+# Test ekran görüntüleri ve raporları (~260 MB) — yalnız ödev kontrol listesi depoda kalır
+docs/*
+!docs/odev-kontrol-listesi.md
+
+# Eski sürümler (Astro, v3, kaldırılan blog yazıları) — siteye dahil değil
+_arsiv/
+
+# Yerel: vize paketinin dosya adı için öğrenci numarası (scripts/package.ps1)
+.ogrenci-no
+
+# Yapay zekâ skill kurulumları (ör. Impeccable) — üçüncü taraf, siteye dahil değil
+.agents/

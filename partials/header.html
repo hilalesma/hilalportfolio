@@ -1,0 +1,104 @@
+<a class="skip-link" href="#main" data-i18n="nav.skip">İçeriğe geç</a>
+
+<!-- Sabit atmosfer katmanları: bölüm değiştikçe biri görünür olur (js/site.js) -->
+<div class="atmo" aria-hidden="true">
+  <div class="atmo__layer" data-for="night"></div>
+  <div class="atmo__layer" data-for="paper"></div>
+  <div class="atmo__layer" data-for="pearl"></div>
+  <div class="atmo__layer" data-for="blush"></div>
+  <div class="atmo__layer" data-for="sand"></div>
+  <div class="atmo__layer" data-for="dusk"></div>
+</div>
+
+<!-- En alt arka plan katmanı (z-index:-2): çok yavaş çapraz süzülen üç bulanık ışık küresi
+     (lavanta, koyu mor, şampanya). Çiçek ve yıldızların arkasında kalır (css/ambient.css). -->
+<div class="ambient-orbs" aria-hidden="true">
+  <span class="ambient-orb ambient-orb--lavender"></span>
+  <span class="ambient-orb ambient-orb--violet"></span>
+  <span class="ambient-orb ambient-orb--champagne"></span>
+</div>
+
+<!-- Açık bölümlerin arka plan derinliği (tüm sayfalar): sıcak mesh gradient, mimari ızgara,
+     kâğıt greni, kaydırdıkça süzülen silik çiçek/yıldız motifleri ve imleci izleyen sıcak ışık.
+     Hepsi z-index:-1 ve pointer-events:none; metinlerin yerleşimine dokunmaz (css/ambient.css, js/ambient.js). -->
+<div class="ambient" aria-hidden="true">
+  <div class="ambient__mesh"></div>
+  <div class="ambient__grid"></div>
+  <div class="ambient__grain"></div>
+  <div class="ambient__motifs" data-ambient-motifs></div>
+  <!-- her 10 sn'de bir sağ üstten sol alta geçen ince altın/beyaz kayan yıldız -->
+  <span class="ambient__shooting"></span>
+  <div class="ambient__glow" data-ambient-glow></div>
+</div>
+
+{{icons}}
+
+<!-- Üst menü (v4): solda monogram + isim; sağda bağlantılar, dil seçici ve "İletişime geç" -->
+<header class="site-nav" data-nav data-tone="dark">
+  <div class="site-nav__bar">
+    <!-- Erişilebilir ad, görünen metinle aynı başlar (WCAG 2.5.3): "HE Hilal Esma Gündoğdu — ana sayfa" -->
+    <a class="nav-logo" href="{{root}}index.html" data-nav-page="home">
+      <span class="monogram">HE</span>
+      <span class="nav-logo__name">Hilal Esma Gündoğdu</span>
+      <span class="sr-only"><span data-lang="tr"> — ana sayfa</span><span data-lang="en"> — home page</span></span>
+    </a>
+
+    <div class="nav-right">
+      <nav aria-label="Ana menü" data-i18n-attr="aria-label:nav.primary">
+        <ul class="nav-list">
+          <li><a class="nav-link" data-nav-page="about" href="{{root}}hakkimda.html" data-i18n="nav.about">Hakkımda</a></li>
+          <li><a class="nav-link" data-nav-page="projects" href="{{root}}projeler.html" data-i18n="nav.projects">Projeler</a></li>
+          <li><a class="nav-link" data-nav-page="blog" href="{{root}}blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a class="nav-link" data-nav-page="gallery" href="{{root}}galeri.html" data-i18n="nav.gallery">Galeri</a></li>
+          <li><a class="nav-link" data-nav-page="contact" href="{{root}}iletisim.html" data-i18n="nav.contact">İletişim</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-pill" role="group" aria-label="Dil" data-i18n-attr="aria-label:nav.language">
+        <button type="button" data-set-lang="tr" aria-pressed="true" lang="tr"><span aria-hidden="true">TR</span><span class="sr-only">Türkçe</span></button>
+        <button type="button" data-set-lang="en" aria-pressed="false" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></button>
+        <span class="lang-pill__thumb" aria-hidden="true"></span>
+      </div>
+
+      <a class="nav-cta" href="{{root}}iletisim.html" data-i18n="nav.cta">İletişime geç</a>
+
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open
+        aria-label="Menüyü aç" data-i18n-attr="aria-label:nav.openMenu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Sağ üstte sabit durum etiketi -->
+  <p class="open-badge">
+    <span class="open-badge__dot" aria-hidden="true"></span>
+    <span data-i18n="nav.open">Staj ve projelere açık</span>
+  </p>
+
+  <!-- Mobil tam ekran menü -->
+  <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menü" data-i18n-attr="aria-label:nav.menu" hidden data-menu>
+    <div class="mobile-menu__panel glass glass--strong">
+      <div class="mobile-menu__head">
+        <span class="monogram" aria-hidden="true">HE</span>
+        <button class="menu-btn" type="button" data-menu-close aria-label="Menüyü kapat" data-i18n-attr="aria-label:nav.closeMenu">
+          <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </div>
+      <ul class="mobile-menu__list">
+        <li style="--i:0"><a data-nav-page="home" href="{{root}}index.html"><span class="mobile-menu__num">01</span><span data-i18n="nav.home">Ana Sayfa</span></a></li>
+        <li style="--i:1"><a data-nav-page="about" href="{{root}}hakkimda.html"><span class="mobile-menu__num">02</span><span data-i18n="nav.about">Hakkımda</span></a></li>
+        <li style="--i:2"><a data-nav-page="projects" href="{{root}}projeler.html"><span class="mobile-menu__num">03</span><span data-i18n="nav.projects">Projeler</span></a></li>
+        <li style="--i:3"><a data-nav-page="blog" href="{{root}}blog.html"><span class="mobile-menu__num">04</span><span data-i18n="nav.blog">Blog</span></a></li>
+        <li style="--i:4"><a data-nav-page="gallery" href="{{root}}galeri.html"><span class="mobile-menu__num">05</span><span data-i18n="nav.gallery">Galeri</span></a></li>
+        <li style="--i:5"><a data-nav-page="contact" href="{{root}}iletisim.html"><span class="mobile-menu__num">06</span><span data-i18n="nav.contact">İletişim</span></a></li>
+      </ul>
+      <div class="mobile-menu__foot">
+        <p class="open-badge open-badge--inline">
+          <span class="open-badge__dot" aria-hidden="true"></span>
+          <span data-i18n="nav.open">Staj ve projelere açık</span>
+        </p>
+        <a class="nav-cta" href="{{root}}iletisim.html" data-i18n="nav.cta">İletişime geç</a>
+      </div>
+    </div>
+  </div>
+</header>

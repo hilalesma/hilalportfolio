@@ -1,0 +1,1 @@
+﻿Grafik Animasyon 1 çalışmalarının görsellerini bu klasöre koy (ör. calisma-01.webp) ve data/grafik-animasyon.json dosyasına bir kayıt ekle. Ayrıntı: README.md > Grafik Animasyon çalışması ekleme.

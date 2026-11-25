@@ -1,0 +1,30 @@
+/* ==========================================================================
+   demo.css — Demoların ortak stili (hokey skor + ajanda)
+   Sitenin token'larını ve cam panelini kullanır; içerik düz ve yüksek kontrastlı.
+   ========================================================================== */
+.demo { padding: calc(var(--nav-h) + 40px) 0 80px; }
+.demo__head { display: grid; gap: 10px; margin-bottom: 28px; }
+.demo__head h1 { font-size: var(--step-4); }
+.demo__head .script { color: var(--accent-text); }
+.demo__back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; color: var(--accent-text); text-decoration: none; }
+.panel { padding: clamp(18px, 3vw, 28px); color: var(--text); }
+.panel > * { position: relative; z-index: 2; }
+.panel h2 { font-size: 1.6rem; font-weight: 400; margin-bottom: 14px; }
+.demo-grid { display: grid; gap: 22px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 0.85rem; font-weight: 600; }
+.field input, .field select {
+  min-height: 46px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in oklab, var(--espresso) 28%, transparent);
+  background: color-mix(in oklab, var(--white) 75%, transparent);
+}
+.field input:focus-visible, .field select:focus-visible { outline: none; border-color: var(--rose-deep); box-shadow: 0 0 0 3px color-mix(in oklab, var(--rose) 35%, transparent); }
+.btn--small { min-height: 44px; padding: 0 16px; font-size: 0.88rem; }
+.btn[aria-pressed="true"] { background: var(--espresso); color: var(--cream); }
+.muted { color: var(--text-muted); font-size: 0.9rem; }
+.stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.stat-row:last-child { border-bottom: 0; }
+.stat-row strong { font-variant-numeric: tabular-nums; }
+.empty-msg { padding: 16px; text-align: center; color: var(--text-muted); }

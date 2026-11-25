@@ -1,0 +1,1 @@
+﻿Takı blog yazısının ekran görüntülerini buraya koy: 01-tasarim.webp, 02-ana-sayfa.webp, 03-urun-sayfasi.webp. Sonra blog/taki-tasarimindan-web-sitesine.html içindeki yer tutucu <svg> öğelerini <img> ile değiştir. Ayrıntı: README.md.
