@@ -10,7 +10,7 @@ Sitedeki tüm gerçek bilgilerin tek kaynağı. Burada olmayan hiçbir bilgi (ba
 | Monogram | HE |
 | Telefon | 0537 201 85 66 — `tel:+905372018566` |
 | E-posta | hilalesmagundogdu@gmail.com (kopyalama butonu + "Kopyalandı" bildirimi) |
-| Adres | Eski Alanya/Antalya yolu üzeri, İncekum Mah., Narçiçeği Villa Sitesi C2, Alanya/Antalya |
+| Adres | Alanya/Antalya |
 | Harita | `https://www.google.com/maps/search/?api=1&query=` + URL-encode edilmiş adres |
 | GitHub | github.com/hilalesma (depolar şu an gizli; `js/config.js` → `showGithub` ile gizlenebilir) |
 | Diller (site) | TR (varsayılan) ve EN. Kurum ve şirket adları çevrilmez. |

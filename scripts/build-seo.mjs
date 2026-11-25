@@ -27,7 +27,6 @@ const PERSON = {
   telephone: '+905372018566',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Eski Alanya/Antalya yolu üzeri, İncekum Mah., Narçiçeği Villa Sitesi C2',
     addressLocality: 'Alanya', addressRegion: 'Antalya', addressCountry: 'TR'
   },
   alumniOf: { '@type': 'EducationalOrganization', name: 'Okurcalar Çok Programlı Anadolu Lisesi' },
