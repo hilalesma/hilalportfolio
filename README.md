@@ -3,6 +3,7 @@
 Düz **HTML + CSS + JavaScript** ile yazılmış, iki dilli (TR / EN) statik bir portfolyo sitesi.
 Animasyonlar **GSAP + ScrollTrigger**, akıcı kaydırma **Lenis**, ana sayfadaki 3D vadi **Three.js** ile yapılır; hepsi `vendor/` klasöründe yereldir (internet gerekmez).
 
+- **Canlı site:** https://hilalesma.github.io/hilalportfolio/ · Kaynak kod: https://github.com/hilalesma/hilalportfolio
 - İçerik kaynağı: [`CONTENT.md`](CONTENT.md) · Proje kuralları: [`CLAUDE.md`](CLAUDE.md)
 - Ödev kontrol listesi (etiket → sayfa:satır): [`docs/odev-kontrol-listesi.md`](docs/odev-kontrol-listesi.md)
 - Eski Astro sürümü yalnızca arşivdir: `_arsiv/astro-surumu/` (siteye dahil değildir)
@@ -175,7 +176,8 @@ Site tamamen statiktir; derleme adımı yoktur. Kök klasörü olduğu gibi yay�
 
 **GitHub Pages**
 1. Depoyu GitHub'a gönder → *Settings › Pages* → Branch: `main`, klasör: `/ (root)`.
-2. Site adresi `kullanici.github.io/depo-adi/` gibi bir alt klasördeyse 404 sayfasındaki `/css/…` yolları çalışmaz; o durumda `404.html` içindeki yolların başındaki `/` işaretini kaldır.
+2. Bu site böyle yayında: `hilalesma.github.io/hilalportfolio/`. `404.html` alt klasörü kendisi bulur (`<base>`); `.nojekyll` Jekyll işlemesini kapatır. Değişiklikleri `git push` ile gönderince GitHub Pages yaklaşık bir dakikada yeniler.
+3. SEO adresleri: `$env:SITE_URL = "https://hilalesma.github.io/hilalportfolio"; npm run seo`.
 
 `node_modules/`, `_arsiv/` ve `docs/` klasörlerinin yayınlanması gerekmez.
 

@@ -5,4 +5,4 @@ Disallow: /_arsiv/
 Disallow: /docs/
 Disallow: /scripts/
 Disallow: /node_modules/
-# Sitemap: alan adı belli olunca SITE_URL ile "npm run seo" çalıştırılınca eklenir
+Sitemap: https://hilalesma.github.io/hilalportfolio/sitemap.xml
